@@ -19,6 +19,8 @@
 		2586A383264E2B5C00DB3A99 /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2586A381264E2B5C00DB3A99 /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2586A386264E2B6C00DB3A99 /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2586A385264E2B6C00DB3A99 /* MapboxMobileEvents.framework */; };
 		2586A387264E2B6C00DB3A99 /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2586A385264E2B6C00DB3A99 /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		25CCA2C6264E8F7900FB10CF /* MapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CCA2C5264E8F7900FB10CF /* MapDelegate.swift */; };
+		25CCA2CB264E949C00FB10CF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CCA2CA264E949C00FB10CF /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,8 @@
 		2586A374264DC1DE00DB3A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2586A381264E2B5C00DB3A99 /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		2586A385264E2B6C00DB3A99 /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxMobileEvents.framework; sourceTree = "<group>"; };
+		25CCA2C5264E8F7900FB10CF /* MapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDelegate.swift; sourceTree = "<group>"; };
+		25CCA2CA264E949C00FB10CF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,11 +129,13 @@
 			children = (
 				2586A350264DC1CC00DB3A99 /* AppDelegate.swift */,
 				2586A352264DC1CC00DB3A99 /* SceneDelegate.swift */,
+				25CCA2C5264E8F7900FB10CF /* MapDelegate.swift */,
 				2586A354264DC1CC00DB3A99 /* ViewController.swift */,
 				2586A356264DC1CC00DB3A99 /* Main.storyboard */,
 				2586A359264DC1DE00DB3A99 /* Assets.xcassets */,
 				2586A35B264DC1DE00DB3A99 /* LaunchScreen.storyboard */,
 				2586A35E264DC1DE00DB3A99 /* Info.plist */,
+				25CCA2CA264E949C00FB10CF /* SecondViewController.swift */,
 			);
 			path = EntaFeenYasta;
 			sourceTree = "<group>";
@@ -293,7 +299,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2586A355264DC1CC00DB3A99 /* ViewController.swift in Sources */,
+				25CCA2C6264E8F7900FB10CF /* MapDelegate.swift in Sources */,
 				2586A351264DC1CC00DB3A99 /* AppDelegate.swift in Sources */,
+				25CCA2CB264E949C00FB10CF /* SecondViewController.swift in Sources */,
 				2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
