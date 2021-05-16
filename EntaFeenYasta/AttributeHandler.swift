@@ -1,13 +1,14 @@
 //
-//  ParameterMap.swift
+//  AttributeHandler.swift
 //  EntaFeenYasta
 //
-//  Created by Omar Elmofty on 2021-05-15.
+//  Created by Omar Elmofty on 2021-05-16.
+//
 
 import Foundation
 
 // Class for handling reading and writing json into dictionary
-class ParameterMap {
+class AttributeHandler {
     
     // Dict containing all user info
     private var dict_ : [String : Any]    = [:]
