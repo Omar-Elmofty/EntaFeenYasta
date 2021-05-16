@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Mapbox
 
 // Base class for landmark on the map
 class MapMarker : AttributeHandler
@@ -19,7 +20,4 @@ class MapMarker : AttributeHandler
        set(key: "image_name", value: image_name)
        set(key: "location", value: location)
     }
-    
-    
-    
 }

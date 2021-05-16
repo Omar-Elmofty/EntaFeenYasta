@@ -17,6 +17,10 @@
 		2586A373264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A372264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift */; };
 		25F9B514265179360050FECD /* AttributeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B513265179360050FECD /* AttributeHandler.swift */; };
 		25F9B5162651799A0050FECD /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B5152651799A0050FECD /* MapMarker.swift */; };
+		25F9B52226517E7E0050FECD /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F9B52026517E7E0050FECD /* Mapbox.framework */; };
+		25F9B52326517E7E0050FECD /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25F9B52026517E7E0050FECD /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		25F9B52426517E7E0050FECD /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F9B52126517E7E0050FECD /* MapboxMobileEvents.framework */; };
+		25F9B52526517E7E0050FECD /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25F9B52126517E7E0050FECD /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,21 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		25F9B51B26517DF70050FECD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				25F9B52526517E7E0050FECD /* MapboxMobileEvents.framework in Embed Frameworks */,
+				25F9B52326517E7E0050FECD /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2586A34D264DC1CC00DB3A99 /* EntaFeenYasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntaFeenYasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2586A350264DC1CC00DB3A99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +72,8 @@
 		2586A374264DC1DE00DB3A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25F9B513265179360050FECD /* AttributeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeHandler.swift; sourceTree = "<group>"; };
 		25F9B5152651799A0050FECD /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
+		25F9B52026517E7E0050FECD /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		25F9B52126517E7E0050FECD /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxMobileEvents.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F9B52426517E7E0050FECD /* MapboxMobileEvents.framework in Frameworks */,
+				25F9B52226517E7E0050FECD /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +110,7 @@
 				2586A366264DC1DE00DB3A99 /* EntaFeenYastaTests */,
 				2586A371264DC1DE00DB3A99 /* EntaFeenYastaUITests */,
 				2586A34E264DC1CC00DB3A99 /* Products */,
+				25F9B51F26517E7E0050FECD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +158,15 @@
 			path = EntaFeenYastaUITests;
 			sourceTree = "<group>";
 		};
+		25F9B51F26517E7E0050FECD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25F9B52026517E7E0050FECD /* Mapbox.framework */,
+				25F9B52126517E7E0050FECD /* MapboxMobileEvents.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +177,7 @@
 				2586A349264DC1CC00DB3A99 /* Sources */,
 				2586A34A264DC1CC00DB3A99 /* Frameworks */,
 				2586A34B264DC1CC00DB3A99 /* Resources */,
+				25F9B51B26517DF70050FECD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -445,6 +479,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EntaFeenYasta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -454,6 +492,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -463,6 +502,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = EntaFeenYasta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -472,6 +515,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
