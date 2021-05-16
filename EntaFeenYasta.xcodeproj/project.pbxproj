@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		256444B12650E9AC008B1A86 /* ParameterMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256444B02650E9AC008B1A86 /* ParameterMap.swift */; };
 		2586A351264DC1CC00DB3A99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A350264DC1CC00DB3A99 /* AppDelegate.swift */; };
 		2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A352264DC1CC00DB3A99 /* SceneDelegate.swift */; };
 		2586A355264DC1CC00DB3A99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A354264DC1CC00DB3A99 /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		256444B02650E9AC008B1A86 /* ParameterMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterMap.swift; sourceTree = "<group>"; };
 		2586A34D264DC1CC00DB3A99 /* EntaFeenYasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntaFeenYasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2586A350264DC1CC00DB3A99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2586A352264DC1CC00DB3A99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		256444B22650F15C008B1A86 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				256444B02650E9AC008B1A86 /* ParameterMap.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		2586A344264DC1CC00DB3A99 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +137,7 @@
 		2586A34F264DC1CC00DB3A99 /* EntaFeenYasta */ = {
 			isa = PBXGroup;
 			children = (
+				256444B22650F15C008B1A86 /* Utilities */,
 				2586A350264DC1CC00DB3A99 /* AppDelegate.swift */,
 				2586A352264DC1CC00DB3A99 /* SceneDelegate.swift */,
 				25CCA2C5264E8F7900FB10CF /* MapDelegate.swift */,
@@ -300,6 +311,7 @@
 			files = (
 				2586A355264DC1CC00DB3A99 /* ViewController.swift in Sources */,
 				25CCA2C6264E8F7900FB10CF /* MapDelegate.swift in Sources */,
+				256444B12650E9AC008B1A86 /* ParameterMap.swift in Sources */,
 				2586A351264DC1CC00DB3A99 /* AppDelegate.swift in Sources */,
 				25CCA2CB264E949C00FB10CF /* SecondViewController.swift in Sources */,
 				2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */,

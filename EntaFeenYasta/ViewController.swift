@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         annotation.subtitle = "The biggest park in New York City!"
         mapView.addAnnotation(annotation)
         mapView.delegate = map_delegate_
-        
+
         // Allow the map view to display the user's location
         mapView.showsUserLocation = true
 
