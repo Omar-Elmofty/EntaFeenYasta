@@ -9,9 +9,25 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var map_markers_ : [MapMarker] = []
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        for n in 1...3
+        {
+            let map_marker = MapMarker()
+            if map_marker.fromJson(json_dir: "/Users/omarelmofty/Desktop/marker\(n).json")
+            {
+                map_markers_.append(map_marker)
+            }
+            else
+            {
+                print("Error Loading Map marker from json")
+            }
+        }
+
         return true
     }
 

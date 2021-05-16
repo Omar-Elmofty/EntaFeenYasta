@@ -50,7 +50,7 @@ class AttributeHandler {
     // @param key The key of the value to retrieve.
     // @param value[out] The retrieved value will be stored here.
     // @return True if parameter retrieval is successful, false otherwise.
-    func get<T>(key : String, value : inout T) -> Bool
+    func get<T>(_ key : String, _ value : inout T) -> Bool
     {
         if let retrieved_value = dict_[key] as? T
         {
@@ -67,7 +67,7 @@ class AttributeHandler {
     // Set a value in the dictionary.
     // @param key The key of the value to be set.
     // @param value The value to set.
-    func set<T>(key : String, value : T)
+    func set<T>(_ key : String, _ value : T)
     {
         dict_[key] = value
     }

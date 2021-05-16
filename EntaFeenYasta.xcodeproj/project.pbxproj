@@ -21,6 +21,7 @@
 		25F9B52326517E7E0050FECD /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25F9B52026517E7E0050FECD /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		25F9B52426517E7E0050FECD /* MapboxMobileEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25F9B52126517E7E0050FECD /* MapboxMobileEvents.framework */; };
 		25F9B52526517E7E0050FECD /* MapboxMobileEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 25F9B52126517E7E0050FECD /* MapboxMobileEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		25F9B527265182D70050FECD /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B526265182D70050FECD /* ErrorHandling.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		25F9B5152651799A0050FECD /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
 		25F9B52026517E7E0050FECD /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		25F9B52126517E7E0050FECD /* MapboxMobileEvents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapboxMobileEvents.framework; sourceTree = "<group>"; };
+		25F9B526265182D70050FECD /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				2586A35E264DC1DE00DB3A99 /* Info.plist */,
 				25F9B513265179360050FECD /* AttributeHandler.swift */,
 				25F9B5152651799A0050FECD /* MapMarker.swift */,
+				25F9B526265182D70050FECD /* ErrorHandling.swift */,
 			);
 			path = EntaFeenYasta;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				2586A355264DC1CC00DB3A99 /* ViewController.swift in Sources */,
 				2586A351264DC1CC00DB3A99 /* AppDelegate.swift in Sources */,
 				2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */,
+				25F9B527265182D70050FECD /* ErrorHandling.swift in Sources */,
 				25F9B5162651799A0050FECD /* MapMarker.swift in Sources */,
 				25F9B514265179360050FECD /* AttributeHandler.swift in Sources */,
 			);

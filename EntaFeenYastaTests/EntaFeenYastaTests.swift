@@ -43,31 +43,22 @@ class EntaFeenYastaTests: XCTestCase {
 
         // Reading the username
         var user_name : String = ""
-        XCTAssertTrue(param_map.get(key : "user_name", value : &user_name))
+        XCTAssertTrue(param_map.get("user_name", &user_name))
         XCTAssertTrue(user_name == "omarelmofty")
 
         // Reading wrong variable
         var wrong_var : String = ""
-        XCTAssertFalse(param_map.get(key : "wrong_var", value : &wrong_var))
+        XCTAssertFalse(param_map.get("wrong_var", &wrong_var))
 
         // Test setting and getting a param
         let in_int : Int = 10
-        param_map.set(key : "int", value : in_int)
+        param_map.set("int", in_int)
         var out_int : Int?
-        XCTAssertTrue(param_map.get(key : "int", value : &out_int))
+        XCTAssertTrue(param_map.get("int", &out_int))
         XCTAssertEqual(out_int, in_int)
     }
     
     func testMapMarker() throws
     {
-        let base_user = MapMarker(name : "omar", location : (1.0, 2.0))
-        
-        var user_name : String = ""
-        var location : (Double, Double) = (0.0, 0.0)
-        
-        XCTAssertTrue(base_user.get(key : "user_name", value : &user_name))
-        XCTAssertTrue(base_user.get(key : "location", value : &location))
-        XCTAssertEqual(location.0, 1.0, accuracy : 0.01)
-        XCTAssertEqual(location.1, 2.0, accuracy : 0.01)
     }
 }
