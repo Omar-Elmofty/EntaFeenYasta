@@ -1,0 +1,771 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		25055180265A5584005250F5 /* Hangout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2505517F265A5584005250F5 /* Hangout.swift */; };
+		25055182265A5711005250F5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25055181265A5711005250F5 /* User.swift */; };
+		25055184265AD313005250F5 /* UserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25055183265AD313005250F5 /* UserDatabase.swift */; };
+		254CDB0D266B94130024F264 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 254CDB0C266B94130024F264 /* GoogleService-Info.plist */; };
+		257676BD2659556E0087C3C9 /* ETAEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257676BC2659556E0087C3C9 /* ETAEstimator.swift */; };
+		2586A351264DC1CC00DB3A99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A350264DC1CC00DB3A99 /* AppDelegate.swift */; };
+		2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A352264DC1CC00DB3A99 /* SceneDelegate.swift */; };
+		2586A355264DC1CC00DB3A99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A354264DC1CC00DB3A99 /* ViewController.swift */; };
+		2586A358264DC1CC00DB3A99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2586A356264DC1CC00DB3A99 /* Main.storyboard */; };
+		2586A35A264DC1DE00DB3A99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2586A359264DC1DE00DB3A99 /* Assets.xcassets */; };
+		2586A35D264DC1DE00DB3A99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2586A35B264DC1DE00DB3A99 /* LaunchScreen.storyboard */; };
+		2586A368264DC1DE00DB3A99 /* EntaFeenYastaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A367264DC1DE00DB3A99 /* EntaFeenYastaTests.swift */; };
+		2586A373264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A372264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift */; };
+		25C41451266BC03C00572D6C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C41450266BC03C00572D6C /* SignUpViewController.swift */; };
+		25C41453266BC06400572D6C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C41452266BC06400572D6C /* LoginViewController.swift */; };
+		25C41455266BC07A00572D6C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C41454266BC07A00572D6C /* HomeViewController.swift */; };
+		25C6EDD5265FA095000C3151 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C6EDD4265FA095000C3151 /* Utils.swift */; };
+		25F9B514265179360050FECD /* AttributeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B513265179360050FECD /* AttributeHandler.swift */; };
+		25F9B5162651799A0050FECD /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B5152651799A0050FECD /* MapMarker.swift */; };
+		25F9B527265182D70050FECD /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B526265182D70050FECD /* ErrorHandling.swift */; };
+		352594CCD3D771EBAF3FA82A /* Pods_EntaFeenYasta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E20FFD383AB14D138E822921 /* Pods_EntaFeenYasta.framework */; };
+		3D46D8F898766DCB4BA50A92 /* Pods_EntaFeenYastaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E694B29AB558D7D7554196 /* Pods_EntaFeenYastaTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2586A364264DC1DE00DB3A99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2586A345264DC1CC00DB3A99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2586A34C264DC1CC00DB3A99;
+			remoteInfo = EntaFeenYasta;
+		};
+		2586A36F264DC1DE00DB3A99 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2586A345264DC1CC00DB3A99 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2586A34C264DC1CC00DB3A99;
+			remoteInfo = EntaFeenYasta;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		25F9B51B26517DF70050FECD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2505517F265A5584005250F5 /* Hangout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hangout.swift; sourceTree = "<group>"; };
+		25055181265A5711005250F5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		25055183265AD313005250F5 /* UserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabase.swift; sourceTree = "<group>"; };
+		254CDB0C266B94130024F264 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		257676BC2659556E0087C3C9 /* ETAEstimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETAEstimator.swift; sourceTree = "<group>"; };
+		2586A34D264DC1CC00DB3A99 /* EntaFeenYasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntaFeenYasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2586A350264DC1CC00DB3A99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2586A352264DC1CC00DB3A99 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2586A354264DC1CC00DB3A99 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2586A357264DC1CC00DB3A99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2586A359264DC1DE00DB3A99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2586A35C264DC1DE00DB3A99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2586A35E264DC1DE00DB3A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2586A363264DC1DE00DB3A99 /* EntaFeenYastaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntaFeenYastaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2586A367264DC1DE00DB3A99 /* EntaFeenYastaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntaFeenYastaTests.swift; sourceTree = "<group>"; };
+		2586A369264DC1DE00DB3A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2586A36E264DC1DE00DB3A99 /* EntaFeenYastaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntaFeenYastaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2586A372264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntaFeenYastaUITests.swift; sourceTree = "<group>"; };
+		2586A374264DC1DE00DB3A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		25C41450266BC03C00572D6C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		25C41452266BC06400572D6C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		25C41454266BC07A00572D6C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		25C6EDD4265FA095000C3151 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		25F9B513265179360050FECD /* AttributeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeHandler.swift; sourceTree = "<group>"; };
+		25F9B5152651799A0050FECD /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
+		25F9B526265182D70050FECD /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		64DE10F52DD1BF2D6DFABEFA /* Pods-EntaFeenYastaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntaFeenYastaTests.debug.xcconfig"; path = "Target Support Files/Pods-EntaFeenYastaTests/Pods-EntaFeenYastaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A8ACEA5EE130D446BB4D1F8C /* Pods-EntaFeenYasta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntaFeenYasta.debug.xcconfig"; path = "Target Support Files/Pods-EntaFeenYasta/Pods-EntaFeenYasta.debug.xcconfig"; sourceTree = "<group>"; };
+		C1E694B29AB558D7D7554196 /* Pods_EntaFeenYastaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntaFeenYastaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3BA7779F0978EF473E1723A /* Pods-EntaFeenYasta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntaFeenYasta.release.xcconfig"; path = "Target Support Files/Pods-EntaFeenYasta/Pods-EntaFeenYasta.release.xcconfig"; sourceTree = "<group>"; };
+		E20FFD383AB14D138E822921 /* Pods_EntaFeenYasta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntaFeenYasta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6BBEE126FC49F1003496725 /* Pods-EntaFeenYastaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntaFeenYastaTests.release.xcconfig"; path = "Target Support Files/Pods-EntaFeenYastaTests/Pods-EntaFeenYastaTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2586A34A264DC1CC00DB3A99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				352594CCD3D771EBAF3FA82A /* Pods_EntaFeenYasta.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2586A360264DC1DE00DB3A99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D46D8F898766DCB4BA50A92 /* Pods_EntaFeenYastaTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2586A36B264DC1DE00DB3A99 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2586A344264DC1CC00DB3A99 = {
+			isa = PBXGroup;
+			children = (
+				2586A34F264DC1CC00DB3A99 /* EntaFeenYasta */,
+				2586A366264DC1DE00DB3A99 /* EntaFeenYastaTests */,
+				2586A371264DC1DE00DB3A99 /* EntaFeenYastaUITests */,
+				2586A34E264DC1CC00DB3A99 /* Products */,
+				25F9B51F26517E7E0050FECD /* Frameworks */,
+				B3A2ABC89B713DD30ED90E35 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		2586A34E264DC1CC00DB3A99 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2586A34D264DC1CC00DB3A99 /* EntaFeenYasta.app */,
+				2586A363264DC1DE00DB3A99 /* EntaFeenYastaTests.xctest */,
+				2586A36E264DC1DE00DB3A99 /* EntaFeenYastaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2586A34F264DC1CC00DB3A99 /* EntaFeenYasta */ = {
+			isa = PBXGroup;
+			children = (
+				2586A350264DC1CC00DB3A99 /* AppDelegate.swift */,
+				2586A352264DC1CC00DB3A99 /* SceneDelegate.swift */,
+				2586A354264DC1CC00DB3A99 /* ViewController.swift */,
+				2586A356264DC1CC00DB3A99 /* Main.storyboard */,
+				2586A359264DC1DE00DB3A99 /* Assets.xcassets */,
+				2586A35B264DC1DE00DB3A99 /* LaunchScreen.storyboard */,
+				2586A35E264DC1DE00DB3A99 /* Info.plist */,
+				25F9B513265179360050FECD /* AttributeHandler.swift */,
+				25F9B5152651799A0050FECD /* MapMarker.swift */,
+				25F9B526265182D70050FECD /* ErrorHandling.swift */,
+				257676BC2659556E0087C3C9 /* ETAEstimator.swift */,
+				2505517F265A5584005250F5 /* Hangout.swift */,
+				25055181265A5711005250F5 /* User.swift */,
+				25055183265AD313005250F5 /* UserDatabase.swift */,
+				25C6EDD4265FA095000C3151 /* Utils.swift */,
+				254CDB0C266B94130024F264 /* GoogleService-Info.plist */,
+				25C41450266BC03C00572D6C /* SignUpViewController.swift */,
+				25C41452266BC06400572D6C /* LoginViewController.swift */,
+				25C41454266BC07A00572D6C /* HomeViewController.swift */,
+			);
+			path = EntaFeenYasta;
+			sourceTree = "<group>";
+		};
+		2586A366264DC1DE00DB3A99 /* EntaFeenYastaTests */ = {
+			isa = PBXGroup;
+			children = (
+				2586A367264DC1DE00DB3A99 /* EntaFeenYastaTests.swift */,
+				2586A369264DC1DE00DB3A99 /* Info.plist */,
+			);
+			path = EntaFeenYastaTests;
+			sourceTree = "<group>";
+		};
+		2586A371264DC1DE00DB3A99 /* EntaFeenYastaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2586A372264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift */,
+				2586A374264DC1DE00DB3A99 /* Info.plist */,
+			);
+			path = EntaFeenYastaUITests;
+			sourceTree = "<group>";
+		};
+		25F9B51F26517E7E0050FECD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E20FFD383AB14D138E822921 /* Pods_EntaFeenYasta.framework */,
+				C1E694B29AB558D7D7554196 /* Pods_EntaFeenYastaTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3A2ABC89B713DD30ED90E35 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A8ACEA5EE130D446BB4D1F8C /* Pods-EntaFeenYasta.debug.xcconfig */,
+				D3BA7779F0978EF473E1723A /* Pods-EntaFeenYasta.release.xcconfig */,
+				64DE10F52DD1BF2D6DFABEFA /* Pods-EntaFeenYastaTests.debug.xcconfig */,
+				F6BBEE126FC49F1003496725 /* Pods-EntaFeenYastaTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2586A34C264DC1CC00DB3A99 /* EntaFeenYasta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2586A377264DC1DE00DB3A99 /* Build configuration list for PBXNativeTarget "EntaFeenYasta" */;
+			buildPhases = (
+				56355812AC460A5E26DE5CCB /* [CP] Check Pods Manifest.lock */,
+				2586A349264DC1CC00DB3A99 /* Sources */,
+				2586A34A264DC1CC00DB3A99 /* Frameworks */,
+				2586A34B264DC1CC00DB3A99 /* Resources */,
+				25F9B51B26517DF70050FECD /* Embed Frameworks */,
+				AA22E015FEE34D5CDC3EDEDF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EntaFeenYasta;
+			productName = EntaFeenYasta;
+			productReference = 2586A34D264DC1CC00DB3A99 /* EntaFeenYasta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2586A362264DC1DE00DB3A99 /* EntaFeenYastaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2586A37A264DC1DE00DB3A99 /* Build configuration list for PBXNativeTarget "EntaFeenYastaTests" */;
+			buildPhases = (
+				5E386B86CD039C80930E5E92 /* [CP] Check Pods Manifest.lock */,
+				2586A35F264DC1DE00DB3A99 /* Sources */,
+				2586A360264DC1DE00DB3A99 /* Frameworks */,
+				2586A361264DC1DE00DB3A99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2586A365264DC1DE00DB3A99 /* PBXTargetDependency */,
+			);
+			name = EntaFeenYastaTests;
+			productName = EntaFeenYastaTests;
+			productReference = 2586A363264DC1DE00DB3A99 /* EntaFeenYastaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2586A36D264DC1DE00DB3A99 /* EntaFeenYastaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2586A37D264DC1DE00DB3A99 /* Build configuration list for PBXNativeTarget "EntaFeenYastaUITests" */;
+			buildPhases = (
+				2586A36A264DC1DE00DB3A99 /* Sources */,
+				2586A36B264DC1DE00DB3A99 /* Frameworks */,
+				2586A36C264DC1DE00DB3A99 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2586A370264DC1DE00DB3A99 /* PBXTargetDependency */,
+			);
+			name = EntaFeenYastaUITests;
+			productName = EntaFeenYastaUITests;
+			productReference = 2586A36E264DC1DE00DB3A99 /* EntaFeenYastaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2586A345264DC1CC00DB3A99 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					2586A34C264DC1CC00DB3A99 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					2586A362264DC1DE00DB3A99 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 2586A34C264DC1CC00DB3A99;
+					};
+					2586A36D264DC1DE00DB3A99 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 2586A34C264DC1CC00DB3A99;
+					};
+				};
+			};
+			buildConfigurationList = 2586A348264DC1CC00DB3A99 /* Build configuration list for PBXProject "EntaFeenYasta" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2586A344264DC1CC00DB3A99;
+			productRefGroup = 2586A34E264DC1CC00DB3A99 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2586A34C264DC1CC00DB3A99 /* EntaFeenYasta */,
+				2586A362264DC1DE00DB3A99 /* EntaFeenYastaTests */,
+				2586A36D264DC1DE00DB3A99 /* EntaFeenYastaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2586A34B264DC1CC00DB3A99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2586A35D264DC1DE00DB3A99 /* LaunchScreen.storyboard in Resources */,
+				254CDB0D266B94130024F264 /* GoogleService-Info.plist in Resources */,
+				2586A35A264DC1DE00DB3A99 /* Assets.xcassets in Resources */,
+				2586A358264DC1CC00DB3A99 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2586A361264DC1DE00DB3A99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2586A36C264DC1DE00DB3A99 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		56355812AC460A5E26DE5CCB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EntaFeenYasta-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E386B86CD039C80930E5E92 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EntaFeenYastaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA22E015FEE34D5CDC3EDEDF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EntaFeenYasta/Pods-EntaFeenYasta-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EntaFeenYasta/Pods-EntaFeenYasta-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EntaFeenYasta/Pods-EntaFeenYasta-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2586A349264DC1CC00DB3A99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2586A355264DC1CC00DB3A99 /* ViewController.swift in Sources */,
+				2586A351264DC1CC00DB3A99 /* AppDelegate.swift in Sources */,
+				2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */,
+				25F9B527265182D70050FECD /* ErrorHandling.swift in Sources */,
+				25F9B5162651799A0050FECD /* MapMarker.swift in Sources */,
+				25C41455266BC07A00572D6C /* HomeViewController.swift in Sources */,
+				25055182265A5711005250F5 /* User.swift in Sources */,
+				25C41451266BC03C00572D6C /* SignUpViewController.swift in Sources */,
+				257676BD2659556E0087C3C9 /* ETAEstimator.swift in Sources */,
+				25C6EDD5265FA095000C3151 /* Utils.swift in Sources */,
+				25055180265A5584005250F5 /* Hangout.swift in Sources */,
+				25F9B514265179360050FECD /* AttributeHandler.swift in Sources */,
+				25C41453266BC06400572D6C /* LoginViewController.swift in Sources */,
+				25055184265AD313005250F5 /* UserDatabase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2586A35F264DC1DE00DB3A99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2586A368264DC1DE00DB3A99 /* EntaFeenYastaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2586A36A264DC1DE00DB3A99 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2586A373264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2586A365264DC1DE00DB3A99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2586A34C264DC1CC00DB3A99 /* EntaFeenYasta */;
+			targetProxy = 2586A364264DC1DE00DB3A99 /* PBXContainerItemProxy */;
+		};
+		2586A370264DC1DE00DB3A99 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2586A34C264DC1CC00DB3A99 /* EntaFeenYasta */;
+			targetProxy = 2586A36F264DC1DE00DB3A99 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2586A356264DC1CC00DB3A99 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2586A357264DC1CC00DB3A99 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2586A35B264DC1DE00DB3A99 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2586A35C264DC1DE00DB3A99 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2586A375264DC1DE00DB3A99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = "$(inherited)";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2586A376264DC1DE00DB3A99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = "$(inherited)";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2586A378264DC1DE00DB3A99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8ACEA5EE130D446BB4D1F8C /* Pods-EntaFeenYasta.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = EntaFeenYasta/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.oelmofty.EntaFeenYasta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
+			};
+			name = Debug;
+		};
+		2586A379264DC1DE00DB3A99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3BA7779F0978EF473E1723A /* Pods-EntaFeenYasta.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = EntaFeenYasta/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.oelmofty.EntaFeenYasta;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
+			};
+			name = Release;
+		};
+		2586A37B264DC1DE00DB3A99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64DE10F52DD1BF2D6DFABEFA /* Pods-EntaFeenYastaTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EntaFeenYastaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.oelmofty.EntaFeenYastaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EntaFeenYasta.app/EntaFeenYasta";
+			};
+			name = Debug;
+		};
+		2586A37C264DC1DE00DB3A99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6BBEE126FC49F1003496725 /* Pods-EntaFeenYastaTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EntaFeenYastaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.oelmofty.EntaFeenYastaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EntaFeenYasta.app/EntaFeenYasta";
+			};
+			name = Release;
+		};
+		2586A37E264DC1DE00DB3A99 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EntaFeenYastaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.oelmofty.EntaFeenYastaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EntaFeenYasta;
+			};
+			name = Debug;
+		};
+		2586A37F264DC1DE00DB3A99 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EntaFeenYastaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.oelmofty.EntaFeenYastaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EntaFeenYasta;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2586A348264DC1CC00DB3A99 /* Build configuration list for PBXProject "EntaFeenYasta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2586A375264DC1DE00DB3A99 /* Debug */,
+				2586A376264DC1DE00DB3A99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2586A377264DC1DE00DB3A99 /* Build configuration list for PBXNativeTarget "EntaFeenYasta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2586A378264DC1DE00DB3A99 /* Debug */,
+				2586A379264DC1DE00DB3A99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2586A37A264DC1DE00DB3A99 /* Build configuration list for PBXNativeTarget "EntaFeenYastaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2586A37B264DC1DE00DB3A99 /* Debug */,
+				2586A37C264DC1DE00DB3A99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2586A37D264DC1DE00DB3A99 /* Build configuration list for PBXNativeTarget "EntaFeenYastaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2586A37E264DC1DE00DB3A99 /* Debug */,
+				2586A37F264DC1DE00DB3A99 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2586A345264DC1CC00DB3A99 /* Project object */;
+}
