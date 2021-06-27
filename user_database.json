@@ -24,10 +24,18 @@
     "hangouts":
     [
         {
+            "id": "",
             "name": "cairo_festival",
+            "type": "private",
             "location": [30.028918123523198, 31.407551839194433],
             "image_name": "house-icon",
-            "user_names": ["omar", "ahmed", "nawal"]
+            "users": {
+                "omar": "admin",
+                "ahmed": "admin",
+                "nawal": "admin"},
+            "users_eta": {
+                "omar": 10.0
+            }
         }
     ]
 }

@@ -48,19 +48,19 @@ class UserDataBase : AttributeHandler
 
         for hangout_info in raw_users_info.hangouts {
             // First check that all the users are valid
-            for user_name in hangout_info.user_names {
+            for user_name in hangout_info.users.keys {
                 if !user_names_.contains(user_name) {
                     throw AppError.runtimeError("User name does not exist")
                 }
             }
             hangouts_names_.insert(hangout_info.name)
-            hangouts_map_[hangout_info.name] = Hangout(hangout_info : hangout_info)
+            hangouts_map_[hangout_info.name] = try! Hangout(hangout_info : hangout_info)
         }
 
         // Add users to hangout
         for (_, hangout) in hangouts_map_ {
             let active_users = hangout.getUsers()
-            for usr in active_users {
+            for usr in active_users.keys {
                 if let user = users_map_[usr] {
                     user.addHangout(hangout.getName())
                 }
@@ -84,7 +84,7 @@ class UserDataBase : AttributeHandler
             
             let hangout_users = hangout.getUsers()
             // Create markers for all the users
-            for usr_name in hangout_users {
+            for usr_name in hangout_users.keys {
                 // First grab the user
                 if let usr = users_map_[usr_name] {
                     let (usr_source, usr_layer) = usr.createMapMarker()
@@ -107,7 +107,7 @@ class UserDataBase : AttributeHandler
             
             let hangout_users = hangout.getUsers()
             // Create markers for all the users
-            for usr_name in hangout_users {
+            for usr_name in hangout_users.keys {
                 // First grab the user
                 if let usr = users_map_[usr_name] {
                     annotations.append(usr.createMapAnnotation())
@@ -145,13 +145,13 @@ class UserDataBase : AttributeHandler
             let destination = Waypoint(coordinate: CLLocationCoordinate2D(latitude: dest_location[0], longitude: dest_location[1]), name: hangout.getName())
             let hangout_users = hangout.getUsers()
             // Create markers for all the users
-            for usr_name in hangout_users {
+            for usr_name in hangout_users.keys {
                 // First grab the user
                 if let usr = users_map_[usr_name] {
                     let origin_location = usr.getLocation()
                     let origin = Waypoint(coordinate: CLLocationCoordinate2D(latitude: origin_location[0], longitude: origin_location[1]), name: usr.getName())
                     eta_estimator_.estimateETA(origin: origin, destination: destination, completion:{ (eta : TimeInterval) in
-                        hangout.addUserETA(user_name: usr.getName(), eta: eta)
+                        hangout.addUserETA(user_id: usr.getName(), eta: eta)
                     })
                 }
             }

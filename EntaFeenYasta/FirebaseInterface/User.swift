@@ -28,7 +28,9 @@ class User : MapMarker
     {
         try! checkLocation(user_info.location)
         user_info_ = user_info
-        super.init(marker_name: user_info_.name, marker_type: "user", image_name: user_info_.image_name, location: (lattitude: user_info.location[0], longtitude: user_info.location[1]))
+        
+        super.init()
+        setMarkerData(marker_name: user_info_.name, marker_type: "user", image_name: user_info_.image_name, location: (lattitude: user_info_.location[0], longtitude: user_info_.location[1]))
     }
 
     func addHangout(_ hangout_name : String)

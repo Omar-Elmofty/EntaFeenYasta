@@ -8,6 +8,9 @@ target 'EntaFeenYasta' do
   # Pods for EntaFeenYasta
   pod 'MapboxNavigation', '~> 1.4'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 
 end
 
