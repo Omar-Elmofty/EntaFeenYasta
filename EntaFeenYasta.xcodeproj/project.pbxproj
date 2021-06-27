@@ -20,9 +20,6 @@
 		2586A35D264DC1DE00DB3A99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2586A35B264DC1DE00DB3A99 /* LaunchScreen.storyboard */; };
 		2586A368264DC1DE00DB3A99 /* EntaFeenYastaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A367264DC1DE00DB3A99 /* EntaFeenYastaTests.swift */; };
 		2586A373264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A372264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift */; };
-		25C41451266BC03C00572D6C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C41450266BC03C00572D6C /* SignUpViewController.swift */; };
-		25C41453266BC06400572D6C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C41452266BC06400572D6C /* LoginViewController.swift */; };
-		25C41455266BC07A00572D6C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C41454266BC07A00572D6C /* HomeViewController.swift */; };
 		25C6EDD5265FA095000C3151 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C6EDD4265FA095000C3151 /* Utils.swift */; };
 		25F9B514265179360050FECD /* AttributeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B513265179360050FECD /* AttributeHandler.swift */; };
 		25F9B5162651799A0050FECD /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B5152651799A0050FECD /* MapMarker.swift */; };
@@ -81,9 +78,6 @@
 		2586A36E264DC1DE00DB3A99 /* EntaFeenYastaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntaFeenYastaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2586A372264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntaFeenYastaUITests.swift; sourceTree = "<group>"; };
 		2586A374264DC1DE00DB3A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		25C41450266BC03C00572D6C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		25C41452266BC06400572D6C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		25C41454266BC07A00572D6C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		25C6EDD4265FA095000C3151 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		25F9B513265179360050FECD /* AttributeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeHandler.swift; sourceTree = "<group>"; };
 		25F9B5152651799A0050FECD /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
@@ -123,6 +117,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250D0D1F268879780046C83A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2586A354264DC1CC00DB3A99 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		250D0D20268879990046C83A /* FirebaseInterface */ = {
+			isa = PBXGroup;
+			children = (
+				25055181265A5711005250F5 /* User.swift */,
+				2505517F265A5584005250F5 /* Hangout.swift */,
+				25055183265AD313005250F5 /* UserDatabase.swift */,
+			);
+			path = FirebaseInterface;
+			sourceTree = "<group>";
+		};
+		250D0D21268879E50046C83A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				25F9B513265179360050FECD /* AttributeHandler.swift */,
+				25F9B526265182D70050FECD /* ErrorHandling.swift */,
+				25C6EDD4265FA095000C3151 /* Utils.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		250D0D22268879FD0046C83A /* MapboxInterface */ = {
+			isa = PBXGroup;
+			children = (
+				25F9B5152651799A0050FECD /* MapMarker.swift */,
+				257676BC2659556E0087C3C9 /* ETAEstimator.swift */,
+			);
+			path = MapboxInterface;
+			sourceTree = "<group>";
+		};
 		2586A344264DC1CC00DB3A99 = {
 			isa = PBXGroup;
 			children = (
@@ -148,25 +179,17 @@
 		2586A34F264DC1CC00DB3A99 /* EntaFeenYasta */ = {
 			isa = PBXGroup;
 			children = (
+				250D0D22268879FD0046C83A /* MapboxInterface */,
+				250D0D21268879E50046C83A /* Utilities */,
+				250D0D20268879990046C83A /* FirebaseInterface */,
+				250D0D1F268879780046C83A /* ViewControllers */,
 				2586A350264DC1CC00DB3A99 /* AppDelegate.swift */,
 				2586A352264DC1CC00DB3A99 /* SceneDelegate.swift */,
-				2586A354264DC1CC00DB3A99 /* ViewController.swift */,
 				2586A356264DC1CC00DB3A99 /* Main.storyboard */,
 				2586A359264DC1DE00DB3A99 /* Assets.xcassets */,
 				2586A35B264DC1DE00DB3A99 /* LaunchScreen.storyboard */,
 				2586A35E264DC1DE00DB3A99 /* Info.plist */,
-				25F9B513265179360050FECD /* AttributeHandler.swift */,
-				25F9B5152651799A0050FECD /* MapMarker.swift */,
-				25F9B526265182D70050FECD /* ErrorHandling.swift */,
-				257676BC2659556E0087C3C9 /* ETAEstimator.swift */,
-				2505517F265A5584005250F5 /* Hangout.swift */,
-				25055181265A5711005250F5 /* User.swift */,
-				25055183265AD313005250F5 /* UserDatabase.swift */,
-				25C6EDD4265FA095000C3151 /* Utils.swift */,
 				254CDB0C266B94130024F264 /* GoogleService-Info.plist */,
-				25C41450266BC03C00572D6C /* SignUpViewController.swift */,
-				25C41452266BC06400572D6C /* LoginViewController.swift */,
-				25C41454266BC07A00572D6C /* HomeViewController.swift */,
 			);
 			path = EntaFeenYasta;
 			sourceTree = "<group>";
@@ -413,14 +436,11 @@
 				2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */,
 				25F9B527265182D70050FECD /* ErrorHandling.swift in Sources */,
 				25F9B5162651799A0050FECD /* MapMarker.swift in Sources */,
-				25C41455266BC07A00572D6C /* HomeViewController.swift in Sources */,
 				25055182265A5711005250F5 /* User.swift in Sources */,
-				25C41451266BC03C00572D6C /* SignUpViewController.swift in Sources */,
 				257676BD2659556E0087C3C9 /* ETAEstimator.swift in Sources */,
 				25C6EDD5265FA095000C3151 /* Utils.swift in Sources */,
 				25055180265A5584005250F5 /* Hangout.swift in Sources */,
 				25F9B514265179360050FECD /* AttributeHandler.swift in Sources */,
-				25C41453266BC06400572D6C /* LoginViewController.swift in Sources */,
 				25055184265AD313005250F5 /* UserDatabase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

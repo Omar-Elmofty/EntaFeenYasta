@@ -10,7 +10,7 @@
 
 import UIKit
 import Mapbox
-
+import Firebase
 
 class ViewController: UIViewController, MGLMapViewDelegate {
 
@@ -33,6 +33,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         mapView.addAnnotations(annotations)
         view.addSubview(mapView)
     }
+    
     func mapView( _ mapView: MGLMapView, imageFor annotation: MGLAnnotation ) -> MGLAnnotationImage? {
         var image_name : String = ""
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
