@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var user_database_ : UserDataBase?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
         // Override point for customization after application launch.
 //        let json_dir = "/Users/omarelmofty/Desktop/EntaFeenYasta/user_database.json"
 //        user_database_ = try? UserDataBase(json_dir: json_dir)
