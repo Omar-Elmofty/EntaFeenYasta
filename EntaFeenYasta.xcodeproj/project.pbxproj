@@ -20,6 +20,10 @@
 		2586A35D264DC1DE00DB3A99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2586A35B264DC1DE00DB3A99 /* LaunchScreen.storyboard */; };
 		2586A368264DC1DE00DB3A99 /* EntaFeenYastaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A367264DC1DE00DB3A99 /* EntaFeenYastaTests.swift */; };
 		2586A373264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A372264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift */; };
+		259392822691A3CF004DD1B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392812691A3CF004DD1B2 /* HomeViewController.swift */; };
+		259392842691A4BF004DD1B2 /* NewHangoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */; };
+		259392882691B03C004DD1B2 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392872691B03C004DD1B2 /* UserAuth.swift */; };
+		2593928A2691C618004DD1B2 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392892691C618004DD1B2 /* SignupViewController.swift */; };
 		25C6EDD5265FA095000C3151 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C6EDD4265FA095000C3151 /* Utils.swift */; };
 		25F9B514265179360050FECD /* AttributeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B513265179360050FECD /* AttributeHandler.swift */; };
 		25F9B5162651799A0050FECD /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B5152651799A0050FECD /* MapMarker.swift */; };
@@ -78,6 +82,10 @@
 		2586A36E264DC1DE00DB3A99 /* EntaFeenYastaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntaFeenYastaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2586A372264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntaFeenYastaUITests.swift; sourceTree = "<group>"; };
 		2586A374264DC1DE00DB3A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		259392812691A3CF004DD1B2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHangoutViewController.swift; sourceTree = "<group>"; };
+		259392872691B03C004DD1B2 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		259392892691C618004DD1B2 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		25C6EDD4265FA095000C3151 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		25F9B513265179360050FECD /* AttributeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeHandler.swift; sourceTree = "<group>"; };
 		25F9B5152651799A0050FECD /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
@@ -121,6 +129,9 @@
 			isa = PBXGroup;
 			children = (
 				2586A354264DC1CC00DB3A99 /* ViewController.swift */,
+				259392812691A3CF004DD1B2 /* HomeViewController.swift */,
+				259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */,
+				259392892691C618004DD1B2 /* SignupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -131,6 +142,7 @@
 				25055181265A5711005250F5 /* User.swift */,
 				2505517F265A5584005250F5 /* Hangout.swift */,
 				25055183265AD313005250F5 /* UserDatabase.swift */,
+				259392872691B03C004DD1B2 /* UserAuth.swift */,
 			);
 			path = FirebaseInterface;
 			sourceTree = "<group>";
@@ -436,12 +448,16 @@
 				2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */,
 				25F9B527265182D70050FECD /* ErrorHandling.swift in Sources */,
 				25F9B5162651799A0050FECD /* MapMarker.swift in Sources */,
+				259392842691A4BF004DD1B2 /* NewHangoutViewController.swift in Sources */,
+				259392882691B03C004DD1B2 /* UserAuth.swift in Sources */,
 				25055182265A5711005250F5 /* User.swift in Sources */,
 				257676BD2659556E0087C3C9 /* ETAEstimator.swift in Sources */,
 				25C6EDD5265FA095000C3151 /* Utils.swift in Sources */,
 				25055180265A5584005250F5 /* Hangout.swift in Sources */,
 				25F9B514265179360050FECD /* AttributeHandler.swift in Sources */,
+				2593928A2691C618004DD1B2 /* SignupViewController.swift in Sources */,
 				25055184265AD313005250F5 /* UserDatabase.swift in Sources */,
+				259392822691A3CF004DD1B2 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

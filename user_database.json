@@ -2,30 +2,36 @@
     "users_info":
     [
         {
+            "id": "",
             "name": "omar",
             "location": [30.039403395357347, 31.437320748753574],
             "image_name": "bat",
-            "friends": ["ahmed", "nawal"]
+            "friends": ["ahmed", "nawal"],
+            "active_hangouts": ["cairo_festival"]
         },
         {
+            "id": "",
             "name": "ahmed",
             "location": [30.04449861524072, 31.32954873627664],
             "image_name": "bat",
-            "friends": ["omar", "nawal"]
+            "friends": ["omar", "nawal"],
+            "active_hangouts": ["cairo_festival"]
         },
         {
+            "id": "",
             "name": "nawal",
             "location": [30.07244937372807, 31.44507798963921],
             "image_name": "girl",
-            "friends": ["ahmed", "omar"]
+            "friends": ["ahmed", "omar"],
+            "active_hangouts": ["cairo_festival"]
         },
     ],
 
     "hangouts":
     [
-        {
+        {"
             "id": "",
-            "name": "cairo_festival",
+            "name": "cairo_festival"",
             "type": "private",
             "location": [30.028918123523198, 31.407551839194433],
             "image_name": "house-icon",

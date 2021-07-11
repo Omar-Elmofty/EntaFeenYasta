@@ -42,8 +42,10 @@ struct HangoutInfo : Codable
 class Hangout : MapMarker
 {
     // User info
-    private var hangout_info_ : HangoutInfo?
+    private var hangout_info_ : HangoutInfo
     private let db = Firestore.firestore()
+    private var pull_successful_: Bool = false
+    private var push_successful_: Bool = false
 
     /**
      * @brief Contructor.
@@ -51,60 +53,74 @@ class Hangout : MapMarker
      */
     init(hangout_info : HangoutInfo) throws
     {
+        try! checkLocation(hangout_info.location)
         hangout_info_ = hangout_info
-        
-        try! checkLocation(hangout_info_!.location)
-        
+        super.init()
+        setMarkerData(marker_name: hangout_info_.name, marker_type: "hangout", image_name: hangout_info_.image_name, location: (lattitude: hangout_info_.location[0], longtitude: hangout_info_.location[1]))
+        try! pushToFirebase()
+    }
+    /**
+     * @brief Push to firebase.
+     */
+    func pushToFirebase() throws
+    {
+        push_successful_ = false
         do {
             var doc : DocumentReference
-            if hangout_info_!.id != ""
+            if hangout_info_.id != ""
             {
-                doc = db.collection("hangouts").document(hangout_info_!.id)
+                doc = db.collection("hangouts").document(hangout_info_.id)
             }
             else
             {
                 doc = db.collection("hangouts").document()
-                hangout_info_!.id = doc.documentID
+                hangout_info_.id = doc.documentID
             }
             try doc.setData(from: hangout_info_) { (error) in
                     if let error = error {
                         print("Error encountered when setting document: \(error.localizedDescription)")
                     }
+                    else
+                    {
+                        self.push_successful_ = true
+                    }
                 }
         } catch let error {
             throw AppError.runtimeError("Error encountered during creating hangout : \(error.localizedDescription)")
         }
-        super.init()
-        setMarkerData(marker_name: hangout_info_!.name, marker_type: "hangout", image_name: hangout_info_!.image_name, location: (lattitude: hangout_info_!.location[0], longtitude: hangout_info_!.location[1]))
     }
-
-    init(hangout_id: String) throws
+    
+    func pullFromFirebase(completion: @escaping (Hangout) -> Bool)
     {
-        super.init()
-
-        db.collection("hangouts").document(hangout_id).getDocument { (document, error) in
-            if let error = error {
+        pull_successful_ = false
+        db.collection("hangouts").document(hangout_info_.id).getDocument { (document, error) in
+             if let error = error {
                 print("Error ocurred \(error.localizedDescription)")
-            }
-            let result = Result {
-              try document?.data(as: HangoutInfo.self)
-            }
-            switch result {
-            case .success(let hangout_info):
-                if let hangout_info = hangout_info {
-                    self.hangout_info_ = hangout_info
-                    self.setMarkerData(marker_name: hangout_info.name, marker_type: "hangout", image_name: hangout_info.image_name, location: (lattitude: hangout_info.location[0], longtitude: hangout_info.location[1]))
-
-                } else {
-                    // A nil value was successfully initialized from the DocumentSnapshot,
-                    // or the DocumentSnapshot was nil.
-                    print("Document does not exist")
-                }
-            case .failure(let error):
-                // A `City` value could not be initialized from the DocumentSnapshot.
-                print("Error decoding hangout info: \(error.localizedDescription)")
-            }
-        }
+             }
+             let result = Result {
+               try document?.data(as: HangoutInfo.self)
+             }
+             switch result {
+             case .success(let hangout_info):
+                 if let hangout_info = hangout_info {
+                     self.hangout_info_ = hangout_info
+                     self.setMarkerData(marker_name: hangout_info.name, marker_type: "hangout", image_name: hangout_info.image_name, location: (lattitude: hangout_info.location[0], longtitude: hangout_info.location[1]))
+                      if (!completion(self))
+                      {
+                        print("Running completion failed.")
+                        
+                        self.pull_successful_ = true
+                      }
+                 } else {
+                     // A nil value was successfully initialized from the DocumentSnapshot,
+                     // or the DocumentSnapshot was nil.
+                     print("Document does not exist")
+                 }
+             case .failure(let error):
+                 // A `City` value could not be initialized from the DocumentSnapshot.
+                 print("Error decoding hangout info: \(error.localizedDescription)")
+             }
+         }
     }
 
     /**
@@ -112,7 +128,7 @@ class Hangout : MapMarker
      * @return User names.
      */
     func getUsers() -> [String:String] {
-        return hangout_info_!.users
+        return hangout_info_.users
     }
 
     /**
@@ -120,7 +136,7 @@ class Hangout : MapMarker
      * @return User names.
      */
     func getName() -> String {
-        return hangout_info_!.name
+        return hangout_info_.name
     }
 
     /**
@@ -129,7 +145,7 @@ class Hangout : MapMarker
      * @param user_privilege The user privilige.
      */
     func addUser(_ user_id : String, _ user_privilege : String) {
-        hangout_info_!.users[user_id] = user_privilege
+        hangout_info_.users[user_id] = user_privilege
     }
     
     /**
@@ -137,7 +153,7 @@ class Hangout : MapMarker
      * @param The user id.
      */
     func removeUser(_ user_id : String) {
-        hangout_info_!.users.removeValue(forKey: user_id)
+        hangout_info_.users.removeValue(forKey: user_id)
     }
     
     /**
@@ -147,7 +163,7 @@ class Hangout : MapMarker
      */
     func addUserETA(user_id : String, eta : TimeInterval)
     {
-        hangout_info_!.users_eta[user_id] = eta
+        hangout_info_.users_eta[user_id] = eta
     }
 
     /**
@@ -157,7 +173,7 @@ class Hangout : MapMarker
      */
     func getUserETA(_ user_id : String) -> TimeInterval
     {
-        if let eta = hangout_info_!.users_eta[user_id] {
+        if let eta = hangout_info_.users_eta[user_id] {
             return eta
         }
         return 0.0
@@ -169,6 +185,6 @@ class Hangout : MapMarker
      */
     func getLocation() -> [Double]
     {
-        return hangout_info_!.location
+        return hangout_info_.location
     }
 }
