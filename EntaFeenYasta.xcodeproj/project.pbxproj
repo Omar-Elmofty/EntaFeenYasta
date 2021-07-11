@@ -23,6 +23,8 @@
 		259392822691A3CF004DD1B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392812691A3CF004DD1B2 /* HomeViewController.swift */; };
 		259392842691A4BF004DD1B2 /* NewHangoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */; };
 		259392882691B03C004DD1B2 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392872691B03C004DD1B2 /* UserAuth.swift */; };
+		2599CB05269B681C00D6D7F8 /* DOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599CB04269B681C00D6D7F8 /* DOBViewController.swift */; };
+		2599CB07269B686200D6D7F8 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599CB06269B686200D6D7F8 /* NameViewController.swift */; };
 		25C6EDD5265FA095000C3151 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C6EDD4265FA095000C3151 /* Utils.swift */; };
 		25F9B514265179360050FECD /* AttributeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B513265179360050FECD /* AttributeHandler.swift */; };
 		25F9B5162651799A0050FECD /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B5152651799A0050FECD /* MapMarker.swift */; };
@@ -84,6 +86,8 @@
 		259392812691A3CF004DD1B2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHangoutViewController.swift; sourceTree = "<group>"; };
 		259392872691B03C004DD1B2 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		2599CB04269B681C00D6D7F8 /* DOBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOBViewController.swift; sourceTree = "<group>"; };
+		2599CB06269B686200D6D7F8 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		25C6EDD4265FA095000C3151 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		25F9B513265179360050FECD /* AttributeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeHandler.swift; sourceTree = "<group>"; };
 		25F9B5152651799A0050FECD /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 		250D0D1F268879780046C83A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2599CB06269B686200D6D7F8 /* NameViewController.swift */,
+				2599CB04269B681C00D6D7F8 /* DOBViewController.swift */,
 				2586A354264DC1CC00DB3A99 /* ViewController.swift */,
 				259392812691A3CF004DD1B2 /* HomeViewController.swift */,
 				259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */,
@@ -443,11 +449,13 @@
 				2586A355264DC1CC00DB3A99 /* ViewController.swift in Sources */,
 				2586A351264DC1CC00DB3A99 /* AppDelegate.swift in Sources */,
 				2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */,
+				2599CB07269B686200D6D7F8 /* NameViewController.swift in Sources */,
 				25F9B527265182D70050FECD /* ErrorHandling.swift in Sources */,
 				25F9B5162651799A0050FECD /* MapMarker.swift in Sources */,
 				259392842691A4BF004DD1B2 /* NewHangoutViewController.swift in Sources */,
 				259392882691B03C004DD1B2 /* UserAuth.swift in Sources */,
 				25055182265A5711005250F5 /* User.swift in Sources */,
+				2599CB05269B681C00D6D7F8 /* DOBViewController.swift in Sources */,
 				257676BD2659556E0087C3C9 /* ETAEstimator.swift in Sources */,
 				25C6EDD5265FA095000C3151 /* Utils.swift in Sources */,
 				25055180265A5584005250F5 /* Hangout.swift in Sources */,

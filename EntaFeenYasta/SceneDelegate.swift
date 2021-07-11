@@ -22,13 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let window = UIWindow(windowScene: windowScene)
-            if false // Auth.auth().currentUser != nil
+            if Auth.auth().currentUser != nil
             {
-                window.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as UIViewController
+                window.rootViewController = storyboard.instantiateViewController(withIdentifier: "SignupVC") as UIViewController
             }
             else
             {
-                window.rootViewController = storyboard.instantiateViewController(withIdentifier: "PhoneVC") as UIViewController
+                window.rootViewController = storyboard.instantiateViewController(withIdentifier: "SignupVC") as UIViewController
             }
 
             self.window = window
