@@ -30,6 +30,7 @@
 		25F9B527265182D70050FECD /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B526265182D70050FECD /* ErrorHandling.swift */; };
 		352594CCD3D771EBAF3FA82A /* Pods_EntaFeenYasta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E20FFD383AB14D138E822921 /* Pods_EntaFeenYasta.framework */; };
 		3D46D8F898766DCB4BA50A92 /* Pods_EntaFeenYastaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E694B29AB558D7D7554196 /* Pods_EntaFeenYastaTests.framework */; };
+		DD1DCDCA269D2E5B005467DE /* PhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1DCDC9269D2E5B005467DE /* PhoneNumberViewController.swift */; };
 		DDD948EE269B4C70007109EC /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD948ED269B4C70007109EC /* NameViewController.swift */; };
 		DDD948F2269B56E0007109EC /* DOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD948F1269B56E0007109EC /* DOBViewController.swift */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		A8ACEA5EE130D446BB4D1F8C /* Pods-EntaFeenYasta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntaFeenYasta.debug.xcconfig"; path = "Target Support Files/Pods-EntaFeenYasta/Pods-EntaFeenYasta.debug.xcconfig"; sourceTree = "<group>"; };
 		C1E694B29AB558D7D7554196 /* Pods_EntaFeenYastaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntaFeenYastaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3BA7779F0978EF473E1723A /* Pods-EntaFeenYasta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EntaFeenYasta.release.xcconfig"; path = "Target Support Files/Pods-EntaFeenYasta/Pods-EntaFeenYasta.release.xcconfig"; sourceTree = "<group>"; };
+		DD1DCDC9269D2E5B005467DE /* PhoneNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberViewController.swift; sourceTree = "<group>"; };
 		DDD948ED269B4C70007109EC /* NameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		DDD948F1269B56E0007109EC /* DOBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DOBViewController.swift; sourceTree = "<group>"; };
 		E20FFD383AB14D138E822921 /* Pods_EntaFeenYasta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EntaFeenYasta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 				259392892691C618004DD1B2 /* SignupViewController.swift */,
 				DDD948ED269B4C70007109EC /* NameViewController.swift */,
 				DDD948F1269B56E0007109EC /* DOBViewController.swift */,
+				DD1DCDC9269D2E5B005467DE /* PhoneNumberViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				25F9B5162651799A0050FECD /* MapMarker.swift in Sources */,
 				259392842691A4BF004DD1B2 /* NewHangoutViewController.swift in Sources */,
 				DDD948F2269B56E0007109EC /* DOBViewController.swift in Sources */,
+				DD1DCDCA269D2E5B005467DE /* PhoneNumberViewController.swift in Sources */,
 				259392882691B03C004DD1B2 /* UserAuth.swift in Sources */,
 				25055182265A5711005250F5 /* User.swift in Sources */,
 				257676BD2659556E0087C3C9 /* ETAEstimator.swift in Sources */,
