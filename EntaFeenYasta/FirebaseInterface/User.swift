@@ -29,10 +29,17 @@ class User : MapMarker
     private var friends_ : [String : User] = [:]
     private var pull_successful_: Bool = false
     private var push_successful_: Bool = false
+    
+    override init()
+    {
+        // Initalize an empty struct
+        user_info_ = UserInfo(id: "", name: "", location: [], image_name: "", friends_ids: [], active_hangouts: [])
+        super.init()
+    }
 
     init(user_info : UserInfo)
     {
-        try! checkLocation(user_info.location)
+        try! Utilities.checkLocation(user_info.location)
         user_info_ = user_info
         super.init()
         setMarkerData(marker_name: user_info_.name, marker_type: "user", image_name: user_info_.image_name, location: (lattitude: user_info_.location[0], longtitude: user_info_.location[1]))
@@ -129,6 +136,9 @@ class User : MapMarker
             }
             friends_[friend_id] = User(user_id: friend_id)
         }
+    }
+    func setUserName(_ user_name: String) {
+        user_info_.name = user_name
     }
 
     func addHangout(_ hangout_name : String)

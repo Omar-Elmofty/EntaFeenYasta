@@ -25,6 +25,8 @@
 		259392882691B03C004DD1B2 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392872691B03C004DD1B2 /* UserAuth.swift */; };
 		2599CB05269B681C00D6D7F8 /* DOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599CB04269B681C00D6D7F8 /* DOBViewController.swift */; };
 		2599CB07269B686200D6D7F8 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599CB06269B686200D6D7F8 /* NameViewController.swift */; };
+		25A79266269D175300151811 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A79265269D175300151811 /* Constants.swift */; };
+		25A7926A269D1CD300151811 /* UIViewControllerExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */; };
 		25C6EDD5265FA095000C3151 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C6EDD4265FA095000C3151 /* Utils.swift */; };
 		25F9B514265179360050FECD /* AttributeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B513265179360050FECD /* AttributeHandler.swift */; };
 		25F9B5162651799A0050FECD /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B5152651799A0050FECD /* MapMarker.swift */; };
@@ -88,6 +90,8 @@
 		259392872691B03C004DD1B2 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		2599CB04269B681C00D6D7F8 /* DOBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOBViewController.swift; sourceTree = "<group>"; };
 		2599CB06269B686200D6D7F8 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
+		25A79265269D175300151811 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtenstion.swift; sourceTree = "<group>"; };
 		25C6EDD4265FA095000C3151 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		25F9B513265179360050FECD /* AttributeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeHandler.swift; sourceTree = "<group>"; };
 		25F9B5152651799A0050FECD /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				2586A354264DC1CC00DB3A99 /* ViewController.swift */,
 				259392812691A3CF004DD1B2 /* HomeViewController.swift */,
 				259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */,
+				25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 				25F9B513265179360050FECD /* AttributeHandler.swift */,
 				25F9B526265182D70050FECD /* ErrorHandling.swift */,
 				25C6EDD4265FA095000C3151 /* Utils.swift */,
+				25A79265269D175300151811 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -447,10 +453,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2586A355264DC1CC00DB3A99 /* ViewController.swift in Sources */,
+				25A79266269D175300151811 /* Constants.swift in Sources */,
 				2586A351264DC1CC00DB3A99 /* AppDelegate.swift in Sources */,
 				2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */,
 				2599CB07269B686200D6D7F8 /* NameViewController.swift in Sources */,
 				25F9B527265182D70050FECD /* ErrorHandling.swift in Sources */,
+				25A7926A269D1CD300151811 /* UIViewControllerExtenstion.swift in Sources */,
 				25F9B5162651799A0050FECD /* MapMarker.swift in Sources */,
 				259392842691A4BF004DD1B2 /* NewHangoutViewController.swift in Sources */,
 				259392882691B03C004DD1B2 /* UserAuth.swift in Sources */,
@@ -643,6 +651,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8XWDK2BC2P;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -668,6 +677,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8XWDK2BC2P;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

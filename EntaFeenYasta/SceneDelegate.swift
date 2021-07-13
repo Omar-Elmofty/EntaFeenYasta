@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             {
                 window.rootViewController = storyboard.instantiateViewController(withIdentifier: "SignupVC") as UIViewController
             }
-
+        
             self.window = window
             window.makeKeyAndVisible()
         }

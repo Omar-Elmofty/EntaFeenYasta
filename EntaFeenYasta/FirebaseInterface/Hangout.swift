@@ -53,7 +53,7 @@ class Hangout : MapMarker
      */
     init(hangout_info : HangoutInfo) throws
     {
-        try! checkLocation(hangout_info.location)
+        try! Utilities.checkLocation(hangout_info.location)
         hangout_info_ = hangout_info
         super.init()
         setMarkerData(marker_name: hangout_info_.name, marker_type: "hangout", image_name: hangout_info_.image_name, location: (lattitude: hangout_info_.location[0], longtitude: hangout_info_.location[1]))
