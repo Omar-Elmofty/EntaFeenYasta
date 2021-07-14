@@ -24,11 +24,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             if Auth.auth().currentUser != nil
             {
-                window.rootViewController = storyboard.instantiateViewController(withIdentifier: "SignupVC") as UIViewController
+                window.rootViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.sign_up_view_controller) as UIViewController
             }
             else
             {
-                window.rootViewController = storyboard.instantiateViewController(withIdentifier: "SignupVC") as UIViewController
+                window.rootViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.sign_up_view_controller) as UIViewController
             }
         
             self.window = window

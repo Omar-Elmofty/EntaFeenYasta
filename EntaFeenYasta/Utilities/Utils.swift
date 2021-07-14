@@ -40,7 +40,6 @@ class Utilities {
         
         // Add the line to the text field
         textfield.layer.addSublayer(bottomLine)
-        
     }
 }
 

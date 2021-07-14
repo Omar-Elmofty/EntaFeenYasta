@@ -27,6 +27,8 @@
 		2599CB07269B686200D6D7F8 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599CB06269B686200D6D7F8 /* NameViewController.swift */; };
 		25A79266269D175300151811 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A79265269D175300151811 /* Constants.swift */; };
 		25A7926A269D1CD300151811 /* UIViewControllerExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */; };
+		25A7926C269D2EE900151811 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A7926B269D2EE900151811 /* AddFriendsViewController.swift */; };
+		25B1BECE269E79DA000F5494 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B1BECD269E79DA000F5494 /* SignUpViewController.swift */; };
 		25C6EDD5265FA095000C3151 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C6EDD4265FA095000C3151 /* Utils.swift */; };
 		25F9B514265179360050FECD /* AttributeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B513265179360050FECD /* AttributeHandler.swift */; };
 		25F9B5162651799A0050FECD /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B5152651799A0050FECD /* MapMarker.swift */; };
@@ -92,6 +94,8 @@
 		2599CB06269B686200D6D7F8 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		25A79265269D175300151811 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtenstion.swift; sourceTree = "<group>"; };
+		25A7926B269D2EE900151811 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
+		25B1BECD269E79DA000F5494 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		25C6EDD4265FA095000C3151 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		25F9B513265179360050FECD /* AttributeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeHandler.swift; sourceTree = "<group>"; };
 		25F9B5152651799A0050FECD /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 				259392812691A3CF004DD1B2 /* HomeViewController.swift */,
 				259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */,
 				25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */,
+				25A7926B269D2EE900151811 /* AddFriendsViewController.swift */,
+				25B1BECD269E79DA000F5494 /* SignUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -466,10 +472,12 @@
 				2599CB05269B681C00D6D7F8 /* DOBViewController.swift in Sources */,
 				257676BD2659556E0087C3C9 /* ETAEstimator.swift in Sources */,
 				25C6EDD5265FA095000C3151 /* Utils.swift in Sources */,
+				25B1BECE269E79DA000F5494 /* SignUpViewController.swift in Sources */,
 				25055180265A5584005250F5 /* Hangout.swift in Sources */,
 				25F9B514265179360050FECD /* AttributeHandler.swift in Sources */,
 				25055184265AD313005250F5 /* UserDatabase.swift in Sources */,
 				259392822691A3CF004DD1B2 /* HomeViewController.swift in Sources */,
+				25A7926C269D2EE900151811 /* AddFriendsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

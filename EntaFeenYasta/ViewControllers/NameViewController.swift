@@ -10,14 +10,15 @@ import UIKit
 class NameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var user_name: UITextField!
+    
     @IBOutlet weak var error_label: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
         setUpElements()
     }
-    
+
     func setUpElements() {
         // Hide the error label
         error_label.alpha = 0
@@ -27,11 +28,11 @@ class NameViewController: UIViewController, UITextFieldDelegate {
         Utilities.styleTextField(user_name)
     }
 
+
     func transitionToDOBVC() {
         let dob_vc = storyboard?.instantiateViewController(identifier: Constants.Storyboard.dob_view_controller)
         present(dob_vc!, animated: true, completion: nil)
     }
-
     @IBAction func nextButton(_ sender: Any) {
         if let user_name = user_name.text {
             let trimmed_string = user_name.trimmingCharacters(in: .whitespaces)

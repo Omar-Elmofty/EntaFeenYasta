@@ -88,5 +88,7 @@
 			</array>
 		</dict>
 	</array>
+	<key>NSContactsUsageDescription</key>
+	<string>Access must be granted to fetch contacts</string>
 </dict>
 </plist>
