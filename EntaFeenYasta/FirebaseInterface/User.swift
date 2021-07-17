@@ -14,6 +14,8 @@ struct UserInfo : Codable
 {
     var id : String
     var name : String
+    var dob : String
+    var phone_number : String
     var location : [Double]
     var image_name : String
     var friends_ids : Set<String>
@@ -33,7 +35,7 @@ class User : MapMarker
     override init()
     {
         // Initalize an empty struct
-        user_info_ = UserInfo(id: "", name: "", location: [], image_name: "", friends_ids: [], active_hangouts: [])
+        user_info_ = UserInfo(id: "", name: "", dob: "", phone_number: "", location: [], image_name: "", friends_ids: [], active_hangouts: [])
         super.init()
     }
 
@@ -49,7 +51,8 @@ class User : MapMarker
     
     init(user_id: String)
     {
-        user_info_ = UserInfo(id: user_id, name: "", location: [], image_name: "", friends_ids: [], active_hangouts: [])
+        user_info_ = UserInfo(id: user_id, name: "", dob: "",
+                              phone_number: "", location: [], image_name: "", friends_ids: [], active_hangouts: [])
         super.init()
         pullFromFirebase { (user) in
             return true
@@ -140,7 +143,15 @@ class User : MapMarker
     func setUserName(_ user_name: String) {
         user_info_.name = user_name
     }
-
+    
+    func setDOB(_ dob: String) {
+        user_info_.dob = dob
+    }
+    
+    func setPhoneNumber(_ phone_number: String) {
+        user_info_.phone_number = phone_number
+    }
+    
     func addHangout(_ hangout_name : String)
     {
         user_info_.active_hangouts.insert(hangout_name)
