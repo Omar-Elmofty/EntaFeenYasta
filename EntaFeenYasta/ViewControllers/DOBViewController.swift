@@ -13,6 +13,8 @@ class DOBViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var error_label: UILabel!
 
+    @IBOutlet weak var next_button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,6 +29,7 @@ class DOBViewController: UIViewController, UITextFieldDelegate {
         // Style the elements
         dob.delegate = self
         Utilities.styleTextField(dob)
+        Utilities.styleHollowButton(next_button)
     }
 
     /*

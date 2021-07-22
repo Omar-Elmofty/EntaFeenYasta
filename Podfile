@@ -11,6 +11,7 @@ target 'EntaFeenYasta' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+  pod 'GeoFire'
 
 end
 

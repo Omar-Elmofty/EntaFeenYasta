@@ -12,6 +12,7 @@ class PhoneViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var phone_number: UITextField!
     
     @IBOutlet weak var error_label: UILabel!
+    @IBOutlet weak var next_button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class PhoneViewController: UIViewController, UITextFieldDelegate {
         // Style the elements
         phone_number.delegate = self
         Utilities.styleTextField(phone_number)
+        Utilities.styleHollowButton(next_button)
     }
     
     func transitionToNextVC() {

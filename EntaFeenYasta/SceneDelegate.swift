@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             if Auth.auth().currentUser != nil
             {
-                window.rootViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.home_view_controller) as UIViewController
+                window.rootViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.sign_up_view_controller) as UIViewController
             }
             else
             {

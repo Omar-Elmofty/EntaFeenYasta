@@ -25,7 +25,26 @@ class Utilities {
             throw AppError.runtimeError("Longtitude \(location[1]) is out of bounds")
         }
     }
-    
+
+    static func styleFilledButton(_ button:UIButton) {
+        
+        // Filled rounded corner style
+        button.backgroundColor = UIColor.init(red: 222/255, green: 177/255, blue: 54/255, alpha: 1)
+        button.layer.cornerRadius = 25.0
+        button.tintColor = UIColor.white
+        button.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
+    }
+
+    static func styleHollowButton(_ button:UIButton) {
+        
+        // Hollow rounded corner style
+        button.layer.borderWidth = 2
+        button.layer.borderColor = CGColor.init(red: 222/255, green: 177/255, blue: 54/255, alpha: 1)
+        button.layer.cornerRadius = 25.0
+        button.tintColor = UIColor.black
+        button.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
+    }
+
     static func styleTextField(_ textfield:UITextField) {
         
         // Create the bottom line
@@ -39,7 +58,11 @@ class Utilities {
         textfield.borderStyle = .none
         
         // Add the line to the text field
-        textfield.layer.addSublayer(bottomLine)
+//        textfield.layer.addSublayer(bottomLine)
+        textfield.font = UIFont(name: "Chalkduster", size: 30)
+        textfield.backgroundColor = UIColor.init(red: 115/255, green: 96/255, blue: 54/255, alpha: 1)
+        textfield.layer.cornerRadius = 25.0
     }
+    
 }
 

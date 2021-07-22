@@ -11,6 +11,7 @@ class VerifyViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var verification_code: UITextField!
     
     @IBOutlet weak var error_label: UILabel!
+    @IBOutlet weak var next_button: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +27,11 @@ class VerifyViewController: UIViewController, UITextFieldDelegate {
         // Style the elements
         verification_code.delegate = self
         Utilities.styleTextField(verification_code)
+        Utilities.styleHollowButton(next_button)
     }
     
     func transitionToNextVC() {
-        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.add_friends_view_controller)
+        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.home_view_controller)
         self.view.window?.rootViewController = vc
         self.view.window?.makeKeyAndVisible()
     }

@@ -13,6 +13,7 @@ class NameViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var error_label: UILabel!
     
+    @IBOutlet weak var next_button: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
@@ -26,6 +27,7 @@ class NameViewController: UIViewController, UITextFieldDelegate {
         // Style the elements
         user_name.delegate = self
         Utilities.styleTextField(user_name)
+        Utilities.styleHollowButton(next_button)
     }
 
 
