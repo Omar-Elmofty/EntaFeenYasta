@@ -16,7 +16,7 @@ struct UserInfo : Codable
     var name : String
     var dob : String
     var phone_number : String
-    var location : [Double]
+    var location : [Double] = [0,0]
     var image_name : String
     var friends_ids : Set<String>
     var active_hangouts : Set<String>
@@ -76,7 +76,7 @@ class User : MapMarker
                 doc = db.collection("user_db").document()
                 user_info_.id = doc.documentID
             }
-            try doc.setData(from: user_info_) { (error) in
+            try doc.setData(from: user_info_, merge: true) { (error) in
                     if let error = error {
                         print("Error encountered when setting document: \(error.localizedDescription)")
                     }
@@ -150,6 +150,9 @@ class User : MapMarker
     
     func setPhoneNumber(_ phone_number: String) {
         user_info_.phone_number = phone_number
+    }
+    func setID(_ id: String) {
+        user_info_.id = id
     }
     
     func addHangout(_ hangout_name : String)

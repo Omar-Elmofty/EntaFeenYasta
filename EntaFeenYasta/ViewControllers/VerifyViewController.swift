@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class VerifyViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var verification_code: UITextField!
@@ -57,6 +58,14 @@ class VerifyViewController: UIViewController, UITextFieldDelegate {
                     if (success)
                     {
                         self.transitionToNextVC()
+                        
+                        let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+                        if app_delegate.current_user == nil {
+                            app_delegate.current_user = User()
+                        }
+                        let user_id = Auth.auth().currentUser!.uid
+                        app_delegate.current_user!.setID(user_id)
+                        try! app_delegate.current_user!.pushToFirebase()
                     }
                     else
                     {

@@ -20,7 +20,7 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         let mapView = MGLMapView(frame: view.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
-
+	
         // Set the map’s center coordinate and zoom level.
         mapView.setCenter(CLLocationCoordinate2D(latitude: 30.039403395357347, longitude: 31.32954873627664), zoomLevel: 13, animated: false)
         
@@ -54,11 +54,10 @@ class ViewController: UIViewController, MGLMapViewDelegate {
         }
         return annotationImage
     }
-    
+	
     func mapView(_ mapView: MGLMapView, didSelect annotation: MGLAnnotation) {
         // Hide the callout view.
         mapView.deselectAnnotation(annotation, animated: false)
-        
         var eta : TimeInterval = 0.0
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if let user_database = appDelegate.getUserDatabase() {

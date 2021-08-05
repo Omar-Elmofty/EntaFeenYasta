@@ -24,13 +24,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             if Auth.auth().currentUser != nil
             {
-                window.rootViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.sign_up_view_controller) as UIViewController
+                // Pull current User from firebase
+                let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+                if app_delegate.current_user == nil {
+                    app_delegate.current_user = User()
+                }
+                let user_id = Auth.auth().currentUser!.uid
+                app_delegate.current_user!.setID(user_id)
+                app_delegate.current_user!.pullFromFirebase(completion: { user in
+                    print("Error Retrieving user")
+                    window.rootViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.home_view_controller) as UIViewController
+                    return true
+                })
             }
             else
             {
                 window.rootViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.sign_up_view_controller) as UIViewController
             }
-        
+            
             self.window = window
             window.makeKeyAndVisible()
         }

@@ -385,6 +385,9 @@ WHAT'S YOUR NAME?</string>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="MjP-JO-Tfj"/>
+                    <connections>
+                        <outlet property="test_label" destination="9zd-Xe-JZX" id="Z32-ae-ThU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvz-V3-Rmr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
