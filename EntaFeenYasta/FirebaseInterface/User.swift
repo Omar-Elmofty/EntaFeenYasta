@@ -16,9 +16,11 @@ struct UserInfo : Codable
     var name : String
     var dob : String
     var phone_number : String
+    var phone_number_ten_digit : String
     var location : [Double] = [0,0]
     var image_name : String
-    var friends_ids : Set<String>
+    var friends_ids : [String]
+    var pending_friends_ids : Set<String>
     var active_hangouts : Set<String>
 }
 
@@ -29,30 +31,21 @@ class User : MapMarker
     private var user_info_ : UserInfo
     private let db = Firestore.firestore()
     private var friends_ : [String : User] = [:]
+    private var pending_friends_ : [String : User] = [:]
     private var pull_successful_: Bool = false
     private var push_successful_: Bool = false
     
     override init()
     {
         // Initalize an empty struct
-        user_info_ = UserInfo(id: "", name: "", dob: "", phone_number: "", location: [], image_name: "", friends_ids: [], active_hangouts: [])
+        user_info_ = UserInfo(id: "", name: "", dob: "", phone_number: "", phone_number_ten_digit: "", location: [], image_name: "", friends_ids: [], pending_friends_ids: [], active_hangouts: [])
         super.init()
-    }
-
-    init(user_info : UserInfo)
-    {
-        try! Utilities.checkLocation(user_info.location)
-        user_info_ = user_info
-        super.init()
-        setMarkerData(marker_name: user_info_.name, marker_type: "user", image_name: user_info_.image_name, location: (lattitude: user_info_.location[0], longtitude: user_info_.location[1]))
-        try! pushToFirebase()
-        try! self.populateFriends()
     }
     
     init(user_id: String)
     {
         user_info_ = UserInfo(id: user_id, name: "", dob: "",
-                              phone_number: "", location: [], image_name: "", friends_ids: [], active_hangouts: [])
+                              phone_number: "", phone_number_ten_digit: "", location: [], image_name: "", friends_ids: [], pending_friends_ids: [], active_hangouts: [])
         super.init()
         pullFromFirebase { (user) in
             return true
@@ -105,7 +98,6 @@ class User : MapMarker
                  if let user_info = user_info {
                      self.user_info_ = user_info
                      self.setMarkerData(marker_name: user_info.name, marker_type: "user", image_name: user_info.image_name, location: (lattitude: user_info.location[0], longtitude: user_info.location[1]))
-                     try! self.populateFriends()
                     
                       if (!completion(self))
                       {
@@ -139,6 +131,18 @@ class User : MapMarker
             }
             friends_[friend_id] = User(user_id: friend_id)
         }
+        for friend_id in user_info_.pending_friends_ids
+        {
+            if pending_friends_[friend_id] != nil
+            {
+                // Update friends
+                pending_friends_[friend_id]?.pullFromFirebase(completion: { user in
+                    return true
+                })
+                continue
+            }
+            pending_friends_[friend_id] = User(user_id: friend_id)
+        }
     }
     func setUserName(_ user_name: String) {
         user_info_.name = user_name
@@ -150,6 +154,7 @@ class User : MapMarker
     
     func setPhoneNumber(_ phone_number: String) {
         user_info_.phone_number = phone_number
+        user_info_.phone_number_ten_digit = String(phone_number.suffix(10))
     }
     func setID(_ id: String) {
         user_info_.id = id
@@ -175,11 +180,32 @@ class User : MapMarker
         return user_info_.active_hangouts
     }
 
-    func getFriends() -> Set<String> {
+    func getFriends() -> [String] {
         return user_info_.friends_ids
     }
     func getLocation() -> [Double]
     {
         return user_info_.location
+    }
+    func isAFriend(_ friend_id: String) -> Bool
+    {
+        return user_info_.friends_ids.contains(friend_id)
+    }
+    func isAPendingFriend(_ friend_id: String) -> Bool
+    {
+        return pending_friends_[friend_id] != nil
+    }
+    func addPendingFriend(_ friend_id: String)
+    {
+        user_info_.pending_friends_ids.insert(friend_id)
+        try! populateFriends()
+    }
+    func getNumOfFriends() -> size_t
+    {
+        return user_info_.friends_ids.count
+    }
+    func getFriend(_ friend_id: String) -> User?
+    {
+        return friends_[friend_id]
     }
 }

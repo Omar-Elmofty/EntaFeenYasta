@@ -373,6 +373,7 @@ PODS:
 DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
+  - Firebase/Database
   - Firebase/Firestore
   - FirebaseFirestoreSwift
   - GeoFire
@@ -449,6 +450,6 @@ SPEC CHECKSUMS:
   Solar: 2dc6e7cc39186cb0c8228fa08df76fb50c7d8f24
   Turf: aaa060138b11a8e979a19e6d81091d156a31bc58
 
-PODFILE CHECKSUM: 51bc1ebcdc4b3e0ea5f4abe9b9f2f4b8b877cb91
+PODFILE CHECKSUM: f71f3a79636fe2815e8315b7d9c952f04ceafeaf
 
 COCOAPODS: 1.10.1

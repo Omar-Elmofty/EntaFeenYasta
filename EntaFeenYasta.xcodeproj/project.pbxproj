@@ -23,6 +23,8 @@
 		259392822691A3CF004DD1B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392812691A3CF004DD1B2 /* HomeViewController.swift */; };
 		259392842691A4BF004DD1B2 /* NewHangoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */; };
 		259392882691B03C004DD1B2 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392872691B03C004DD1B2 /* UserAuth.swift */; };
+		2593BBFD26BE16BA00A6AD87 /* AddFriendsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593BBFC26BE16B900A6AD87 /* AddFriendsButton.swift */; };
+		2593BBFF26BE16EF00A6AD87 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593BBFE26BE16EF00A6AD87 /* FriendsViewController.swift */; };
 		2599CB05269B681C00D6D7F8 /* DOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599CB04269B681C00D6D7F8 /* DOBViewController.swift */; };
 		2599CB07269B686200D6D7F8 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599CB06269B686200D6D7F8 /* NameViewController.swift */; };
 		259DA65026A3557E00410219 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DA64F26A3557E00410219 /* PhoneViewController.swift */; };
@@ -92,6 +94,8 @@
 		259392812691A3CF004DD1B2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHangoutViewController.swift; sourceTree = "<group>"; };
 		259392872691B03C004DD1B2 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		2593BBFC26BE16B900A6AD87 /* AddFriendsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsButton.swift; sourceTree = "<group>"; };
+		2593BBFE26BE16EF00A6AD87 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		2599CB04269B681C00D6D7F8 /* DOBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOBViewController.swift; sourceTree = "<group>"; };
 		2599CB06269B686200D6D7F8 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		259DA64F26A3557E00410219 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 				25B1BECD269E79DA000F5494 /* SignUpViewController.swift */,
 				259DA64F26A3557E00410219 /* PhoneViewController.swift */,
 				259DA65126A35B4A00410219 /* VerifyViewController.swift */,
+				2593BBFE26BE16EF00A6AD87 /* FriendsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -212,6 +217,7 @@
 		2586A34F264DC1CC00DB3A99 /* EntaFeenYasta */ = {
 			isa = PBXGroup;
 			children = (
+				2593BBFB26BE16A000A6AD87 /* Buttons */,
 				250D0D22268879FD0046C83A /* MapboxInterface */,
 				250D0D21268879E50046C83A /* Utilities */,
 				250D0D20268879990046C83A /* FirebaseInterface */,
@@ -243,6 +249,14 @@
 				2586A374264DC1DE00DB3A99 /* Info.plist */,
 			);
 			path = EntaFeenYastaUITests;
+			sourceTree = "<group>";
+		};
+		2593BBFB26BE16A000A6AD87 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				2593BBFC26BE16B900A6AD87 /* AddFriendsButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		25F9B51F26517E7E0050FECD /* Frameworks */ = {
@@ -475,10 +489,12 @@
 				25F9B5162651799A0050FECD /* MapMarker.swift in Sources */,
 				259392842691A4BF004DD1B2 /* NewHangoutViewController.swift in Sources */,
 				259392882691B03C004DD1B2 /* UserAuth.swift in Sources */,
+				2593BBFD26BE16BA00A6AD87 /* AddFriendsButton.swift in Sources */,
 				25055182265A5711005250F5 /* User.swift in Sources */,
 				2599CB05269B681C00D6D7F8 /* DOBViewController.swift in Sources */,
 				257676BD2659556E0087C3C9 /* ETAEstimator.swift in Sources */,
 				25C6EDD5265FA095000C3151 /* Utils.swift in Sources */,
+				2593BBFF26BE16EF00A6AD87 /* FriendsViewController.swift in Sources */,
 				25B1BECE269E79DA000F5494 /* SignUpViewController.swift in Sources */,
 				25055180265A5584005250F5 /* Hangout.swift in Sources */,
 				25F9B514265179360050FECD /* AttributeHandler.swift in Sources */,

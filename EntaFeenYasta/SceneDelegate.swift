@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let window = UIWindow(windowScene: windowScene)
+            print("Hello")
             if Auth.auth().currentUser != nil
             {
                 // Pull current User from firebase
@@ -34,6 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 app_delegate.current_user!.pullFromFirebase(completion: { user in
                     print("Error Retrieving user")
                     window.rootViewController = storyboard.instantiateViewController(withIdentifier: Constants.Storyboard.home_view_controller) as UIViewController
+                    try! app_delegate.current_user!.populateFriends()
                     return true
                 })
             }

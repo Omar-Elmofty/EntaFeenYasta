@@ -31,7 +31,9 @@ class ViewController: UIViewController, MGLMapViewDelegate {
             user_database.estimateHangoutETA("cairo_festival")
         }
         mapView.addAnnotations(annotations)
-        view.addSubview(mapView)
+        view.sendSubviewToBack(mapView)
+//        view.addSubview(mapView)
+
     }
     
     func mapView( _ mapView: MGLMapView, imageFor annotation: MGLAnnotation ) -> MGLAnnotationImage? {

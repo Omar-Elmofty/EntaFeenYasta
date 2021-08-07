@@ -31,10 +31,10 @@ class UserDataBase : AttributeHandler
         let raw_users_info = try! JSONDecoder().decode(UsersInfo.self, from: json_data)
 
         // Create user objects
-        for info in raw_users_info.users_info {
-            users_map_[info.name] = User(user_info : info)
-            user_names_.insert(info.name)
-        }
+//        for info in raw_users_info.users_info {
+//            users_map_[info.name] = User(user_info : info)
+//            user_names_.insert(info.name)
+//        }
 
         // Validate friends of user objects are correct
         for (_, user) in users_map_ {

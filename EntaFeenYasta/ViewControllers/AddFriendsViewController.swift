@@ -8,6 +8,8 @@
 import UIKit
 import Contacts
 import MessageUI
+import Firebase
+import FirebaseFirestoreSwift
 
 struct FetchedContact {
     var firstName: String
@@ -17,7 +19,10 @@ struct FetchedContact {
 
 class ContactTableViewCell: UITableViewCell {
     
+    private let db = Firestore.firestore()
     @IBOutlet weak var contact_name: UILabel!
+    
+    @IBOutlet weak var invite_button: UIButton!
     
     var invite_button_completion : ((String, String) -> Void)?
     
@@ -32,11 +37,53 @@ class ContactTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    func checkPhoneNumber()
+    {
+
+        let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+        
+        let phone_last_10_digits = String(phone_number!.suffix(10))
+        let user_db = db.collection("user_db")
+        
+        user_db.whereField("phone_number_ten_digit", isEqualTo: phone_last_10_digits) .getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                var found_document = false
+                for document in querySnapshot!.documents {
+                    found_document = true
+                    print("last 10 digits \(phone_last_10_digits)")
+                    print("document Id found \(document.documentID)")
+                    if app_delegate.current_user!.isAFriend(document.documentID)
+                    {
+                        self.invite_button.isEnabled = false
+                        self.invite_button.setTitle("Friend", for: .disabled)
+                    }
+                    else
+                    {
+                        self.invite_button.isEnabled = true
+                        self.invite_button.setTitle("Send Request", for: .normal)
+                        self.invite_button_completion = {(contact_name, phone_num) -> Void in
+                            self.invite_button.isEnabled = false
+                            self.invite_button.setTitle("Request Sent", for: .disabled)
+                            app_delegate.current_user!.addPendingFriend(document.documentID)
+                        }
+                    }
+                }
+                if (!found_document)
+                {
+                    self.invite_button.isEnabled = true
+                    self.invite_button.setTitle("Invite", for: .normal)
+                    self.invite_button.setTitle("Invite", for: .disabled)
+                }
+            }
+        }
+    }
 }
 
 
 class AddFriendsViewController: UITableViewController, MFMessageComposeViewControllerDelegate, UISearchResultsUpdating {
-    
     var contacts = [FetchedContact]()
     var filtered_contacts : [FetchedContact] = []
     let searchController = UISearchController(searchResultsController: nil)
@@ -109,8 +156,10 @@ class AddFriendsViewController: UITableViewController, MFMessageComposeViewContr
             contact = contacts[indexPath.row]
         }
         cell.invite_button_completion = self.presentMessegeVC
-        cell.contact_name?.text = contact.firstName + " " + contacts[indexPath.row].lastName
+        cell.contact_name?.text = contact.firstName + " " + contact.lastName
         cell.phone_number = contact.telephone
+        cell.checkPhoneNumber()
+        
         return cell
     }
     

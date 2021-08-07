@@ -351,17 +351,18 @@ WHAT'S YOUR NAME?</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9zd-Xe-JZX">
-                                <rect key="frame" x="168" y="430" width="78" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnC-rO-0aS">
-                                <rect key="frame" x="315" y="54" width="79" height="30"/>
-                                <state key="normal" title="AddFriends"/>
+                                <rect key="frame" x="30" y="74" width="60" height="30"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="EEZ-lX-KgS"/>
+                                    <constraint firstAttribute="width" constant="60" id="PIH-tY-EBq"/>
+                                </constraints>
+                                <state key="normal" title="Friends">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
                                 <connections>
-                                    <segue destination="JZZ-Iz-VqG" kind="show" id="lCY-MR-yPo"/>
+                                    <segue destination="Wns-ty-Dc9" kind="show" id="72w-Pq-kM3"/>
                                 </connections>
                             </button>
                             <imageView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="super_boring_meeting" translatesAutoresizingMaskIntoConstraints="NO" id="4VO-he-LHs">
@@ -373,10 +374,8 @@ WHAT'S YOUR NAME?</string>
                         <viewLayoutGuide key="safeArea" id="qWb-wC-5yO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9zd-Xe-JZX" firstAttribute="centerX" secondItem="sEm-zo-xeF" secondAttribute="centerX" id="5zc-h8-o6v"/>
-                            <constraint firstItem="9zd-Xe-JZX" firstAttribute="centerY" secondItem="sEm-zo-xeF" secondAttribute="centerY" id="Rmz-Ge-kQ0"/>
-                            <constraint firstItem="qWb-wC-5yO" firstAttribute="trailing" secondItem="MnC-rO-0aS" secondAttribute="trailing" constant="20" id="S9H-JP-dJl"/>
-                            <constraint firstItem="MnC-rO-0aS" firstAttribute="top" secondItem="qWb-wC-5yO" secondAttribute="top" constant="10" id="lub-0Q-dqk"/>
+                            <constraint firstItem="MnC-rO-0aS" firstAttribute="leading" secondItem="qWb-wC-5yO" secondAttribute="leading" constant="30" id="awH-Nl-emW"/>
+                            <constraint firstItem="MnC-rO-0aS" firstAttribute="top" secondItem="qWb-wC-5yO" secondAttribute="top" constant="30" id="cPc-Mn-4Xy"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -385,20 +384,71 @@ WHAT'S YOUR NAME?</string>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="MjP-JO-Tfj"/>
-                    <connections>
-                        <outlet property="test_label" destination="9zd-Xe-JZX" id="Z32-ae-ThU"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvz-V3-Rmr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7560.8695652173919" y="0.0"/>
         </scene>
+        <!--Friends-->
+        <scene sceneID="F7N-rX-7ey">
+            <objects>
+                <tableViewController storyboardIdentifier="FriendsVC" id="k64-b7-fnY" customClass="FriendsViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8EM-CK-QF3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell_Friend" id="f9H-Mk-cD6" customClass="FriendTableViewCell" customModule="EntaFeenYasta" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f9H-Mk-cD6" id="0yD-X6-KKZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUn-PZ-OM0">
+                                            <rect key="frame" x="45" y="11.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="YUn-PZ-OM0" firstAttribute="centerY" secondItem="0yD-X6-KKZ" secondAttribute="centerY" id="R5U-n8-8ci"/>
+                                        <constraint firstItem="YUn-PZ-OM0" firstAttribute="leading" secondItem="0yD-X6-KKZ" secondAttribute="leadingMargin" constant="25" id="amq-qC-BOI"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="name_label" destination="YUn-PZ-OM0" id="CcE-N3-SdS"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="k64-b7-fnY" id="tB9-uh-b7W"/>
+                            <outlet property="delegate" destination="k64-b7-fnY" id="Q7g-uN-FZQ"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Friends" id="QG6-vF-bWD">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="esj-nG-p0p">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ZDb-I2-rL4">
+                                <rect key="frame" x="302" y="13" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tQk-h8-jCl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9781.1594202898559" y="-9.375"/>
+        </scene>
         <!--Add Friends-->
         <scene sceneID="YKJ-6X-v9Y">
             <objects>
-                <tableViewController storyboardIdentifier="AddFriendsVC" id="txO-Ku-PLo" customClass="AddFriendsViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="txO-Ku-PLo" customClass="AddFriendsViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pPI-Hz-rJe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -432,6 +482,7 @@ WHAT'S YOUR NAME?</string>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="contact_name" destination="4lV-3S-s1c" id="B1t-es-EWW"/>
+                                    <outlet property="invite_button" destination="z0s-Iw-L4t" id="mq6-fq-xZm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -466,10 +517,10 @@ WHAT'S YOUR NAME?</string>
         <!--Add Friends-->
         <scene sceneID="Swp-mW-fws">
             <objects>
-                <navigationController title="Add Friends" automaticallyAdjustsScrollViewInsets="NO" id="JZZ-Iz-VqG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AddFriendsVC" title="Add Friends" automaticallyAdjustsScrollViewInsets="NO" id="JZZ-Iz-VqG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bIH-4u-YNu">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -481,11 +532,33 @@ WHAT'S YOUR NAME?</string>
             </objects>
             <point key="canvasLocation" x="5731.884057971015" y="0.0"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eHj-Bs-BUp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wns-ty-Dc9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="BjI-IQ-3jq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jKI-nk-cdc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="k64-b7-fnY" kind="relationship" relationship="rootViewController" id="5FG-WS-UPa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6w0-cw-bOa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8871.0144927536239" y="-9.375"/>
+        </scene>
     </scenes>
     <resources>
         <image name="super_boring_meeting" width="328" height="419"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
