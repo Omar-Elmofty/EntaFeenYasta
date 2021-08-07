@@ -140,7 +140,7 @@ class User : MapMarker
                     return true
                 })
                 continue
-            }
+            }	
             pending_friends_[friend_id] = User(user_id: friend_id)
         }
     }
@@ -207,5 +207,25 @@ class User : MapMarker
     func getFriend(_ friend_id: String) -> User?
     {
         return friends_[friend_id]
+    }
+    func setLocation(_ latitude: Double, _ longtitude: Double)
+    {
+        user_info_.location[0] = latitude
+        user_info_.location[1] = longtitude
+    }
+    func isMyID(_ id: String) -> Bool
+    {
+        return id == user_info_.id
+    }
+    func getPhoneNumber() -> String
+    {
+        return user_info_.phone_number
+    }
+    func removeFriend(_ friend_id: String)
+    {
+        if let index = user_info_.friends_ids.firstIndex(of: friend_id) {
+            user_info_.friends_ids.remove(at: index)
+        }
+        friends_.removeValue(forKey: friend_id)
     }
 }

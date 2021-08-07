@@ -411,10 +411,19 @@ WHAT'S YOUR NAME?</string>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZq-Nm-UaO">
+                                            <rect key="frame" x="342" y="7" width="47" height="30"/>
+                                            <state key="normal" title="Details"/>
+                                            <connections>
+                                                <action selector="detailsButton:" destination="f9H-Mk-cD6" eventType="touchUpInside" id="uxV-Le-KLC"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="YUn-PZ-OM0" firstAttribute="centerY" secondItem="0yD-X6-KKZ" secondAttribute="centerY" id="R5U-n8-8ci"/>
                                         <constraint firstItem="YUn-PZ-OM0" firstAttribute="leading" secondItem="0yD-X6-KKZ" secondAttribute="leadingMargin" constant="25" id="amq-qC-BOI"/>
+                                        <constraint firstAttribute="trailing" secondItem="ZZq-Nm-UaO" secondAttribute="trailing" constant="25" id="ceW-pW-t7S"/>
+                                        <constraint firstItem="ZZq-Nm-UaO" firstAttribute="centerY" secondItem="0yD-X6-KKZ" secondAttribute="centerY" id="cxm-zB-msX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -442,6 +451,56 @@ WHAT'S YOUR NAME?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tQk-h8-jCl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9781.1594202898559" y="-9.375"/>
+        </scene>
+        <!--Friend Details View Controller-->
+        <scene sceneID="DMT-le-x5H">
+            <objects>
+                <viewController storyboardIdentifier="FriendDetailsVC" id="2X0-3d-zOf" customClass="FriendDetailsViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9RV-8Z-ced">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3L-iH-eje">
+                                <rect key="frame" x="164.5" y="194" width="85" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2K-hp-mGa">
+                                <rect key="frame" x="171.5" y="430" width="71" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qa-Rm-huS">
+                                <rect key="frame" x="158" y="718" width="98" height="44"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="Unfriend"/>
+                                <connections>
+                                    <action selector="unfriendButton:" destination="2X0-3d-zOf" eventType="touchUpInside" id="N3O-1F-rl7"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="r1I-dy-sCY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8qa-Rm-huS" firstAttribute="centerX" secondItem="9RV-8Z-ced" secondAttribute="centerX" id="0C6-Xx-tch"/>
+                            <constraint firstItem="b3L-iH-eje" firstAttribute="top" secondItem="r1I-dy-sCY" secondAttribute="top" constant="150" id="3sI-Cf-LHr"/>
+                            <constraint firstItem="v2K-hp-mGa" firstAttribute="centerY" secondItem="9RV-8Z-ced" secondAttribute="centerY" id="8SG-kB-MDM"/>
+                            <constraint firstItem="b3L-iH-eje" firstAttribute="centerX" secondItem="9RV-8Z-ced" secondAttribute="centerX" id="8ej-lI-sV8"/>
+                            <constraint firstItem="r1I-dy-sCY" firstAttribute="bottom" secondItem="8qa-Rm-huS" secondAttribute="bottom" constant="100" id="9sM-TT-qzA"/>
+                            <constraint firstItem="v2K-hp-mGa" firstAttribute="centerX" secondItem="9RV-8Z-ced" secondAttribute="centerX" id="YgP-Fk-Qwg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="name_label" destination="b3L-iH-eje" id="SZ3-NI-Puz"/>
+                        <outlet property="phone_number_label" destination="v2K-hp-mGa" id="SF2-wr-oyW"/>
+                        <outlet property="unfriend_button" destination="8qa-Rm-huS" id="ec0-eU-ZQQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="02d-pf-SDH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10481" y="-19"/>
         </scene>
         <!--Add Friends-->
         <scene sceneID="YKJ-6X-v9Y">

@@ -35,10 +35,17 @@ class HomeViewController: UIViewController, MGLMapViewDelegate {
     }
     func mapView(_ mapView: MGLMapView, didUpdate userLocation: MGLUserLocation?) {
         self.mapView?.updateUserLocationAnnotationView()
+        
+        let user_loc = userLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
+        
         if (!location_updated)
         {
-            self.mapView?.setCenter(userLocation?.coordinate ?? CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0), animated: false)
+            self.mapView?.setCenter(user_loc, animated: false)
             location_updated = true
         }
+        // Update user location on firebase
+        let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+        app_delegate.current_user!.setLocation(user_loc.latitude, user_loc.longitude)
+        try! app_delegate.current_user!.pushToFirebase()
     }
 }

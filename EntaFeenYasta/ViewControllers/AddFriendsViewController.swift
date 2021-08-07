@@ -11,22 +11,73 @@ import MessageUI
 import Firebase
 import FirebaseFirestoreSwift
 
-struct FetchedContact {
+class FetchedContact {
+    enum Status
+    {
+        case Myself
+        case Friend
+        case PendingFriend
+        case OnApp
+        case NotOnApp
+    }
     var firstName: String
     var lastName: String
     var telephone: String
+    var status : Status = .NotOnApp
+    var uid: String?
+    
+    init(firstN: String, lastN: String, tele: String)
+    {
+        firstName = firstN
+        lastName = lastN
+        telephone = tele
+    }
+    
+    func getStatus()
+    {
+        let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+        
+        let phone_last_10_digits = String(telephone.suffix(10))
+        let db = Firestore.firestore()
+        let user_db = db.collection("user_db")
+        user_db.whereField("phone_number_ten_digit", isEqualTo: phone_last_10_digits) .getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    self.uid = document.documentID
+                    if app_delegate.current_user!.isMyID(document.documentID)
+                    {
+                        self.status = .Myself
+                    }
+                    else if app_delegate.current_user!.isAFriend(document.documentID)
+                    {
+                        self.status = .Friend
+                    }
+                    else if app_delegate.current_user!.isAPendingFriend(document.documentID)
+                    {
+                        self.status = .PendingFriend
+                    }
+                    else
+                    {
+                        self.status = .OnApp
+                    }
+                }
+            }
+        }
+    }
 }
 
 class ContactTableViewCell: UITableViewCell {
     
-    private let db = Firestore.firestore()
+
     @IBOutlet weak var contact_name: UILabel!
-    
     @IBOutlet weak var invite_button: UIButton!
     
     var invite_button_completion : ((String, String) -> Void)?
     
     var phone_number : String?
+    var uid: String?
     
     @IBAction func inviteButton(_ sender: Any) {
         if let contact_name = contact_name.text {
@@ -37,48 +88,12 @@ class ContactTableViewCell: UITableViewCell {
             }
         }
     }
-    
-    func checkPhoneNumber()
+    func sendRequest(_ contact_name: String, _ phone_number: String) -> Void
     {
-
         let app_delegate =  UIApplication.shared.delegate as! AppDelegate
-        
-        let phone_last_10_digits = String(phone_number!.suffix(10))
-        let user_db = db.collection("user_db")
-        
-        user_db.whereField("phone_number_ten_digit", isEqualTo: phone_last_10_digits) .getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                var found_document = false
-                for document in querySnapshot!.documents {
-                    found_document = true
-                    print("last 10 digits \(phone_last_10_digits)")
-                    print("document Id found \(document.documentID)")
-                    if app_delegate.current_user!.isAFriend(document.documentID)
-                    {
-                        self.invite_button.isEnabled = false
-                        self.invite_button.setTitle("Friend", for: .disabled)
-                    }
-                    else
-                    {
-                        self.invite_button.isEnabled = true
-                        self.invite_button.setTitle("Send Request", for: .normal)
-                        self.invite_button_completion = {(contact_name, phone_num) -> Void in
-                            self.invite_button.isEnabled = false
-                            self.invite_button.setTitle("Request Sent", for: .disabled)
-                            app_delegate.current_user!.addPendingFriend(document.documentID)
-                        }
-                    }
-                }
-                if (!found_document)
-                {
-                    self.invite_button.isEnabled = true
-                    self.invite_button.setTitle("Invite", for: .normal)
-                    self.invite_button.setTitle("Invite", for: .disabled)
-                }
-            }
-        }
+        self.invite_button.isEnabled = false
+        self.invite_button.setTitle("Request Sent", for: .disabled)
+        app_delegate.current_user!.addPendingFriend(self.uid!)
     }
 }
 
@@ -121,7 +136,9 @@ class AddFriendsViewController: UITableViewController, MFMessageComposeViewContr
                 do {
                     // 3.
                     try store.enumerateContacts(with: request, usingBlock: { (contact, stopPointer) in
-                        self.contacts.append(FetchedContact(firstName: contact.givenName, lastName: contact.familyName, telephone: contact.phoneNumbers.first?.value.stringValue ?? ""))
+                        let fetched_contact = FetchedContact(firstN: contact.givenName, lastN: contact.familyName, tele: contact.phoneNumbers.first?.value.stringValue ?? "")
+                        fetched_contact.getStatus()
+                        self.contacts.append(fetched_contact)
                     })
                 } catch let error {
                     print("Failed to enumerate contact", error)
@@ -158,7 +175,31 @@ class AddFriendsViewController: UITableViewController, MFMessageComposeViewContr
         cell.invite_button_completion = self.presentMessegeVC
         cell.contact_name?.text = contact.firstName + " " + contact.lastName
         cell.phone_number = contact.telephone
-        cell.checkPhoneNumber()
+        cell.uid = contact.uid
+        
+        cell.invite_button.isEnabled = true
+        cell.invite_button.setTitle("Invite", for: .normal)
+        if (contact.status == .Myself)
+        {
+            cell.invite_button.isEnabled = false
+            cell.invite_button.setTitle("That's Me", for: .disabled)
+        }
+        else if contact.status == .Friend
+        {
+            cell.invite_button.isEnabled = false
+            cell.invite_button.setTitle("Friend", for: .disabled)
+        }
+        else if (contact.status == .PendingFriend)
+        {
+            cell.invite_button.isEnabled = false
+            cell.invite_button.setTitle("Request Sent", for: .disabled)
+        }
+        else if (contact.status == .OnApp)
+        {
+            cell.invite_button.isEnabled = true
+            cell.invite_button.setTitle("Send Request", for: .normal)
+            cell.invite_button_completion = cell.sendRequest
+        }
         
         return cell
     }
