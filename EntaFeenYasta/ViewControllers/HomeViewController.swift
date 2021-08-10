@@ -47,5 +47,7 @@ class HomeViewController: UIViewController, MGLMapViewDelegate {
         let app_delegate =  UIApplication.shared.delegate as! AppDelegate
         app_delegate.current_user!.setLocation(user_loc.latitude, user_loc.longitude)
         try! app_delegate.current_user!.pushToFirebase()
+        try! app_delegate.current_user!.populateFriends()
     }
+    
 }

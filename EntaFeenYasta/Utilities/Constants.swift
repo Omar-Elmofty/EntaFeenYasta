@@ -18,5 +18,6 @@ struct Constants {
         static let verify_code_view_controller = "VerifyVC"
         static let friends_view_controller = "FriendsVC"
         static let friend_details_view_controller = "FriendDetailsVC"
+        static let friend_requests_view_controller = "FriendRequestVC"
     }
 }

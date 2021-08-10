@@ -25,6 +25,7 @@
 		259392882691B03C004DD1B2 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392872691B03C004DD1B2 /* UserAuth.swift */; };
 		2593BBFD26BE16BA00A6AD87 /* AddFriendsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593BBFC26BE16B900A6AD87 /* AddFriendsButton.swift */; };
 		2593BBFF26BE16EF00A6AD87 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593BBFE26BE16EF00A6AD87 /* FriendsViewController.swift */; };
+		25972D6926C204550077B1D0 /* FriendRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25972D6826C204550077B1D0 /* FriendRequestsTableViewController.swift */; };
 		2599CB05269B681C00D6D7F8 /* DOBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599CB04269B681C00D6D7F8 /* DOBViewController.swift */; };
 		2599CB07269B686200D6D7F8 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599CB06269B686200D6D7F8 /* NameViewController.swift */; };
 		259DA65026A3557E00410219 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DA64F26A3557E00410219 /* PhoneViewController.swift */; };
@@ -97,6 +98,7 @@
 		259392872691B03C004DD1B2 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		2593BBFC26BE16B900A6AD87 /* AddFriendsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsButton.swift; sourceTree = "<group>"; };
 		2593BBFE26BE16EF00A6AD87 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		25972D6826C204550077B1D0 /* FriendRequestsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsTableViewController.swift; sourceTree = "<group>"; };
 		2599CB04269B681C00D6D7F8 /* DOBViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOBViewController.swift; sourceTree = "<group>"; };
 		2599CB06269B686200D6D7F8 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameViewController.swift; sourceTree = "<group>"; };
 		259DA64F26A3557E00410219 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				259DA65126A35B4A00410219 /* VerifyViewController.swift */,
 				2593BBFE26BE16EF00A6AD87 /* FriendsViewController.swift */,
 				25A142D526BF22B40055E021 /* FriendDetailsViewController.swift */,
+				25972D6826C204550077B1D0 /* FriendRequestsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				2586A355264DC1CC00DB3A99 /* ViewController.swift in Sources */,
 				25A79266269D175300151811 /* Constants.swift in Sources */,
 				2586A351264DC1CC00DB3A99 /* AppDelegate.swift in Sources */,
+				25972D6926C204550077B1D0 /* FriendRequestsTableViewController.swift in Sources */,
 				25A142D626BF22B40055E021 /* FriendDetailsViewController.swift in Sources */,
 				2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */,
 				2599CB07269B686200D6D7F8 /* NameViewController.swift in Sources */,

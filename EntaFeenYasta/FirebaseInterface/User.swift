@@ -19,7 +19,7 @@ struct UserInfo : Codable
     var phone_number_ten_digit : String
     var location : [Double] = [0,0]
     var image_name : String
-    var friends_ids : [String]
+    var friends_ids : Set<String>
     var pending_friends_ids : Set<String>
     var active_hangouts : Set<String>
 }
@@ -32,6 +32,8 @@ class User : MapMarker
     private let db = Firestore.firestore()
     private var friends_ : [String : User] = [:]
     private var pending_friends_ : [String : User] = [:]
+    private var friend_requests_ : Set<String> = []
+    private var friend_request_profiles_: [String : User] = [:]
     private var pull_successful_: Bool = false
     private var push_successful_: Bool = false
     
@@ -116,9 +118,9 @@ class User : MapMarker
              }
          }
     }
-    
     func populateFriends() throws
     {
+        cleanupPendingFriends()
         for friend_id in user_info_.friends_ids
         {
             if friends_[friend_id] != nil
@@ -143,6 +145,27 @@ class User : MapMarker
             }	
             pending_friends_[friend_id] = User(user_id: friend_id)
         }
+        for friend_id in friend_requests_
+        {
+            if user_info_.friends_ids.contains(friend_id)
+            {
+                if let index = friend_requests_.firstIndex(of: friend_id) {
+                    friend_requests_.remove(at: index)
+                }
+                friend_request_profiles_.removeValue(forKey: friend_id)
+                continue
+            }
+            if friend_request_profiles_[friend_id] != nil
+            {
+                // Update friends
+                friend_request_profiles_[friend_id]?.pullFromFirebase(completion: { user in
+                    return true
+                })
+                continue
+            }
+            friend_request_profiles_[friend_id] = User(user_id: friend_id)
+        }
+        populateFriendRequests()
     }
     func setUserName(_ user_name: String) {
         user_info_.name = user_name
@@ -181,7 +204,7 @@ class User : MapMarker
     }
 
     func getFriends() -> [String] {
-        return user_info_.friends_ids
+        return Array(user_info_.friends_ids)
     }
     func getLocation() -> [Double]
     {
@@ -227,5 +250,61 @@ class User : MapMarker
             user_info_.friends_ids.remove(at: index)
         }
         friends_.removeValue(forKey: friend_id)
+    }
+    func populateFriendRequests()
+    {
+        let user_db = db.collection("user_db")
+        user_db.whereField("pending_friends_ids", arrayContains: user_info_.id) .getDocuments {
+            (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        if !self.user_info_.friends_ids.contains(document.documentID)
+                        {
+                            self.friend_requests_.insert(document.documentID)
+                        }
+                    }
+                }
+        }
+    }
+    
+    func getNumOfFriendRequests() -> size_t
+    {
+        return friend_requests_.count
+    }
+    func getFriendRequests() -> [String]
+    {
+        return Array(friend_requests_)
+    }
+    func getFriendwithRequest(_ friend_id: String) -> User?
+    {
+        return friend_request_profiles_[friend_id]
+    }
+    func acceptFriendRequest(_ friend_id: String)
+    {
+        if let index = friend_requests_.firstIndex(of: friend_id) {
+            friend_requests_.remove(at: index)
+        }
+        friend_request_profiles_.removeValue(forKey: friend_id)
+        user_info_.friends_ids.insert(friend_id)
+    }
+    func cleanupPendingFriends()
+    {
+        var ids_to_remove: Set<String> = []
+        for (id, friend) in pending_friends_
+        {
+            if friend.isAFriend(user_info_.id)
+            {
+                ids_to_remove.insert(id)
+            }
+        }
+        for id in ids_to_remove
+        {
+            if let index = user_info_.pending_friends_ids.firstIndex(of: id) {
+                user_info_.pending_friends_ids.remove(at: index)
+            }
+            pending_friends_.removeValue(forKey: id)
+        }
     }
 }

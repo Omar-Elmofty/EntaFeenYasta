@@ -362,7 +362,7 @@ WHAT'S YOUR NAME?</string>
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Wns-ty-Dc9" kind="show" id="72w-Pq-kM3"/>
+                                    <segue destination="Wns-ty-Dc9" kind="show" id="CJd-hY-Oca"/>
                                 </connections>
                             </button>
                             <imageView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="super_boring_meeting" translatesAutoresizingMaskIntoConstraints="NO" id="4VO-he-LHs">
@@ -392,7 +392,7 @@ WHAT'S YOUR NAME?</string>
         <!--Friends-->
         <scene sceneID="F7N-rX-7ey">
             <objects>
-                <tableViewController storyboardIdentifier="FriendsVC" id="k64-b7-fnY" customClass="FriendsViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="k64-b7-fnY" customClass="FriendsViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8EM-CK-QF3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -451,6 +451,60 @@ WHAT'S YOUR NAME?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tQk-h8-jCl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9781.1594202898559" y="-9.375"/>
+        </scene>
+        <!--Friend Requests-->
+        <scene sceneID="3O6-QY-bEo">
+            <objects>
+                <tableViewController title="Friend Requests" id="Nag-CJ-Y9n" customClass="FriendRequestsTableViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="f70-RN-JVe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FriendRequestCell" id="TFY-L3-DF8" customClass="FriendRequestTableViewCell" customModule="EntaFeenYasta" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TFY-L3-DF8" id="lHg-Cb-0Ow">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3h-1p-XgB">
+                                            <rect key="frame" x="45" y="11.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnU-BU-E8P">
+                                            <rect key="frame" x="340" y="7" width="49" height="30"/>
+                                            <state key="normal" title="Accept"/>
+                                            <connections>
+                                                <action selector="acceptButton:" destination="TFY-L3-DF8" eventType="touchUpInside" id="tob-qM-hDa"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="B3h-1p-XgB" firstAttribute="centerY" secondItem="lHg-Cb-0Ow" secondAttribute="centerY" id="IUZ-fi-AXy"/>
+                                        <constraint firstItem="B3h-1p-XgB" firstAttribute="leading" secondItem="lHg-Cb-0Ow" secondAttribute="leadingMargin" constant="25" id="Irn-cA-Pbc"/>
+                                        <constraint firstAttribute="trailing" secondItem="PnU-BU-E8P" secondAttribute="trailing" constant="25" id="Lra-gb-j0p"/>
+                                        <constraint firstItem="PnU-BU-E8P" firstAttribute="centerY" secondItem="lHg-Cb-0Ow" secondAttribute="centerY" id="PY1-71-pZQ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="accept_button" destination="PnU-BU-E8P" id="VFJ-Xa-snR"/>
+                                    <outlet property="name_label" destination="B3h-1p-XgB" id="zpc-CB-xOs"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Nag-CJ-Y9n" id="Am5-gD-bdZ"/>
+                            <outlet property="delegate" destination="Nag-CJ-Y9n" id="BHd-dh-48i"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Friend Requests" id="Zem-jO-Yoz"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9JJ-UQ-9PG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10708.695652173914" y="634.82142857142856"/>
         </scene>
         <!--Friend Details View Controller-->
         <scene sceneID="DMT-le-x5H">
@@ -594,7 +648,7 @@ WHAT'S YOUR NAME?</string>
         <!--Navigation Controller-->
         <scene sceneID="eHj-Bs-BUp">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wns-ty-Dc9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FriendsVC" automaticallyAdjustsScrollViewInsets="NO" id="Wns-ty-Dc9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="BjI-IQ-3jq"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jKI-nk-cdc">
@@ -609,6 +663,24 @@ WHAT'S YOUR NAME?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6w0-cw-bOa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8871.0144927536239" y="-9.375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="I0N-wt-gci">
+            <objects>
+                <navigationController storyboardIdentifier="FriendRequestVC" automaticallyAdjustsScrollViewInsets="NO" id="TRa-RN-DhX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0ne-AW-aRh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Nag-CJ-Y9n" kind="relationship" relationship="rootViewController" id="Qh1-p8-FaI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ly-9x-f7M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9798.5507246376819" y="634.82142857142856"/>
         </scene>
     </scenes>
     <resources>

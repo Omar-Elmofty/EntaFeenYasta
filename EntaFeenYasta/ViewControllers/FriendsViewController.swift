@@ -25,28 +25,38 @@ class FriendTableViewCell: UITableViewCell {
     
 }
 
-
 class FriendsViewController: UITableViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-//        let item = self.navigationItem.rightBarButtonItem!
-//        let button = item.customView as! UIButton
-//        button.setTitle("Add Friends", for: .normal)
-//        self.navigationItem.rightBarButtonItem!.action = #selector(self.myRightSideBarButtonItemTapped(_:))
         let rightBarButton = UIBarButtonItem(title: "Add Friends", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.myRightSideBarButtonItemTapped(_:)))
         self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        let leftBarButton = UIBarButtonItem(title: "Friend Requests", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.myLeftSideBarButtonItemTapped(_:)))
+        
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        
+        let backBarButton = UIBarButtonItem(title: "Back", style: UIBarButtonItem.Style.plain, target: self, action: #selector(self.myLeftSideBarButtonItemTapped(_:)))
+        
+        self.navigationItem.backBarButtonItem = backBarButton
     }
-
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        if let coordinator = navigationController.topViewController?.transitionCoordinator {
+            coordinator.notifyWhenInteractionChanges({ (context) in
+                print("Is cancelled: \(context.isCancelled)")
+            })
+        }
+    }
+    
     @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
     {
         let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.add_friends_view_controller)
+        present(vc!, animated: true, completion: nil)
+    }
+    
+    @objc func myLeftSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
+    {
+        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.friend_requests_view_controller)
         present(vc!, animated: true, completion: nil)
     }
 
@@ -90,5 +100,8 @@ class FriendsViewController: UITableViewController {
         vc.friend_id = friend_id
 
         present(vc, animated: true, completion: nil)
-    }        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 }
