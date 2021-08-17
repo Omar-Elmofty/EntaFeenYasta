@@ -25,7 +25,9 @@ class LocationSearchTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.allowsSelection = true
     }
 
     // MARK: - Table view data source
@@ -95,44 +97,18 @@ extension LocationSearchTableViewController : UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let mapView = mapView,
             let searchBarText = searchController.searchBar.text else { return }
-        let request = MKLocalSearch.Request()
         searchCompleter.queryFragment = searchBarText
         searchCompleter.region = mapView.region
-        
-        request.naturalLanguageQuery = searchBarText
-        request.region = mapView.region
-        
-        print("HEEERRREE")
-//        let categories = MKPointOfInterestCategory(rawValue:)
-//        request.pointOfInterestFilter = MKPointOfInterestFilter(including: [categories])
-        let search = MKLocalSearch(request: request)
-//        request.resultTypes = MKLocalSearch.ResultType.pointOfInterest
-//        let searchRequest = MKLocalSearch.Request()
-//        let search = MKLocalSearch(request: searchRequest)
-
-        search.start { response, _ in
-            guard let response = response else {
-                return
-            }
-            self.matchingItems = response.mapItems
-            print(self.matchingItems.count)
-            self.tableView.reloadData()
-        }
     }
 }
 
 
 extension LocationSearchTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return matchingItems.count
         return searchResults.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell  {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LocationSearchCell")!
-//        let selectedItem = matchingItems[indexPath.row].placemark
-//        cell.textLabel?.text = selectedItem.name
-//        let address = "\(selectedItem.subThoroughfare ?? ""), \(selectedItem.thoroughfare ?? ""), \(selectedItem.locality ?? ""), \(selectedItem.administrativeArea ?? ""), \(selectedItem.postalCode ?? ""), \(selectedItem.country ?? "")"
-//        cell.detailTextLabel?.text = address
         let searchResult = searchResults[indexPath.row]
         cell.textLabel?.text = searchResult.title
         cell.detailTextLabel?.text = searchResult.subtitle
@@ -141,10 +117,22 @@ extension LocationSearchTableViewController {
 }
 
 extension LocationSearchTableViewController {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedItem = matchingItems[indexPath.row].placemark
-        handleMapSearchDelegate?.dropPinZoomIn(placemark: selectedItem)
-        dismiss(animated: true, completion: nil)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedItem = searchResults[indexPath.row]
+        let searchRequest = MKLocalSearch.Request(completion: selectedItem)
+        let search = MKLocalSearch(request: searchRequest)
+        search.start { (response, error) in
+            if error != nil {
+                print("Error encountered \(String(describing: error?.localizedDescription))")
+            }
+            if let response = response
+            {
+                self.handleMapSearchDelegate?.dropPinZoomIn(placemark: response.mapItems[0].placemark)
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }
+        
     }
 }
 
@@ -152,11 +140,10 @@ extension LocationSearchTableViewController: MKLocalSearchCompleterDelegate {
 
     func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
         searchResults = completer.results
-        print("HEEEEELLL")
         tableView.reloadData()
     }
 
     func completer(completer: MKLocalSearchCompleter, didFailWithError error: NSError) {
-        // handle error
+        print("Error encountered \(error.localizedDescription)")
     }
 }

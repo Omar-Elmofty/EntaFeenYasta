@@ -592,10 +592,6 @@ WHAT'S YOUR NAME?</string>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="aXN-7X-tty" id="x3M-U6-Xqh"/>
-                            <outlet property="delegate" destination="aXN-7X-tty" id="7vk-H2-eaN"/>
-                        </connections>
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKI-0r-FIB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
