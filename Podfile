@@ -7,6 +7,8 @@ target 'EntaFeenYasta' do
 
   # Pods for EntaFeenYasta
   pod 'MapboxNavigation', '~> 1.4'
+  pod 'MapboxSearch', ">= 0.0.0-beta.10", "< 2.0"
+  pod 'MapboxSearchUI', ">= 0.0.0-beta.10", "< 2.0"
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'

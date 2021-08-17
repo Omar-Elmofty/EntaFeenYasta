@@ -119,6 +119,7 @@ class AddFriendsViewController: UITableViewController, MFMessageComposeViewContr
         searchController.searchBar.placeholder = "Search Contacts"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func fetchContacts() {

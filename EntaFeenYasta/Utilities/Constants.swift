@@ -19,5 +19,9 @@ struct Constants {
         static let friends_view_controller = "FriendsVC"
         static let friend_details_view_controller = "FriendDetailsVC"
         static let friend_requests_view_controller = "FriendRequestVC"
+        static let new_hangout_view_controller = "NewHangoutVC"
+        static let hangout_first_page_view_controller = "HangoutFirstPageVC"
+        static let hangout_pick_location_view_controller = "PickLocationVC"
+        static let location_search_view_controller = "LocationSearchVC"
     }
 }

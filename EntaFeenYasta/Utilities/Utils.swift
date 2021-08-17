@@ -38,10 +38,11 @@ class Utilities {
     static func styleHollowButton(_ button:UIButton) {
         
         // Hollow rounded corner style
+        button.backgroundColor = nil
         button.layer.borderWidth = 2
         button.layer.borderColor = CGColor.init(red: 222/255, green: 177/255, blue: 54/255, alpha: 1)
         button.layer.cornerRadius = 25.0
-        button.tintColor = UIColor.black
+        button.tintColor = UIColor.white
         button.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
     }
 

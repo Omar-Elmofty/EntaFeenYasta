@@ -11,6 +11,7 @@
 		25055182265A5711005250F5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25055181265A5711005250F5 /* User.swift */; };
 		25055184265AD313005250F5 /* UserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25055183265AD313005250F5 /* UserDatabase.swift */; };
 		254CDB0D266B94130024F264 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 254CDB0C266B94130024F264 /* GoogleService-Info.plist */; };
+		25534CCD26C995F900D310CF /* NewHangoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25534CCC26C995F900D310CF /* NewHangoutViewController.swift */; };
 		257676BD2659556E0087C3C9 /* ETAEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257676BC2659556E0087C3C9 /* ETAEstimator.swift */; };
 		2586A351264DC1CC00DB3A99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A350264DC1CC00DB3A99 /* AppDelegate.swift */; };
 		2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A352264DC1CC00DB3A99 /* SceneDelegate.swift */; };
@@ -21,7 +22,6 @@
 		2586A368264DC1DE00DB3A99 /* EntaFeenYastaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A367264DC1DE00DB3A99 /* EntaFeenYastaTests.swift */; };
 		2586A373264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A372264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift */; };
 		259392822691A3CF004DD1B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392812691A3CF004DD1B2 /* HomeViewController.swift */; };
-		259392842691A4BF004DD1B2 /* NewHangoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */; };
 		259392882691B03C004DD1B2 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392872691B03C004DD1B2 /* UserAuth.swift */; };
 		2593BBFD26BE16BA00A6AD87 /* AddFriendsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593BBFC26BE16B900A6AD87 /* AddFriendsButton.swift */; };
 		2593BBFF26BE16EF00A6AD87 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593BBFE26BE16EF00A6AD87 /* FriendsViewController.swift */; };
@@ -35,6 +35,9 @@
 		25A7926A269D1CD300151811 /* UIViewControllerExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */; };
 		25A7926C269D2EE900151811 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A7926B269D2EE900151811 /* AddFriendsViewController.swift */; };
 		25B1BECE269E79DA000F5494 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B1BECD269E79DA000F5494 /* SignUpViewController.swift */; };
+		25C5F71426CB2A15004640F0 /* HangoutFirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C5F71326CB2A15004640F0 /* HangoutFirstPageViewController.swift */; };
+		25C5F71626CB41BD004640F0 /* HangoutPickLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C5F71526CB41BD004640F0 /* HangoutPickLocationViewController.swift */; };
+		25C5F71826CB4CD1004640F0 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C5F71726CB4CD1004640F0 /* LocationSearchTableViewController.swift */; };
 		25C6EDD5265FA095000C3151 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C6EDD4265FA095000C3151 /* Utils.swift */; };
 		25F9B514265179360050FECD /* AttributeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B513265179360050FECD /* AttributeHandler.swift */; };
 		25F9B5162651799A0050FECD /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F9B5152651799A0050FECD /* MapMarker.swift */; };
@@ -78,6 +81,7 @@
 		25055181265A5711005250F5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		25055183265AD313005250F5 /* UserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabase.swift; sourceTree = "<group>"; };
 		254CDB0C266B94130024F264 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		25534CCC26C995F900D310CF /* NewHangoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHangoutViewController.swift; sourceTree = "<group>"; };
 		257676BC2659556E0087C3C9 /* ETAEstimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETAEstimator.swift; sourceTree = "<group>"; };
 		2586A34D264DC1CC00DB3A99 /* EntaFeenYasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EntaFeenYasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2586A350264DC1CC00DB3A99 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,7 +98,6 @@
 		2586A372264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntaFeenYastaUITests.swift; sourceTree = "<group>"; };
 		2586A374264DC1DE00DB3A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		259392812691A3CF004DD1B2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHangoutViewController.swift; sourceTree = "<group>"; };
 		259392872691B03C004DD1B2 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		2593BBFC26BE16B900A6AD87 /* AddFriendsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsButton.swift; sourceTree = "<group>"; };
 		2593BBFE26BE16EF00A6AD87 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +111,9 @@
 		25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtenstion.swift; sourceTree = "<group>"; };
 		25A7926B269D2EE900151811 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
 		25B1BECD269E79DA000F5494 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		25C5F71326CB2A15004640F0 /* HangoutFirstPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutFirstPageViewController.swift; sourceTree = "<group>"; };
+		25C5F71526CB41BD004640F0 /* HangoutPickLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutPickLocationViewController.swift; sourceTree = "<group>"; };
+		25C5F71726CB4CD1004640F0 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
 		25C6EDD4265FA095000C3151 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		25F9B513265179360050FECD /* AttributeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeHandler.swift; sourceTree = "<group>"; };
 		25F9B5152651799A0050FECD /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
@@ -154,7 +160,6 @@
 				2599CB04269B681C00D6D7F8 /* DOBViewController.swift */,
 				2586A354264DC1CC00DB3A99 /* ViewController.swift */,
 				259392812691A3CF004DD1B2 /* HomeViewController.swift */,
-				259392832691A4BF004DD1B2 /* NewHangoutViewController.swift */,
 				25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */,
 				25A7926B269D2EE900151811 /* AddFriendsViewController.swift */,
 				25B1BECD269E79DA000F5494 /* SignUpViewController.swift */,
@@ -163,6 +168,10 @@
 				2593BBFE26BE16EF00A6AD87 /* FriendsViewController.swift */,
 				25A142D526BF22B40055E021 /* FriendDetailsViewController.swift */,
 				25972D6826C204550077B1D0 /* FriendRequestsTableViewController.swift */,
+				25534CCC26C995F900D310CF /* NewHangoutViewController.swift */,
+				25C5F71326CB2A15004640F0 /* HangoutFirstPageViewController.swift */,
+				25C5F71526CB41BD004640F0 /* HangoutPickLocationViewController.swift */,
+				25C5F71726CB4CD1004640F0 /* LocationSearchTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -493,9 +502,10 @@
 				2599CB07269B686200D6D7F8 /* NameViewController.swift in Sources */,
 				25F9B527265182D70050FECD /* ErrorHandling.swift in Sources */,
 				259DA65026A3557E00410219 /* PhoneViewController.swift in Sources */,
+				25C5F71826CB4CD1004640F0 /* LocationSearchTableViewController.swift in Sources */,
 				25A7926A269D1CD300151811 /* UIViewControllerExtenstion.swift in Sources */,
 				25F9B5162651799A0050FECD /* MapMarker.swift in Sources */,
-				259392842691A4BF004DD1B2 /* NewHangoutViewController.swift in Sources */,
+				25C5F71426CB2A15004640F0 /* HangoutFirstPageViewController.swift in Sources */,
 				259392882691B03C004DD1B2 /* UserAuth.swift in Sources */,
 				2593BBFD26BE16BA00A6AD87 /* AddFriendsButton.swift in Sources */,
 				25055182265A5711005250F5 /* User.swift in Sources */,
@@ -503,6 +513,8 @@
 				257676BD2659556E0087C3C9 /* ETAEstimator.swift in Sources */,
 				25C6EDD5265FA095000C3151 /* Utils.swift in Sources */,
 				2593BBFF26BE16EF00A6AD87 /* FriendsViewController.swift in Sources */,
+				25C5F71626CB41BD004640F0 /* HangoutPickLocationViewController.swift in Sources */,
+				25534CCD26C995F900D310CF /* NewHangoutViewController.swift in Sources */,
 				25B1BECE269E79DA000F5494 /* SignUpViewController.swift in Sources */,
 				25055180265A5584005250F5 /* Hangout.swift in Sources */,
 				25F9B514265179360050FECD /* AttributeHandler.swift in Sources */,

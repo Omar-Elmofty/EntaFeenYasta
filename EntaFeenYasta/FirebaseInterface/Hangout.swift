@@ -20,20 +20,22 @@ struct HangoutInfo : Codable
     var type : String
     var location : [Double]
     var image_name : String
+    var date : String
+    var time : String
     // Map of the users in this hangout session [user_id, user_priviliges]
     var users : [String: String]
     var users_eta : [String : TimeInterval]
     
-    enum CodingKeys: String, CodingKey {
-      // Add alternative key name here
-      case id  // = "document_id" example document_id is an alternative key name to id
-      case name
-      case type
-      case location
-      case image_name
-      case users
-      case users_eta
-    }
+//    enum CodingKeys: String, CodingKey {
+//      // Add alternative key name here
+//      case id  // = "document_id" example document_id is an alternative key name to id
+//      case name
+//      case type
+//      case location
+//      case image_name
+//      case users
+//      case users_eta
+//    }
 }
 
 /**
@@ -58,6 +60,16 @@ class Hangout : MapMarker
         super.init()
         setMarkerData(marker_name: hangout_info_.name, marker_type: "hangout", image_name: hangout_info_.image_name, location: (lattitude: hangout_info_.location[0], longtitude: hangout_info_.location[1]))
         try! pushToFirebase()
+    }
+    
+    /**
+     * @brief Contructor.
+     */
+    override init()
+    {
+        // Initalize an empty struct
+        hangout_info_ = HangoutInfo(id: "", name: "", type: "", location: [], image_name: "", date: "", time: "", users: [:], users_eta: [:])
+        super.init()
     }
     /**
      * @brief Push to firebase.
@@ -186,5 +198,29 @@ class Hangout : MapMarker
     func getLocation() -> [Double]
     {
         return hangout_info_.location
+    }
+    
+    func setPrivateStatus(_ is_private: Bool)
+    {
+        if (is_private)
+        {
+            hangout_info_.type = "private"
+        }
+        else
+        {
+            hangout_info_.type = "public"
+        }
+    }
+    func setName(_ name: String)
+    {
+        hangout_info_.name = name
+    }
+    func setDate(_ date: String)
+    {
+        hangout_info_.date = date
+    }
+    func setTime(_ time: String)
+    {
+        hangout_info_.time = time
     }
 }
