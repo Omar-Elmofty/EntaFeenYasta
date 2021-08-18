@@ -8,14 +8,19 @@
 import UIKit
 import MapKit
 protocol HandleMapSearch {
-    func dropPinZoomIn(placemark:MKPlacemark)
+    func dropPinZoomIn(placemark:MKPlacemark, center_view: Bool)
 }
 
-class HangoutPickLocationViewController: UIViewController, MKMapViewDelegate {
+class HangoutPickLocationViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDelegate {
+
+    @IBOutlet weak var secondary_address_label: UILabel!
+    @IBOutlet weak var location_result_view: UIView!
+    @IBOutlet weak var primary_address_label: UILabel!
     let locationManager = CLLocationManager()
     var mapView: MKMapView!
     var resultSearchController:UISearchController? = nil
     var selectedPin:MKPlacemark? = nil
+    var current_location: CLLocation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +40,7 @@ class HangoutPickLocationViewController: UIViewController, MKMapViewDelegate {
 
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
-        mapView.showsUserLocation = false
+        mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: false)
         mapView.isPitchEnabled = false
         mapView.isRotateEnabled = false
@@ -55,6 +60,40 @@ class HangoutPickLocationViewController: UIViewController, MKMapViewDelegate {
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
         
+        // Hide the view for now, will enable when needed
+        location_result_view.isHidden = true
+        locationSearchTable.location_result_view = location_result_view
+//        view.isUserInteractionEnabled = true
+//        mapView.isUserInteractionEnabled = true
+//        location_result_view.isUserInteractionEnabled = true
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self,action: #selector(dismissLocationResultView))
+        gestureRecognizer.cancelsTouchesInView = false
+        gestureRecognizer.delegate = self
+        view.addGestureRecognizer(gestureRecognizer)
+    }
+    func mapView(_: MKMapView, didSelect: MKAnnotationView)
+    {
+        let annotation = didSelect.annotation
+        primary_address_label.text = annotation?.title ?? nil
+        secondary_address_label.text = annotation?.subtitle ?? nil
+        location_result_view.isHidden = false
+    }
+    
+    @IBAction func acceptButton(_ sender: Any) {
+        dismiss(animated: true) {
+        }
+    }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
+                           shouldReceive touch: UITouch) -> Bool {
+      return (touch.view != location_result_view)
+    }
+    @objc func dismissLocationResultView() {
+        if (!location_result_view.isHidden)
+        {
+            location_result_view.isHidden = true
+        }
     }
 }
 
@@ -67,10 +106,7 @@ extension HangoutPickLocationViewController : CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
-//            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-//            let region = MKCoordinateRegion(center: location.coordinate, span: span)
-//            mapView.setRegion(region, animated: true)
-//            print("HEEHHEHEHHE")
+            current_location = location
         }
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -79,11 +115,11 @@ extension HangoutPickLocationViewController : CLLocationManagerDelegate {
 }
 
 extension HangoutPickLocationViewController: HandleMapSearch {
-    func dropPinZoomIn(placemark:MKPlacemark){
+    
+    func dropPinZoomIn(placemark:MKPlacemark, center_view: Bool){
         // cache the pin
         selectedPin = placemark
         // clear existing pins
-        mapView.removeAnnotations(mapView.annotations)
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
@@ -91,8 +127,24 @@ extension HangoutPickLocationViewController: HandleMapSearch {
             annotation.subtitle = "\(city) \(state)"
         }
         mapView.addAnnotation(annotation)
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
-        mapView.setRegion(region, animated: true)
+        if (center_view)
+        {
+            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
+            mapView.setRegion(region, animated: true)
+            self.primary_address_label.text = annotation.title
+            self.secondary_address_label.text = annotation.subtitle
+            self.location_result_view!.isHidden = false
+        }
+        else
+        {
+            if let current_location = current_location
+            {
+                print("Setting current Location")
+                let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                let region = MKCoordinateRegion(center: current_location.coordinate, span: span)
+                mapView.setRegion(region, animated: true)
+            }
+        }
     }
 }

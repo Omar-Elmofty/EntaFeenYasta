@@ -15,6 +15,7 @@ class LocationSearchTableViewController: UITableViewController {
     var handleMapSearchDelegate:HandleMapSearch? = nil
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
+    var location_result_view: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,12 +128,21 @@ extension LocationSearchTableViewController {
             }
             if let response = response
             {
-                self.handleMapSearchDelegate?.dropPinZoomIn(placemark: response.mapItems[0].placemark)
+                self.mapView!.removeAnnotations(self.mapView!.annotations)
                 self.dismiss(animated: true, completion: nil)
+
+                if (response.mapItems.count == 1)
+                {
+                    self.handleMapSearchDelegate?.dropPinZoomIn(placemark: response.mapItems[0].placemark, center_view: true)
+                    return
+                }
+                for item in response.mapItems
+                {
+                    self.handleMapSearchDelegate?.dropPinZoomIn(placemark: item.placemark, center_view: false)
+                }
+                
             }
-            
         }
-        
     }
 }
 

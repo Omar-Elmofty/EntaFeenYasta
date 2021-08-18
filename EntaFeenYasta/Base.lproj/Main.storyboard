@@ -549,10 +549,66 @@ WHAT'S YOUR NAME?</string>
                     <view key="view" contentMode="scaleToFill" id="VZf-Tt-7s2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZj-aj-w60">
+                                <rect key="frame" x="25" y="683" width="364" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HT-Ot-ozy">
+                                        <rect key="frame" x="25" y="10" width="200" height="31.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="wVX-8L-P7g"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPj-15-uc5">
+                                        <rect key="frame" x="25" y="46" width="250" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="5Yv-dd-UAH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uz-8h-lme">
+                                        <rect key="frame" x="289" y="20" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="J83-d8-ODc"/>
+                                            <constraint firstAttribute="width" constant="50" id="hSa-Lp-Ggu"/>
+                                        </constraints>
+                                        <state key="normal" title="Accept"/>
+                                        <connections>
+                                            <action selector="acceptButton:" destination="foX-01-vTz" eventType="touchUpInside" id="bJp-FN-2Wa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0uz-8h-lme" secondAttribute="bottom" constant="30" id="Djb-ci-Cog"/>
+                                    <constraint firstItem="0HT-Ot-ozy" firstAttribute="leading" secondItem="JZj-aj-w60" secondAttribute="leading" constant="25" id="FcC-W8-Aw6"/>
+                                    <constraint firstAttribute="height" constant="100" id="FyD-G2-F5r"/>
+                                    <constraint firstAttribute="bottom" secondItem="PPj-15-uc5" secondAttribute="bottom" constant="30" id="NKI-th-fDe"/>
+                                    <constraint firstItem="PPj-15-uc5" firstAttribute="leading" secondItem="JZj-aj-w60" secondAttribute="leading" constant="25" id="Qvn-xO-Jzd"/>
+                                    <constraint firstAttribute="trailing" secondItem="0uz-8h-lme" secondAttribute="trailing" constant="25" id="rUc-Nj-2iZ"/>
+                                    <constraint firstItem="0HT-Ot-ozy" firstAttribute="top" secondItem="JZj-aj-w60" secondAttribute="top" constant="10" id="wUC-Y5-vTP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="f67-Hv-Ist"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JZj-aj-w60" firstAttribute="leading" secondItem="f67-Hv-Ist" secondAttribute="leading" constant="25" id="btb-mk-2V1"/>
+                            <constraint firstItem="f67-Hv-Ist" firstAttribute="trailing" secondItem="JZj-aj-w60" secondAttribute="trailing" constant="25" id="ivh-9b-QNJ"/>
+                            <constraint firstItem="f67-Hv-Ist" firstAttribute="bottom" secondItem="JZj-aj-w60" secondAttribute="bottom" constant="25" id="yP8-hK-d9o"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Hangout Location" id="C58-ha-ztq"/>
+                    <connections>
+                        <outlet property="location_result_view" destination="JZj-aj-w60" id="NNx-7V-dah"/>
+                        <outlet property="primary_address_label" destination="0HT-Ot-ozy" id="g5s-vD-8AB"/>
+                        <outlet property="secondary_address_label" destination="PPj-15-uc5" id="Ztx-rM-ktg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J9j-RY-IyN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
