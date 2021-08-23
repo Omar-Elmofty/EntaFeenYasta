@@ -13,17 +13,27 @@ protocol HandleMapSearch {
 
 class HangoutPickLocationViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDelegate {
 
+    @IBOutlet weak var accept_button: UIButton!
     @IBOutlet weak var secondary_address_label: UILabel!
     @IBOutlet weak var location_result_view: UIView!
     @IBOutlet weak var primary_address_label: UILabel!
+    private var selected_location: String = ""
     let locationManager = CLLocationManager()
     var mapView: MKMapView!
     var resultSearchController:UISearchController? = nil
     var selectedPin:MKPlacemark? = nil
     var current_location: CLLocation?
+    var update_location_completion: ((String) -> Void)?
     
     override func viewDidLoad() {
+        print("Herereerere")
+        if update_location_completion == nil {
+            print("Yanhar abyad")
+        }
         super.viewDidLoad()
+        if update_location_completion == nil {
+            print("Yanhar abyad")
+        }
 
         // Do any additional setup after loading the view.
         locationManager.delegate = self
@@ -71,19 +81,24 @@ class HangoutPickLocationViewController: UIViewController, MKMapViewDelegate, UI
         gestureRecognizer.cancelsTouchesInView = false
         gestureRecognizer.delegate = self
         view.addGestureRecognizer(gestureRecognizer)
+        
+        Utilities.styleFilledButton(accept_button)
     }
     func mapView(_: MKMapView, didSelect: MKAnnotationView)
     {
         let annotation = didSelect.annotation
         primary_address_label.text = annotation?.title ?? nil
         secondary_address_label.text = annotation?.subtitle ?? nil
+
+        if let first = primary_address_label.text {
+            selected_location = first
+            if let second = secondary_address_label.text {
+                selected_location += ", " + second
+            }
+        }
         location_result_view.isHidden = false
     }
     
-    @IBAction func acceptButton(_ sender: Any) {
-        dismiss(animated: true) {
-        }
-    }
 
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer,
                            shouldReceive touch: UITouch) -> Bool {
@@ -93,6 +108,16 @@ class HangoutPickLocationViewController: UIViewController, MKMapViewDelegate, UI
         if (!location_result_view.isHidden)
         {
             location_result_view.isHidden = true
+        }
+    }
+    @IBAction func acceptButton(_ sender: Any) {
+        dismiss(animated: true) {
+        }
+        if let update_location_completion = update_location_completion {
+            update_location_completion(selected_location)
+        }
+        else {
+            print("ERRRRROROOOOORRR")
         }
     }
 }
@@ -134,6 +159,13 @@ extension HangoutPickLocationViewController: HandleMapSearch {
             mapView.setRegion(region, animated: true)
             self.primary_address_label.text = annotation.title
             self.secondary_address_label.text = annotation.subtitle
+            if let first = self.primary_address_label.text {
+                selected_location = first
+                if let second = self.secondary_address_label.text {
+                    selected_location += ", " + second
+                }
+            }
+            
             self.location_result_view!.isHidden = false
         }
         else

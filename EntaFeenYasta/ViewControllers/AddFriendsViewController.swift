@@ -108,6 +108,7 @@ class AddFriendsViewController: UITableViewController, MFMessageComposeViewContr
     var isSearchBarEmpty: Bool {
       return searchController.searchBar.text?.isEmpty ?? true
     }
+    var friends_table_view: UITableView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -201,7 +202,6 @@ class AddFriendsViewController: UITableViewController, MFMessageComposeViewContr
             cell.invite_button.setTitle("Send Request", for: .normal)
             cell.invite_button_completion = cell.sendRequest
         }
-        
         return cell
     }
     

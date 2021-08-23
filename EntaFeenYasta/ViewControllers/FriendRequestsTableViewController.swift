@@ -10,6 +10,7 @@ import UIKit
 
 class FriendRequestTableViewCell: UITableViewCell {
     
+    var friends_table_view: UITableView?
     @IBOutlet weak var name_label: UILabel!
     var friend_id: String?
     @IBOutlet weak var accept_button: UIButton!
@@ -20,12 +21,15 @@ class FriendRequestTableViewCell: UITableViewCell {
             app_delegate.current_user!.acceptFriendRequest(friend_id)
             accept_button.isEnabled = false
             accept_button.setTitle("Request Accepted", for: .disabled)
+            if let friends_table_view = friends_table_view {
+                friends_table_view.reloadData()
+            }
         }
     }
 }
 
 class FriendRequestsTableViewController: UITableViewController {
-
+    var friends_table_view: UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -64,6 +68,7 @@ class FriendRequestsTableViewController: UITableViewController {
             cell.name_label!.text = friend.getName()
             cell.friend_id = id
         }
+        cell.friends_table_view = friends_table_view
         return cell
     }
 }

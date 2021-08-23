@@ -225,7 +225,7 @@ class User : MapMarker
     }
     func getNumOfFriends() -> size_t
     {
-        return user_info_.friends_ids.count
+        return friends_.count
     }
     func getFriend(_ friend_id: String) -> User?
     {
@@ -271,7 +271,7 @@ class User : MapMarker
     
     func getNumOfFriendRequests() -> size_t
     {
-        return friend_requests_.count
+        return friend_request_profiles_.count
     }
     func getFriendRequests() -> [String]
     {
@@ -285,6 +285,9 @@ class User : MapMarker
     {
         if let index = friend_requests_.firstIndex(of: friend_id) {
             friend_requests_.remove(at: index)
+        }
+        if friend_request_profiles_[friend_id] != nil {
+            friends_[friend_id] = friend_request_profiles_[friend_id]
         }
         friend_request_profiles_.removeValue(forKey: friend_id)
         user_info_.friends_ids.insert(friend_id)

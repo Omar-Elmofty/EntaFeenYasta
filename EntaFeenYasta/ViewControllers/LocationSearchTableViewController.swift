@@ -29,6 +29,7 @@ class LocationSearchTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.allowsSelection = true
+        
     }
 
     // MARK: - Table view data source

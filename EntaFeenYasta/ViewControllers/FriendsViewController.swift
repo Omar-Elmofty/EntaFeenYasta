@@ -50,14 +50,18 @@ class FriendsViewController: UITableViewController {
     
     @objc func myRightSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
     {
-        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.add_friends_view_controller)
-        present(vc!, animated: true, completion: nil)
+        let nc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.add_friends_view_controller) as! UINavigationController
+        let vc = nc.viewControllers[0] as! AddFriendsViewController
+        vc.friends_table_view = tableView
+        present(nc, animated: true, completion: nil)
     }
     
     @objc func myLeftSideBarButtonItemTapped(_ sender:UIBarButtonItem!)
     {
-        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.friend_requests_view_controller)
-        present(vc!, animated: true, completion: nil)
+        let nc = storyboard!.instantiateViewController(withIdentifier: Constants.Storyboard.friend_requests_view_controller) as! UINavigationController
+        let vc = nc.viewControllers[0] as! FriendRequestsTableViewController
+        vc.friends_table_view = tableView
+        present(nc, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -98,7 +102,7 @@ class FriendsViewController: UITableViewController {
     {
         let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.friend_details_view_controller) as! FriendDetailsViewController
         vc.friend_id = friend_id
-
+        vc.friends_table_view = tableView
         present(vc, animated: true, completion: nil)
     }
     override func viewDidAppear(_ animated: Bool) {

@@ -238,8 +238,8 @@ WHAT'S YOUR NAME?</string>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="I NEED YOUR PHONE NUMBER TO IDENTIFY YOU" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIv-WY-8PK">
-                                <rect key="frame" x="20" y="244" width="374" height="89"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I NEED YOUR PHONE NUMBER TO IDENTIFY YOU" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIv-WY-8PK">
+                                <rect key="frame" x="20" y="269.5" width="374" height="58.5"/>
                                 <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="23"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -353,11 +353,11 @@ WHAT'S YOUR NAME?</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnC-rO-0aS">
-                                <rect key="frame" x="30" y="74" width="60" height="30"/>
+                                <rect key="frame" x="10" y="54" width="100" height="50"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="EEZ-lX-KgS"/>
-                                    <constraint firstAttribute="width" constant="60" id="PIH-tY-EBq"/>
+                                    <constraint firstAttribute="height" constant="50" id="EEZ-lX-KgS"/>
+                                    <constraint firstAttribute="width" constant="100" id="PIH-tY-EBq"/>
                                 </constraints>
                                 <state key="normal" title="Friends">
                                     <color key="titleColor" systemColor="labelColor"/>
@@ -377,7 +377,7 @@ WHAT'S YOUR NAME?</string>
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
                                 </state>
                                 <connections>
-                                    <segue destination="TQc-AI-4YU" kind="show" id="Hmo-i3-Y58"/>
+                                    <segue destination="EkA-sJ-5yZ" kind="show" id="Hmo-i3-Y58"/>
                                 </connections>
                             </button>
                             <imageView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="super_boring_meeting" translatesAutoresizingMaskIntoConstraints="NO" id="4VO-he-LHs">
@@ -391,8 +391,8 @@ WHAT'S YOUR NAME?</string>
                         <constraints>
                             <constraint firstItem="qWb-wC-5yO" firstAttribute="bottom" secondItem="f3l-t2-BTY" secondAttribute="bottom" constant="60" id="7zA-pc-GUC"/>
                             <constraint firstItem="f3l-t2-BTY" firstAttribute="centerX" secondItem="sEm-zo-xeF" secondAttribute="centerX" id="OgP-uq-aBr"/>
-                            <constraint firstItem="MnC-rO-0aS" firstAttribute="leading" secondItem="qWb-wC-5yO" secondAttribute="leading" constant="30" id="awH-Nl-emW"/>
-                            <constraint firstItem="MnC-rO-0aS" firstAttribute="top" secondItem="qWb-wC-5yO" secondAttribute="top" constant="30" id="cPc-Mn-4Xy"/>
+                            <constraint firstItem="MnC-rO-0aS" firstAttribute="leading" secondItem="qWb-wC-5yO" secondAttribute="leading" constant="10" id="awH-Nl-emW"/>
+                            <constraint firstItem="MnC-rO-0aS" firstAttribute="top" secondItem="qWb-wC-5yO" secondAttribute="top" constant="10" id="cPc-Mn-4Xy"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -401,12 +401,15 @@ WHAT'S YOUR NAME?</string>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="MjP-JO-Tfj"/>
+                    <connections>
+                        <outlet property="friends_button" destination="MnC-rO-0aS" id="6yo-qM-dwK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvz-V3-Rmr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7560.8695652173919" y="0.0"/>
         </scene>
-        <!--Hangout First Page View Controller-->
+        <!--Create New Hangout-->
         <scene sceneID="X6H-P1-IND">
             <objects>
                 <viewController storyboardIdentifier="HangoutFirstPageVC" id="TQc-AI-4YU" customClass="HangoutFirstPageViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
@@ -414,16 +417,8 @@ WHAT'S YOUR NAME?</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create New Hangout" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAh-ai-Rj8">
-                                <rect key="frame" x="48" y="50" width="318" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="yyl-hD-dhK"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="28"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ezq-my-b1m">
-                                <rect key="frame" x="87" y="160" width="240" height="50"/>
+                                <rect key="frame" x="87" y="76" width="240" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UqO-ie-pdR">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="50"/>
@@ -454,20 +449,8 @@ WHAT'S YOUR NAME?</string>
                                     <constraint firstAttribute="height" constant="50" id="p7W-vH-gty"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-jr-KCV">
-                                <rect key="frame" x="194" y="738" width="200" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="LTj-dn-7y5"/>
-                                    <constraint firstAttribute="width" constant="200" id="Vlh-gb-pU2"/>
-                                </constraints>
-                                <state key="normal" title="Pick Location"/>
-                                <connections>
-                                    <action selector="pickLocation:" destination="TQc-AI-4YU" eventType="touchUpInside" id="KZz-7f-SDi"/>
-                                    <segue destination="y2m-jO-ogT" kind="show" id="cDl-qM-Zxu"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G2L-QX-8Fn">
-                                <rect key="frame" x="25" y="250" width="364" height="50"/>
+                                <rect key="frame" x="25" y="146" width="364" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wZ2-cz-deX"/>
                                 </constraints>
@@ -475,7 +458,7 @@ WHAT'S YOUR NAME?</string>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ak6-BD-zKv">
-                                <rect key="frame" x="25" y="320" width="364" height="50"/>
+                                <rect key="frame" x="25" y="216" width="364" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="CSB-5t-UBY"/>
                                 </constraints>
@@ -483,7 +466,7 @@ WHAT'S YOUR NAME?</string>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Time" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fkf-I4-YEd">
-                                <rect key="frame" x="25" y="390" width="364" height="50"/>
+                                <rect key="frame" x="25" y="286" width="364" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3Ao-rD-6iy"/>
                                 </constraints>
@@ -491,7 +474,7 @@ WHAT'S YOUR NAME?</string>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnz-fL-fXy">
-                                <rect key="frame" x="25" y="460" width="364" height="50"/>
+                                <rect key="frame" x="25" y="496" width="364" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="CCy-wp-HC7"/>
                                 </constraints>
@@ -499,6 +482,57 @@ WHAT'S YOUR NAME?</string>
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Location Selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbl-oF-lbB">
+                                <rect key="frame" x="30" y="356" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="38L-gm-Agv"/>
+                                    <constraint firstAttribute="height" constant="50" id="41S-BL-PVd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-jr-KCV">
+                                <rect key="frame" x="294" y="356" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LTj-dn-7y5"/>
+                                    <constraint firstAttribute="width" constant="100" id="Vlh-gb-pU2"/>
+                                </constraints>
+                                <state key="normal" title="Pick"/>
+                                <connections>
+                                    <action selector="pickLocation:" destination="TQc-AI-4YU" eventType="touchUpInside" id="KZz-7f-SDi"/>
+                                    <segue destination="y2m-jO-ogT" kind="show" id="cDl-qM-Zxu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zD3-Ue-ZWb">
+                                <rect key="frame" x="294" y="426" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="C67-Qs-705"/>
+                                    <constraint firstAttribute="width" constant="100" id="MoS-od-fMD"/>
+                                </constraints>
+                                <state key="normal" title="Pick"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No friends selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WC-lg-kGp">
+                                <rect key="frame" x="30" y="426" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="6lG-GL-9V2"/>
+                                    <constraint firstAttribute="height" constant="50" id="mhp-M9-PiD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFd-f8-2kD">
+                                <rect key="frame" x="107" y="738" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="aGh-bn-IYV"/>
+                                    <constraint firstAttribute="height" constant="50" id="m2b-2l-SHh"/>
+                                </constraints>
+                                <state key="normal" title="Create Hangout"/>
+                                <connections>
+                                    <action selector="createHangoutButton:" destination="TQc-AI-4YU" eventType="touchUpInside" id="AaC-wr-rFR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Rf-Nk-afH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -506,33 +540,43 @@ WHAT'S YOUR NAME?</string>
                             <constraint firstItem="8Rf-Nk-afH" firstAttribute="trailing" secondItem="G2L-QX-8Fn" secondAttribute="trailing" constant="25" id="2Gr-b6-8Pb"/>
                             <constraint firstItem="ak6-BD-zKv" firstAttribute="centerX" secondItem="IYv-jV-9im" secondAttribute="centerX" id="4Wu-Re-vgT"/>
                             <constraint firstItem="fkf-I4-YEd" firstAttribute="centerX" secondItem="IYv-jV-9im" secondAttribute="centerX" id="6Z2-6a-EgZ"/>
-                            <constraint firstItem="dAh-ai-Rj8" firstAttribute="top" secondItem="8Rf-Nk-afH" secondAttribute="top" constant="50" id="9VJ-yc-eev"/>
+                            <constraint firstItem="8Rf-Nk-afH" firstAttribute="trailing" secondItem="sv6-jr-KCV" secondAttribute="trailing" constant="20" id="9Hl-VS-8r9"/>
+                            <constraint firstItem="8Rf-Nk-afH" firstAttribute="bottom" secondItem="iFd-f8-2kD" secondAttribute="bottom" constant="20" id="E2e-cM-GcS"/>
                             <constraint firstItem="G2L-QX-8Fn" firstAttribute="centerX" secondItem="IYv-jV-9im" secondAttribute="centerX" id="FIo-fC-6iJ"/>
+                            <constraint firstItem="ezq-my-b1m" firstAttribute="top" secondItem="8Rf-Nk-afH" secondAttribute="top" constant="20" id="HeE-dV-vXf"/>
                             <constraint firstItem="Xnz-fL-fXy" firstAttribute="centerX" secondItem="IYv-jV-9im" secondAttribute="centerX" id="I4v-I2-1yQ"/>
-                            <constraint firstItem="8Rf-Nk-afH" firstAttribute="bottom" secondItem="sv6-jr-KCV" secondAttribute="bottom" constant="20" id="LUM-ji-41o"/>
                             <constraint firstItem="fkf-I4-YEd" firstAttribute="leading" secondItem="8Rf-Nk-afH" secondAttribute="leading" constant="25" id="MAs-z3-aSJ"/>
+                            <constraint firstItem="8Rf-Nk-afH" firstAttribute="trailing" secondItem="zD3-Ue-ZWb" secondAttribute="trailing" constant="20" id="PKc-IC-RC1"/>
                             <constraint firstItem="8Rf-Nk-afH" firstAttribute="trailing" secondItem="Xnz-fL-fXy" secondAttribute="trailing" constant="25" id="S80-6w-FEw"/>
+                            <constraint firstItem="sv6-jr-KCV" firstAttribute="top" secondItem="fkf-I4-YEd" secondAttribute="bottom" constant="20" id="Scf-El-zct"/>
                             <constraint firstItem="ak6-BD-zKv" firstAttribute="leading" secondItem="8Rf-Nk-afH" secondAttribute="leading" constant="25" id="Xjm-RN-WWj"/>
-                            <constraint firstItem="dAh-ai-Rj8" firstAttribute="centerX" secondItem="IYv-jV-9im" secondAttribute="centerX" id="ZeA-sW-BEa"/>
-                            <constraint firstItem="Xnz-fL-fXy" firstAttribute="top" secondItem="fkf-I4-YEd" secondAttribute="bottom" constant="20" id="aPD-7g-IlQ"/>
                             <constraint firstItem="fkf-I4-YEd" firstAttribute="top" secondItem="ak6-BD-zKv" secondAttribute="bottom" constant="20" id="en7-85-SW6"/>
                             <constraint firstItem="8Rf-Nk-afH" firstAttribute="trailing" secondItem="ak6-BD-zKv" secondAttribute="trailing" constant="25" id="fQW-DE-iLd"/>
                             <constraint firstItem="Xnz-fL-fXy" firstAttribute="leading" secondItem="8Rf-Nk-afH" secondAttribute="leading" constant="25" id="ikv-Sg-4Cf"/>
+                            <constraint firstItem="0WC-lg-kGp" firstAttribute="leading" secondItem="8Rf-Nk-afH" secondAttribute="leading" constant="30" id="iyn-IO-YzR"/>
+                            <constraint firstItem="iFd-f8-2kD" firstAttribute="centerX" secondItem="IYv-jV-9im" secondAttribute="centerX" id="kuS-oV-eIJ"/>
                             <constraint firstItem="8Rf-Nk-afH" firstAttribute="trailing" secondItem="fkf-I4-YEd" secondAttribute="trailing" constant="25" id="lpQ-ud-PVc"/>
-                            <constraint firstItem="8Rf-Nk-afH" firstAttribute="trailing" secondItem="sv6-jr-KCV" secondAttribute="trailing" constant="20" id="n7K-UL-kbK"/>
+                            <constraint firstItem="Wbl-oF-lbB" firstAttribute="leading" secondItem="8Rf-Nk-afH" secondAttribute="leading" constant="30" id="nB6-J4-dVX"/>
+                            <constraint firstItem="Wbl-oF-lbB" firstAttribute="top" secondItem="fkf-I4-YEd" secondAttribute="bottom" constant="20" id="oJu-QZ-pMs"/>
                             <constraint firstItem="ezq-my-b1m" firstAttribute="centerX" secondItem="IYv-jV-9im" secondAttribute="centerX" id="qbj-n1-G81"/>
                             <constraint firstItem="ak6-BD-zKv" firstAttribute="top" secondItem="G2L-QX-8Fn" secondAttribute="bottom" constant="20" id="qfU-fv-EUo"/>
-                            <constraint firstItem="G2L-QX-8Fn" firstAttribute="top" secondItem="ezq-my-b1m" secondAttribute="bottom" constant="40" id="seA-6d-4ja"/>
-                            <constraint firstItem="ezq-my-b1m" firstAttribute="top" secondItem="dAh-ai-Rj8" secondAttribute="bottom" constant="50" id="vQz-OK-Onb"/>
+                            <constraint firstItem="G2L-QX-8Fn" firstAttribute="top" secondItem="ezq-my-b1m" secondAttribute="bottom" constant="20" id="seA-6d-4ja"/>
+                            <constraint firstItem="Xnz-fL-fXy" firstAttribute="top" secondItem="zD3-Ue-ZWb" secondAttribute="bottom" constant="20" id="tAV-M3-mld"/>
                             <constraint firstItem="G2L-QX-8Fn" firstAttribute="leading" secondItem="8Rf-Nk-afH" secondAttribute="leading" constant="25" id="xQ3-VP-KU9"/>
+                            <constraint firstItem="0WC-lg-kGp" firstAttribute="top" secondItem="Wbl-oF-lbB" secondAttribute="bottom" constant="20" id="yq5-rb-ZRc"/>
+                            <constraint firstItem="zD3-Ue-ZWb" firstAttribute="top" secondItem="sv6-jr-KCV" secondAttribute="bottom" constant="20" id="zeh-PN-hAD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="C9i-ch-FR0"/>
+                    <navigationItem key="navigationItem" title="Create New Hangout" id="C9i-ch-FR0"/>
                     <connections>
+                        <outlet property="create_hangout_button" destination="iFd-f8-2kD" id="qwR-eq-gpc"/>
                         <outlet property="error_label" destination="Xnz-fL-fXy" id="gvb-z2-gNz"/>
+                        <outlet property="friends_text_label" destination="0WC-lg-kGp" id="vtU-qk-8v8"/>
                         <outlet property="hangout_date" destination="ak6-BD-zKv" id="4qn-JE-uHq"/>
                         <outlet property="hangout_name" destination="G2L-QX-8Fn" id="msd-SI-JBG"/>
                         <outlet property="hangout_time" destination="fkf-I4-YEd" id="XeQ-Xu-WoA"/>
+                        <outlet property="location_text_label" destination="Wbl-oF-lbB" id="dmb-Bl-P78"/>
+                        <outlet property="pick_friends_button" destination="zD3-Ue-ZWb" id="wSW-oL-08x"/>
                         <outlet property="pick_location_button" destination="sv6-jr-KCV" id="NoN-n6-qvW"/>
                         <outlet property="private_button" destination="UqO-ie-pdR" id="6cQ-XX-jGf"/>
                         <outlet property="public_button" destination="4fh-IN-X44" id="0Tu-UA-UxV"/>
@@ -540,7 +584,7 @@ WHAT'S YOUR NAME?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jpd-ge-gOS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7528.985507246377" y="772.76785714285711"/>
+            <point key="canvasLocation" x="8439.1304347826099" y="772.76785714285711"/>
         </scene>
         <!--Select Hangout Location-->
         <scene sceneID="cLB-qE-2Hu">
@@ -550,61 +594,71 @@ WHAT'S YOUR NAME?</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZj-aj-w60">
-                                <rect key="frame" x="25" y="683" width="364" height="100"/>
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZj-aj-w60">
+                                <rect key="frame" x="0.0" y="708" width="414" height="100"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HT-Ot-ozy">
-                                        <rect key="frame" x="25" y="10" width="200" height="31.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPj-15-uc5">
+                                        <rect key="frame" x="20" y="55.5" width="250" height="19.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="wVX-8L-P7g"/>
+                                            <constraint firstAttribute="width" constant="250" id="5Yv-dd-UAH"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPj-15-uc5">
-                                        <rect key="frame" x="25" y="46" width="250" height="24"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uz-8h-lme">
+                                        <rect key="frame" x="294" y="25" width="100" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="5Yv-dd-UAH"/>
+                                            <constraint firstAttribute="height" constant="50" id="J83-d8-ODc"/>
+                                            <constraint firstAttribute="width" constant="100" id="hSa-Lp-Ggu"/>
+                                        </constraints>
+                                        <state key="normal" title="Select">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="acceptButton:" destination="foX-01-vTz" eventType="touchUpInside" id="6cw-BB-Qii"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0HT-Ot-ozy">
+                                        <rect key="frame" x="25" y="28" width="200" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="wVX-8L-P7g"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uz-8h-lme">
-                                        <rect key="frame" x="289" y="20" width="50" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="J83-d8-ODc"/>
-                                            <constraint firstAttribute="width" constant="50" id="hSa-Lp-Ggu"/>
-                                        </constraints>
-                                        <state key="normal" title="Accept"/>
-                                        <connections>
-                                            <action selector="acceptButton:" destination="foX-01-vTz" eventType="touchUpInside" id="bJp-FN-2Wa"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="0uz-8h-lme" firstAttribute="centerY" secondItem="JZj-aj-w60" secondAttribute="centerY" id="6yh-uV-vYM"/>
                                     <constraint firstAttribute="bottom" secondItem="0uz-8h-lme" secondAttribute="bottom" constant="30" id="Djb-ci-Cog"/>
-                                    <constraint firstItem="0HT-Ot-ozy" firstAttribute="leading" secondItem="JZj-aj-w60" secondAttribute="leading" constant="25" id="FcC-W8-Aw6"/>
+                                    <constraint firstItem="0HT-Ot-ozy" firstAttribute="leading" secondItem="JZj-aj-w60" secondAttribute="leading" constant="20" id="FcC-W8-Aw6"/>
                                     <constraint firstAttribute="height" constant="100" id="FyD-G2-F5r"/>
-                                    <constraint firstAttribute="bottom" secondItem="PPj-15-uc5" secondAttribute="bottom" constant="30" id="NKI-th-fDe"/>
-                                    <constraint firstItem="PPj-15-uc5" firstAttribute="leading" secondItem="JZj-aj-w60" secondAttribute="leading" constant="25" id="Qvn-xO-Jzd"/>
-                                    <constraint firstAttribute="trailing" secondItem="0uz-8h-lme" secondAttribute="trailing" constant="25" id="rUc-Nj-2iZ"/>
-                                    <constraint firstItem="0HT-Ot-ozy" firstAttribute="top" secondItem="JZj-aj-w60" secondAttribute="top" constant="10" id="wUC-Y5-vTP"/>
+                                    <constraint firstAttribute="bottom" secondItem="PPj-15-uc5" secondAttribute="bottom" constant="25" id="NKI-th-fDe"/>
+                                    <constraint firstItem="PPj-15-uc5" firstAttribute="leading" secondItem="JZj-aj-w60" secondAttribute="leading" constant="20" id="Qvn-xO-Jzd"/>
+                                    <constraint firstAttribute="trailing" secondItem="0uz-8h-lme" secondAttribute="trailing" constant="20" id="rUc-Nj-2iZ"/>
+                                    <constraint firstItem="0HT-Ot-ozy" firstAttribute="top" secondItem="JZj-aj-w60" secondAttribute="top" constant="25" id="wUC-Y5-vTP"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Djb-ci-Cog"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="f67-Hv-Ist"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="JZj-aj-w60" firstAttribute="leading" secondItem="f67-Hv-Ist" secondAttribute="leading" constant="25" id="btb-mk-2V1"/>
-                            <constraint firstItem="f67-Hv-Ist" firstAttribute="trailing" secondItem="JZj-aj-w60" secondAttribute="trailing" constant="25" id="ivh-9b-QNJ"/>
-                            <constraint firstItem="f67-Hv-Ist" firstAttribute="bottom" secondItem="JZj-aj-w60" secondAttribute="bottom" constant="25" id="yP8-hK-d9o"/>
+                            <constraint firstItem="JZj-aj-w60" firstAttribute="leading" secondItem="f67-Hv-Ist" secondAttribute="leading" id="btb-mk-2V1"/>
+                            <constraint firstItem="f67-Hv-Ist" firstAttribute="trailing" secondItem="JZj-aj-w60" secondAttribute="trailing" id="ivh-9b-QNJ"/>
+                            <constraint firstItem="f67-Hv-Ist" firstAttribute="bottom" secondItem="JZj-aj-w60" secondAttribute="bottom" id="yP8-hK-d9o"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Hangout Location" id="C58-ha-ztq"/>
                     <connections>
+                        <outlet property="accept_button" destination="0uz-8h-lme" id="aqo-9b-yJb"/>
                         <outlet property="location_result_view" destination="JZj-aj-w60" id="NNx-7V-dah"/>
                         <outlet property="primary_address_label" destination="0HT-Ot-ozy" id="g5s-vD-8AB"/>
                         <outlet property="secondary_address_label" destination="PPj-15-uc5" id="Ztx-rM-ktg"/>
@@ -612,7 +666,7 @@ WHAT'S YOUR NAME?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J9j-RY-IyN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9363.7681159420299" y="772.76785714285711"/>
+            <point key="canvasLocation" x="10273.913043478262" y="772.76785714285711"/>
         </scene>
         <!--Location Search Table View Controller-->
         <scene sceneID="dG9-ky-ZLT">
@@ -652,7 +706,7 @@ WHAT'S YOUR NAME?</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AKI-0r-FIB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10240" y="783"/>
+            <point key="canvasLocation" x="11149.275362318842" y="782.8125"/>
         </scene>
         <!--Friends-->
         <scene sceneID="F7N-rX-7ey">
@@ -769,7 +823,7 @@ WHAT'S YOUR NAME?</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9JJ-UQ-9PG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12528.985507246378" y="634.82142857142856"/>
+            <point key="canvasLocation" x="13439.13043478261" y="634.82142857142856"/>
         </scene>
         <!--Friend Details View Controller-->
         <scene sceneID="DMT-le-x5H">
@@ -945,7 +999,7 @@ WHAT'S YOUR NAME?</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ly-9x-f7M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="11618.840579710146" y="634.82142857142856"/>
+            <point key="canvasLocation" x="12528.985507246378" y="634.82142857142856"/>
         </scene>
         <!--Select Hangout Location-->
         <scene sceneID="VTr-tJ-FRS">
@@ -964,7 +1018,26 @@ WHAT'S YOUR NAME?</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZhM-V0-KGr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8453.6231884057979" y="772.76785714285711"/>
+            <point key="canvasLocation" x="9363.7681159420299" y="772.76785714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gSx-xw-LUK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EkA-sJ-5yZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Foc-p2-p2d"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="10p-ZW-5Sl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TQc-AI-4YU" kind="relationship" relationship="rootViewController" id="g0n-tw-vRB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qxd-Dh-28e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7528.985507246377" y="772.76785714285711"/>
         </scene>
     </scenes>
     <resources>

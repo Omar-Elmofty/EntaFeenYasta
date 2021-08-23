@@ -9,6 +9,9 @@ import UIKit
 
 class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
 
+    
+    @IBOutlet weak var location_text_label: UILabel!
+    @IBOutlet weak var friends_text_label: UILabel!
     @IBOutlet weak var private_button: UIButton!
     @IBOutlet weak var public_button: UIButton!
     @IBOutlet weak var hangout_name: UITextField!
@@ -17,8 +20,12 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var error_label: UILabel!
     @IBOutlet weak var pick_location_button: UIButton!
     
+    @IBOutlet weak var create_hangout_button: UIButton!
+    @IBOutlet weak var pick_friends_button: UIButton!
     private var is_private : Bool?
     private var hangout : Hangout?
+    private var date_picker: UIDatePicker?
+    private var time_picker: UIDatePicker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +34,32 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
         hideKeyboardWhenTappedAround()
         setUpElements()
+        setupDateAndTimePickers()
+    }
+    func setupDateAndTimePickers () {
+        date_picker = UIDatePicker()
+        time_picker = UIDatePicker()
+        date_picker!.preferredDatePickerStyle = .wheels
+        time_picker!.preferredDatePickerStyle = .wheels
+        date_picker!.datePickerMode = .date
+        time_picker!.datePickerMode = .time
+        
+        date_picker!.addTarget(self, action: #selector(HangoutFirstPageViewController.dateChanged), for: .valueChanged)
+        time_picker!.addTarget(self, action: #selector(HangoutFirstPageViewController.timeChanged), for: .valueChanged)
+        hangout_date.inputView = date_picker
+        hangout_time.inputView = time_picker
+        dateChanged(input_date_picker: date_picker!)
+        timeChanged(input_date_picker: time_picker!)
+    }
+    @objc func dateChanged(input_date_picker: UIDatePicker) {
+        let date_formatter = DateFormatter()
+        date_formatter.dateStyle = .short
+        hangout_date.text = date_formatter.string(from: input_date_picker.date)
+    }
+    @objc func timeChanged(input_date_picker: UIDatePicker) {
+        let date_formatter = DateFormatter()
+        date_formatter.timeStyle = .short
+        hangout_time.text = date_formatter.string(from: input_date_picker.date)
     }
     func setUpElements() {
         // Hide the error label
@@ -41,13 +74,24 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         Utilities.styleTextField(hangout_date)
         Utilities.styleTextField(hangout_time)
         Utilities.styleHollowButton(pick_location_button)
+        Utilities.styleHollowButton(pick_friends_button)
+        Utilities.styleHollowButton(create_hangout_button)
         Utilities.styleHollowButton(private_button)
         Utilities.styleHollowButton(public_button)
     }
-
-    func transitionToNextVC() {
-        let vc = storyboard?.instantiateViewController(identifier: Constants.Storyboard.hangout_pick_location_view_controller)
-        present(vc!, animated: true, completion: nil)
+    var vc: HangoutPickLocationViewController?
+    func transitionToLocationVC() {
+        let nc = storyboard?.instantiateViewController(identifier: Constants.Storyboard.hangout_pick_location_view_controller) as! UINavigationController
+        
+        vc = nc.viewControllers[0] as? HangoutPickLocationViewController
+        vc!.update_location_completion = updateLocationLabel
+        if vc!.update_location_completion == nil {
+            print("Fee 7aga 3'alat")
+        }
+        present(nc, animated: true, completion: nil)
+    }
+    func updateLocationLabel(_ new_location: String) {
+        location_text_label.text = new_location
     }
     /*
     // MARK: - Navigation
@@ -69,6 +113,11 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         Utilities.styleHollowButton(private_button)
     }
     @IBAction func pickLocation(_ sender: Any) {
+
+        transitionToLocationVC()
+    }
+    
+    @IBAction func createHangoutButton(_ sender: Any) {
         var name : String = ""
         var date : String = ""
         var time : String = ""
@@ -104,7 +153,6 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         app_delegate.current_hangout!.setName(name)
         app_delegate.current_hangout!.setDate(date)
         app_delegate.current_hangout!.setTime(time)
-        transitionToNextVC()
     }
     
 

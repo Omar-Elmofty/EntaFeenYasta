@@ -14,7 +14,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
 //    private var mapView: MGLMapView?
     private var location_updated: Bool = false
     private var mapView: MKMapView!
-
+    @IBOutlet weak var friends_button: UIButton!
+    
     	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,8 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
         self.mapView = mapView
         view.addSubview(mapView)
         view.sendSubviewToBack(mapView)
+        
+        Utilities.styleFilledButton(friends_button)
     }
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
 //        self.mapView?.updateUserLocationAnnotationView()

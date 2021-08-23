@@ -11,9 +11,6 @@ import MapKit
 class NewHangoutViewController: UIViewController, MKLocalSearchCompleterDelegate, UISearchBarDelegate, UISearchResultsUpdating, UITextFieldDelegate {
     func updateSearchResults(for searchController: UISearchController) {
     }
-    
-
-
 
     
     @IBOutlet weak var table_view: UITableView!

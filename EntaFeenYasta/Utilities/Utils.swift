@@ -29,10 +29,10 @@ class Utilities {
     static func styleFilledButton(_ button:UIButton) {
         
         // Filled rounded corner style
-        button.backgroundColor = UIColor.init(red: 222/255, green: 177/255, blue: 54/255, alpha: 1)
+        button.backgroundColor = UIColor.init(red: 66/255, green: 117/255, blue: 245/255, alpha: 1)
         button.layer.cornerRadius = 25.0
         button.tintColor = UIColor.white
-        button.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
+        button.titleLabel?.font = UIFont(name: "System", size: 20)
     }
 
     static func styleHollowButton(_ button:UIButton) {
@@ -40,10 +40,10 @@ class Utilities {
         // Hollow rounded corner style
         button.backgroundColor = nil
         button.layer.borderWidth = 2
-        button.layer.borderColor = CGColor.init(red: 222/255, green: 177/255, blue: 54/255, alpha: 1)
+        button.layer.borderColor = CGColor.init(red: 66/255, green: 117/255, blue: 245/255, alpha: 1)
         button.layer.cornerRadius = 25.0
         button.tintColor = UIColor.white
-        button.titleLabel?.font = UIFont(name: "Chalkduster", size: 20)
+        button.titleLabel?.font = UIFont(name: "System", size: 20)
     }
 
     static func styleTextField(_ textfield:UITextField) {
@@ -60,8 +60,8 @@ class Utilities {
         
         // Add the line to the text field
 //        textfield.layer.addSublayer(bottomLine)
-        textfield.font = UIFont(name: "Chalkduster", size: 30)
-        textfield.backgroundColor = UIColor.init(red: 115/255, green: 96/255, blue: 54/255, alpha: 1)
+        textfield.font = UIFont(name: "System", size: 20)
+        textfield.backgroundColor = UIColor.init(red: 138/255, green: 138/255, blue: 138/255, alpha: 1)
         textfield.layer.cornerRadius = 25.0
     }
     

@@ -14,7 +14,8 @@ class FriendDetailsViewController: UIViewController {
     @IBOutlet weak var unfriend_button: UIButton!
     var friend_id: String?
     var friend: User?
-
+    var friends_table_view: UITableView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,7 +32,9 @@ class FriendDetailsViewController: UIViewController {
         app_delegate.current_user!.removeFriend(friend_id ?? "")
         unfriend_button.isEnabled = false
         unfriend_button.setTitle("You're No Longer Friends", for: .disabled)
-        
+        if let friends_table_view = friends_table_view {
+            friends_table_view.reloadData()
+        }
     }
     /*
     // MARK: - Navigation
