@@ -511,6 +511,9 @@ WHAT'S YOUR NAME?</string>
                                     <constraint firstAttribute="width" constant="100" id="MoS-od-fMD"/>
                                 </constraints>
                                 <state key="normal" title="Pick"/>
+                                <connections>
+                                    <action selector="pickFriends:" destination="TQc-AI-4YU" eventType="touchUpInside" id="A8T-fN-NxG"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No friends selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WC-lg-kGp">
                                 <rect key="frame" x="30" y="426" width="200" height="50"/>
@@ -586,10 +589,64 @@ WHAT'S YOUR NAME?</string>
             </objects>
             <point key="canvasLocation" x="8439.1304347826099" y="772.76785714285711"/>
         </scene>
+        <!--Select Friends-->
+        <scene sceneID="7JW-xN-UhA">
+            <objects>
+                <tableViewController storyboardIdentifier="HangoutSelectFriendsVC" id="Lna-zz-esm" customClass="HangoutSelectFriendsTableViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jFe-eq-yTV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="select_friends_cell" id="CVz-dO-oeP" customClass="HangoutSelectFriendsCell" customModule="EntaFeenYasta" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CVz-dO-oeP" id="fMf-Wl-9GR">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEF-31-GZl">
+                                            <rect key="frame" x="25" y="11.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uI2-sN-35K">
+                                            <rect key="frame" x="345" y="7" width="44" height="30"/>
+                                            <state key="normal" title="Select"/>
+                                            <connections>
+                                                <action selector="selectButton:" destination="CVz-dO-oeP" eventType="touchUpInside" id="QzE-cs-1Nh"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uI2-sN-35K" firstAttribute="centerY" secondItem="fMf-Wl-9GR" secondAttribute="centerY" id="RTV-Sb-cwS"/>
+                                        <constraint firstAttribute="trailing" secondItem="uI2-sN-35K" secondAttribute="trailing" constant="25" id="fwe-Tb-Xa0"/>
+                                        <constraint firstItem="FEF-31-GZl" firstAttribute="leading" secondItem="fMf-Wl-9GR" secondAttribute="leading" constant="25" id="mCI-xA-k6T"/>
+                                        <constraint firstItem="FEF-31-GZl" firstAttribute="centerY" secondItem="fMf-Wl-9GR" secondAttribute="centerY" id="zWZ-Bd-PLV"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="name_label" destination="FEF-31-GZl" id="jtN-pd-9uf"/>
+                                    <outlet property="select_button" destination="uI2-sN-35K" id="Z16-dq-FGV"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Lna-zz-esm" id="bVm-ZL-cZu"/>
+                            <outlet property="delegate" destination="Lna-zz-esm" id="ZFu-hA-ReA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select Friends" id="O1Q-7o-24b"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NSz-AB-NYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8406" y="1483"/>
+        </scene>
         <!--Select Hangout Location-->
         <scene sceneID="cLB-qE-2Hu">
             <objects>
-                <viewController id="foX-01-vTz" customClass="HangoutPickLocationViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PickLocationVC" id="foX-01-vTz" customClass="HangoutPickLocationViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VZf-Tt-7s2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1004,7 +1061,7 @@ WHAT'S YOUR NAME?</string>
         <!--Select Hangout Location-->
         <scene sceneID="VTr-tJ-FRS">
             <objects>
-                <navigationController storyboardIdentifier="PickLocationVC" automaticallyAdjustsScrollViewInsets="NO" id="y2m-jO-ogT" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y2m-jO-ogT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Select Hangout Location" id="FmE-3a-dYQ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8tB-sK-bib">
@@ -1038,6 +1095,24 @@ WHAT'S YOUR NAME?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qxd-Dh-28e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7528.985507246377" y="772.76785714285711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fmN-o1-hc1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ejV-dJ-Ucd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PYW-Rz-Cms">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Lna-zz-esm" kind="relationship" relationship="rootViewController" id="OAG-tM-R9j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Xk-VT-YqF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7441" y="1483"/>
         </scene>
     </scenes>
     <resources>

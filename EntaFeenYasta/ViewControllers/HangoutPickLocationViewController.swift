@@ -23,18 +23,9 @@ class HangoutPickLocationViewController: UIViewController, MKMapViewDelegate, UI
     var resultSearchController:UISearchController? = nil
     var selectedPin:MKPlacemark? = nil
     var current_location: CLLocation?
-    var update_location_completion: ((String) -> Void)?
     
     override func viewDidLoad() {
-        print("Herereerere")
-        if update_location_completion == nil {
-            print("Yanhar abyad")
-        }
         super.viewDidLoad()
-        if update_location_completion == nil {
-            print("Yanhar abyad")
-        }
-
         // Do any additional setup after loading the view.
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -111,14 +102,11 @@ class HangoutPickLocationViewController: UIViewController, MKMapViewDelegate, UI
         }
     }
     @IBAction func acceptButton(_ sender: Any) {
-        dismiss(animated: true) {
-        }
-        if let update_location_completion = update_location_completion {
-            update_location_completion(selected_location)
-        }
-        else {
-            print("ERRRRROROOOOORRR")
-        }
+        dismiss(animated: true, completion: nil)
+        // Update the label of the parent view controller
+        let nc = presentingViewController as! UINavigationController
+        let vc = nc.viewControllers[0] as! HangoutFirstPageViewController
+        vc.updateLocationLabel(selected_location)
     }
 }
 

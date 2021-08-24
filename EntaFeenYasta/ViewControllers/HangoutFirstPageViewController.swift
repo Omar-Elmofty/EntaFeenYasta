@@ -19,14 +19,14 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var hangout_time: UITextField!
     @IBOutlet weak var error_label: UILabel!
     @IBOutlet weak var pick_location_button: UIButton!
-    
     @IBOutlet weak var create_hangout_button: UIButton!
     @IBOutlet weak var pick_friends_button: UIButton!
     private var is_private : Bool?
+    private var is_location_set: Bool = false
     private var hangout : Hangout?
     private var date_picker: UIDatePicker?
     private var time_picker: UIDatePicker?
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,24 +75,25 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         Utilities.styleTextField(hangout_time)
         Utilities.styleHollowButton(pick_location_button)
         Utilities.styleHollowButton(pick_friends_button)
-        Utilities.styleHollowButton(create_hangout_button)
+        Utilities.styleFilledButton(create_hangout_button)
         Utilities.styleHollowButton(private_button)
         Utilities.styleHollowButton(public_button)
     }
-    var vc: HangoutPickLocationViewController?
+
     func transitionToLocationVC() {
-        let nc = storyboard?.instantiateViewController(identifier: Constants.Storyboard.hangout_pick_location_view_controller) as! UINavigationController
-        
-        vc = nc.viewControllers[0] as? HangoutPickLocationViewController
-        vc!.update_location_completion = updateLocationLabel
-        if vc!.update_location_completion == nil {
-            print("Fee 7aga 3'alat")
-        }
-        present(nc, animated: true, completion: nil)
+        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.hangout_pick_location_view_controller)
+        present(vc!, animated: true, completion: nil)
+    }
+    func transitionToFriendsVC() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.hangout_select_friends_vc)
+        present(vc!, animated: true, completion: nil)
     }
     func updateLocationLabel(_ new_location: String) {
         location_text_label.text = new_location
+        is_location_set = true
+        Utilities.styleFilledButton(pick_location_button)
     }
+
     /*
     // MARK: - Navigation
 
@@ -113,8 +114,11 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         Utilities.styleHollowButton(private_button)
     }
     @IBAction func pickLocation(_ sender: Any) {
-
         transitionToLocationVC()
+    }
+    
+    @IBAction func pickFriends(_ sender: Any) {
+        transitionToFriendsVC()
     }
     
     @IBAction func createHangoutButton(_ sender: Any) {
@@ -135,7 +139,7 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
             time = hangout_time.trimmingCharacters(in: .whitespaces)
         }
 
-        if (name == "" || date == "" || time == "" || is_private == nil)
+        if (name == "" || date == "" || time == "" || is_private == nil || !is_location_set)
         {
             error_label.text = "Please fill all fields"
             error_label.alpha = 1.0

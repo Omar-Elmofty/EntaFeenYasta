@@ -23,5 +23,6 @@ struct Constants {
         static let hangout_first_page_view_controller = "HangoutFirstPageVC"
         static let hangout_pick_location_view_controller = "PickLocationVC"
         static let location_search_view_controller = "LocationSearchVC"
+        static let hangout_select_friends_vc = "HangoutSelectFriendsVC"
     }
 }

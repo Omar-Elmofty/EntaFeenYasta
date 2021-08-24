@@ -31,6 +31,7 @@
 		259DA65026A3557E00410219 /* PhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DA64F26A3557E00410219 /* PhoneViewController.swift */; };
 		259DA65226A35B4A00410219 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259DA65126A35B4A00410219 /* VerifyViewController.swift */; };
 		25A142D626BF22B40055E021 /* FriendDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A142D526BF22B40055E021 /* FriendDetailsViewController.swift */; };
+		25A34FA426D4904D0037A648 /* HangoutSelectFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A34FA326D4904D0037A648 /* HangoutSelectFriendsTableViewController.swift */; };
 		25A79266269D175300151811 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A79265269D175300151811 /* Constants.swift */; };
 		25A7926A269D1CD300151811 /* UIViewControllerExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */; };
 		25A7926C269D2EE900151811 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A7926B269D2EE900151811 /* AddFriendsViewController.swift */; };
@@ -107,6 +108,7 @@
 		259DA64F26A3557E00410219 /* PhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewController.swift; sourceTree = "<group>"; };
 		259DA65126A35B4A00410219 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		25A142D526BF22B40055E021 /* FriendDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailsViewController.swift; sourceTree = "<group>"; };
+		25A34FA326D4904D0037A648 /* HangoutSelectFriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutSelectFriendsTableViewController.swift; sourceTree = "<group>"; };
 		25A79265269D175300151811 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtenstion.swift; sourceTree = "<group>"; };
 		25A7926B269D2EE900151811 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				25C5F71326CB2A15004640F0 /* HangoutFirstPageViewController.swift */,
 				25C5F71526CB41BD004640F0 /* HangoutPickLocationViewController.swift */,
 				25C5F71726CB4CD1004640F0 /* LocationSearchTableViewController.swift */,
+				25A34FA326D4904D0037A648 /* HangoutSelectFriendsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 			files = (
 				2586A355264DC1CC00DB3A99 /* ViewController.swift in Sources */,
 				25A79266269D175300151811 /* Constants.swift in Sources */,
+				25A34FA426D4904D0037A648 /* HangoutSelectFriendsTableViewController.swift in Sources */,
 				2586A351264DC1CC00DB3A99 /* AppDelegate.swift in Sources */,
 				25972D6926C204550077B1D0 /* FriendRequestsTableViewController.swift in Sources */,
 				25A142D626BF22B40055E021 /* FriendDetailsViewController.swift in Sources */,
