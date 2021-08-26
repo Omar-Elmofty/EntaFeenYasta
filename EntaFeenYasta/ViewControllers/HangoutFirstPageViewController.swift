@@ -23,6 +23,7 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var pick_friends_button: UIButton!
     private var is_private : Bool?
     private var is_location_set: Bool = false
+    private var friends_selected: Bool = false
     private var hangout : Hangout?
     private var date_picker: UIDatePicker?
     private var time_picker: UIDatePicker?
@@ -35,6 +36,10 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         hideKeyboardWhenTappedAround()
         setUpElements()
         setupDateAndTimePickers()
+        let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+        app_delegate.current_hangout = Hangout()
+        let current_user_id = app_delegate.current_user!.getId()
+        app_delegate.current_hangout!.addUser(current_user_id, "admin")
     }
     func setupDateAndTimePickers () {
         date_picker = UIDatePicker()
@@ -88,6 +93,10 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.hangout_select_friends_vc)
         present(vc!, animated: true, completion: nil)
     }
+    func transitionToConfirmationVC() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.confirm_hangout_vc)
+        present(vc!, animated: true, completion: nil)
+    }
     func updateLocationLabel(_ new_location: String) {
         location_text_label.text = new_location
         is_location_set = true
@@ -116,7 +125,6 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
     @IBAction func pickLocation(_ sender: Any) {
         transitionToLocationVC()
     }
-    
     @IBAction func pickFriends(_ sender: Any) {
         transitionToFriendsVC()
     }
@@ -139,7 +147,7 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
             time = hangout_time.trimmingCharacters(in: .whitespaces)
         }
 
-        if (name == "" || date == "" || time == "" || is_private == nil || !is_location_set)
+        if (name == "" || date == "" || time == "" || is_private == nil || !is_location_set || !friends_selected)
         {
             error_label.text = "Please fill all fields"
             error_label.alpha = 1.0
@@ -157,7 +165,29 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         app_delegate.current_hangout!.setName(name)
         app_delegate.current_hangout!.setDate(date)
         app_delegate.current_hangout!.setTime(time)
+        app_delegate.current_hangout!.setLocationAddress(location_text_label.text!)
+        
+        transitionToConfirmationVC()
     }
     
-
+    func updateNumFriendsLabel(_ num_of_friends: size_t) {
+        if (num_of_friends == 0)
+        {
+            friends_text_label.text = "No friends selected"
+            friends_selected = false
+            Utilities.styleHollowButton(pick_friends_button)
+        }
+        else if (num_of_friends ==  1)
+        {
+            friends_text_label.text = "\(num_of_friends) friend selected"
+            friends_selected = true
+            Utilities.styleFilledButton(pick_friends_button)
+        }
+        else
+        {
+            friends_text_label.text = "\(num_of_friends) friends selected"
+            friends_selected = true
+            Utilities.styleFilledButton(pick_friends_button)
+        }
+    }
 }

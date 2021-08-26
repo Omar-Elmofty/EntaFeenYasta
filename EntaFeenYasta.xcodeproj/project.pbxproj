@@ -21,6 +21,7 @@
 		2586A35D264DC1DE00DB3A99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2586A35B264DC1DE00DB3A99 /* LaunchScreen.storyboard */; };
 		2586A368264DC1DE00DB3A99 /* EntaFeenYastaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A367264DC1DE00DB3A99 /* EntaFeenYastaTests.swift */; };
 		2586A373264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2586A372264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift */; };
+		2590D98E26D7289000F0FCF9 /* ConfirmHangoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2590D98D26D7289000F0FCF9 /* ConfirmHangoutViewController.swift */; };
 		259392822691A3CF004DD1B2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392812691A3CF004DD1B2 /* HomeViewController.swift */; };
 		259392882691B03C004DD1B2 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259392872691B03C004DD1B2 /* UserAuth.swift */; };
 		2593BBFD26BE16BA00A6AD87 /* AddFriendsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2593BBFC26BE16B900A6AD87 /* AddFriendsButton.swift */; };
@@ -98,6 +99,7 @@
 		2586A36E264DC1DE00DB3A99 /* EntaFeenYastaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EntaFeenYastaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2586A372264DC1DE00DB3A99 /* EntaFeenYastaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntaFeenYastaUITests.swift; sourceTree = "<group>"; };
 		2586A374264DC1DE00DB3A99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2590D98D26D7289000F0FCF9 /* ConfirmHangoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmHangoutViewController.swift; sourceTree = "<group>"; };
 		259392812691A3CF004DD1B2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		259392872691B03C004DD1B2 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		2593BBFC26BE16B900A6AD87 /* AddFriendsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsButton.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				25C5F71526CB41BD004640F0 /* HangoutPickLocationViewController.swift */,
 				25C5F71726CB4CD1004640F0 /* LocationSearchTableViewController.swift */,
 				25A34FA326D4904D0037A648 /* HangoutSelectFriendsTableViewController.swift */,
+				2590D98D26D7289000F0FCF9 /* ConfirmHangoutViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				2593BBFD26BE16BA00A6AD87 /* AddFriendsButton.swift in Sources */,
 				25055182265A5711005250F5 /* User.swift in Sources */,
 				2599CB05269B681C00D6D7F8 /* DOBViewController.swift in Sources */,
+				2590D98E26D7289000F0FCF9 /* ConfirmHangoutViewController.swift in Sources */,
 				257676BD2659556E0087C3C9 /* ETAEstimator.swift in Sources */,
 				25C6EDD5265FA095000C3151 /* Utils.swift in Sources */,
 				2593BBFF26BE16EF00A6AD87 /* FriendsViewController.swift in Sources */,

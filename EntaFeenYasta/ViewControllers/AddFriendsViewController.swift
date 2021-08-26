@@ -102,6 +102,7 @@ class AddFriendsViewController: UITableViewController, MFMessageComposeViewContr
     var contacts = [FetchedContact]()
     var filtered_contacts : [FetchedContact] = []
     let searchController = UISearchController(searchResultsController: nil)
+    
     var isFiltering: Bool {
       return searchController.isActive && !isSearchBarEmpty
     }

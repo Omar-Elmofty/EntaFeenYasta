@@ -25,6 +25,7 @@ struct HangoutInfo : Codable
     // Map of the users in this hangout session [user_id, user_priviliges]
     var users : [String: String]
     var users_eta : [String : TimeInterval]
+    var location_address: String
     
 //    enum CodingKeys: String, CodingKey {
 //      // Add alternative key name here
@@ -68,7 +69,7 @@ class Hangout : MapMarker
     override init()
     {
         // Initalize an empty struct
-        hangout_info_ = HangoutInfo(id: "", name: "", type: "", location: [], image_name: "", date: "", time: "", users: [:], users_eta: [:])
+        hangout_info_ = HangoutInfo(id: "", name: "", type: "", location: [], image_name: "", date: "", time: "", users: [:], users_eta: [:], location_address: "")
         super.init()
     }
     /**
@@ -222,5 +223,17 @@ class Hangout : MapMarker
     func setTime(_ time: String)
     {
         hangout_info_.time = time
+    }
+    func isUserInHangout(_ user_id: String) -> Bool {
+        return hangout_info_.users[user_id] != nil
+    }
+    func getNumUsers() -> size_t {
+        return hangout_info_.users.count
+    }
+    func setLocationAddress(_ location_address: String) {
+        hangout_info_.location_address = location_address
+    }
+    func getType() -> String {
+        hangout_info_.type
     }
 }

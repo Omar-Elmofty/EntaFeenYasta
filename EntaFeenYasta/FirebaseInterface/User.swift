@@ -310,4 +310,8 @@ class User : MapMarker
             pending_friends_.removeValue(forKey: id)
         }
     }
+    func getId() -> String
+    {
+        return user_info_.id
+    }
 }

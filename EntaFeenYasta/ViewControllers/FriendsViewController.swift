@@ -8,7 +8,6 @@
 import UIKit
 
 
-
 class FriendTableViewCell: UITableViewCell {
     @IBOutlet weak var name_label: UILabel!
     var friend_id: String?
@@ -22,7 +21,6 @@ class FriendTableViewCell: UITableViewCell {
             }
         }
     }
-    
 }
 
 class FriendsViewController: UITableViewController {

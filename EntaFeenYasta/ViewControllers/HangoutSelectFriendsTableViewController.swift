@@ -9,25 +9,40 @@ import UIKit
 
 
 class HangoutSelectFriendsCell: UITableViewCell {
-
     @IBOutlet weak var name_label: UILabel!
     var friend_id: String?
-    var button_completion : ((String) -> Void)?
+    // Friend Id -> true if added, false if removed
+    var button_completion : ((String) -> Bool)?
     @IBOutlet weak var select_button: UIButton!
-    
     @IBAction func selectButton(_ sender: Any) {
         if let button_completion = button_completion {
             if let friend_id = friend_id
             {
-                button_completion(friend_id)
-                select_button.isEnabled = false
-                select_button.setTitle("Added", for: .disabled)
+                let added = button_completion(friend_id)
+                if (added)
+                {
+                    select_button.setTitle("Remove", for: .normal)
+                }
+                else
+                {
+                    select_button.setTitle("Select", for: .normal)
+                }
             }
         }
     }
 }
 
-class HangoutSelectFriendsTableViewController: UITableViewController {
+class HangoutSelectFriendsTableViewController: UITableViewController, UISearchResultsUpdating {
+    var filtered_friends: [String] = []
+    let searchController = UISearchController(searchResultsController: nil)
+
+    var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
+    }
+
+    var isSearchBarEmpty: Bool {
+      return searchController.searchBar.text?.isEmpty ?? true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,30 +52,43 @@ class HangoutSelectFriendsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // Search Controller parameters
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Contacts"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         
+        if isFiltering {
+            return filtered_friends.count
+        }
         let app_delegate =  UIApplication.shared.delegate as! AppDelegate
         
         return app_delegate.current_user!.getNumOfFriends()
     }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "select_friends_cell", for: indexPath) as! HangoutSelectFriendsCell
 
         let app_delegate =  UIApplication.shared.delegate as! AppDelegate
         
         let friend_ids = app_delegate.current_user!.getFriends()
-        let id = friend_ids[indexPath.row]
+        var id: String
+        if isFiltering {
+            id = filtered_friends[indexPath.row]
+        }
+        else {
+            id = friend_ids[indexPath.row]
+        }
         
         let friend = app_delegate.current_user!.getFriend(id)
         if let friend = friend
@@ -69,60 +97,58 @@ class HangoutSelectFriendsTableViewController: UITableViewController {
             cell.friend_id = id
         }
         cell.button_completion = selectButtonPressed
+        let added = app_delegate.current_hangout!.isUserInHangout(id)
+        if (added)
+        {
+            cell.select_button.setTitle("Remove", for: .normal)
+        }
+        else
+        {
+            cell.select_button.setTitle("Select", for: .normal)
+        }
         return cell
     }
-    func selectButtonPressed(friend_id: String)
+    func selectButtonPressed(friend_id: String) -> Bool
     {
         // Add the friend id to hangout
+        let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+        
+        let nc = presentingViewController as! UINavigationController
+        let vc = nc.viewControllers[0] as! HangoutFirstPageViewController
+        
+        if (app_delegate.current_hangout!.isUserInHangout(friend_id))
+        {
+            app_delegate.current_hangout!.removeUser(friend_id)
+            // Subtract one to remove yourself
+            let num_friends = app_delegate.current_hangout!.getNumUsers() - 1
+            vc.updateNumFriendsLabel(num_friends)
+            return false
+        }
+        app_delegate.current_hangout!.addUser(friend_id, "observer")
+        let num_friends = app_delegate.current_hangout!.getNumUsers() - 1
+        vc.updateNumFriendsLabel(num_friends)
+        return true
     }
-
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func filterContentForSearchText(_ searchText: String) {
+        let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+        let friend_ids = app_delegate.current_user!.getFriends()
+        filtered_friends = friend_ids.filter { (friend_id: String) -> Bool in
+            let friend = app_delegate.current_user!.getFriend(friend_id)
+            let friend_name = friend?.getName()
+            var name : String = ""
+            if let friend_name = friend_name
+            {
+                name = friend_name
+            }
+            return name.lowercased().contains(searchText.lowercased())
+        }
+      tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
