@@ -234,6 +234,9 @@ class Hangout : MapMarker
         hangout_info_.location_address = location_address
     }
     func getType() -> String {
-        hangout_info_.type
+        return hangout_info_.type
+    }
+    func getTime() -> String {
+        return hangout_info_.time
     }
 }

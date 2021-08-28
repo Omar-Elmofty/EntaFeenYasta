@@ -733,13 +733,13 @@ WHAT'S YOUR NAME?</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmation text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3h-ye-swl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirmation text" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3h-ye-swl">
                                 <rect key="frame" x="57" y="138" width="300" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="5b1-U1-iY9"/>
                                     <constraint firstAttribute="height" constant="100" id="hcJ-nx-p2B"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -777,6 +777,9 @@ WHAT'S YOUR NAME?</string>
                                     <constraint firstAttribute="width" constant="47" id="Tp1-Cv-Xqe"/>
                                     <constraint firstAttribute="height" constant="31" id="m27-6t-19l"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="shareLocationSwitch:" destination="0CS-Zu-Dad" eventType="valueChanged" id="7K5-6n-fdO"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyS-1Q-GT5">
                                 <rect key="frame" x="180" y="263" width="114" height="21"/>
@@ -835,7 +838,10 @@ WHAT'S YOUR NAME?</string>
                     <connections>
                         <outlet property="confirm_button" destination="Gmg-RS-g4g" id="4ms-Nn-r60"/>
                         <outlet property="confirmation_text" destination="G3h-ye-swl" id="B1e-IL-hFk"/>
+                        <outlet property="from_label" destination="mOr-xF-5o5" id="b2s-Ax-ygT"/>
                         <outlet property="from_time_text_field" destination="kXD-S0-wUP" id="xOw-5d-5Fj"/>
+                        <outlet property="share_location_switch" destination="tvV-kN-xkI" id="9sL-rd-28A"/>
+                        <outlet property="to_label" destination="Kv6-Nc-gBP" id="KO6-Z3-W4N"/>
                         <outlet property="to_time_text_field" destination="4Od-wo-giw" id="HxP-tY-meX"/>
                     </connections>
                 </viewController>
