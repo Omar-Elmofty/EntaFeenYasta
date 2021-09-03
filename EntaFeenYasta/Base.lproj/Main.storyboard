@@ -380,6 +380,14 @@ WHAT'S YOUR NAME?</string>
                                     <segue destination="EkA-sJ-5yZ" kind="show" id="Hmo-i3-Y58"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDf-R3-k9v">
+                                <rect key="frame" x="304" y="54" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="607-Ww-4Wk"/>
+                                    <constraint firstAttribute="height" constant="50" id="qVi-rF-83c"/>
+                                </constraints>
+                                <state key="normal" title="Hangouts"/>
+                            </button>
                             <imageView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="super_boring_meeting" translatesAutoresizingMaskIntoConstraints="NO" id="4VO-he-LHs">
                                 <rect key="frame" x="-52" y="401" width="560" height="421"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -393,6 +401,8 @@ WHAT'S YOUR NAME?</string>
                             <constraint firstItem="f3l-t2-BTY" firstAttribute="centerX" secondItem="sEm-zo-xeF" secondAttribute="centerX" id="OgP-uq-aBr"/>
                             <constraint firstItem="MnC-rO-0aS" firstAttribute="leading" secondItem="qWb-wC-5yO" secondAttribute="leading" constant="10" id="awH-Nl-emW"/>
                             <constraint firstItem="MnC-rO-0aS" firstAttribute="top" secondItem="qWb-wC-5yO" secondAttribute="top" constant="10" id="cPc-Mn-4Xy"/>
+                            <constraint firstItem="nDf-R3-k9v" firstAttribute="top" secondItem="qWb-wC-5yO" secondAttribute="top" constant="10" id="mzl-bs-lp7"/>
+                            <constraint firstItem="qWb-wC-5yO" firstAttribute="trailing" secondItem="nDf-R3-k9v" secondAttribute="trailing" constant="10" id="yh5-SL-SrM"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -403,6 +413,7 @@ WHAT'S YOUR NAME?</string>
                     <navigationItem key="navigationItem" id="MjP-JO-Tfj"/>
                     <connections>
                         <outlet property="friends_button" destination="MnC-rO-0aS" id="6yo-qM-dwK"/>
+                        <outlet property="hangouts_button" destination="nDf-R3-k9v" id="sdy-9Q-pN6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvz-V3-Rmr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

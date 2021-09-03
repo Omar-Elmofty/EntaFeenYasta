@@ -130,6 +130,17 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func createHangoutButton(_ sender: Any) {
+        
+        
+        let test = FirebasePullPush<HangoutInfo>()
+        test.codeable_struct = HangoutInfo(id: "test", name: "Omar", type: "", location: [], image_name: "", date: "", time: "", users: [ : ], users_eta: [:], location_address: "")
+        
+        test.collection_name = "test"
+        test.document_id = "test"
+        let document_id = test.pullFromFirebase(sub_collection: false) { info in
+            print(info.id)
+        }
+        
         var name : String = ""
         var date : String = ""
         var time : String = ""
@@ -166,6 +177,7 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         app_delegate.current_hangout!.setDate(date)
         app_delegate.current_hangout!.setTime(time)
         app_delegate.current_hangout!.setLocationAddress(location_text_label.text!)
+        
         
         transitionToConfirmationVC()
     }

@@ -15,8 +15,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
     private var location_updated: Bool = false
     private var mapView: MKMapView!
     @IBOutlet weak var friends_button: UIButton!
-    
-    	
+    @IBOutlet weak var hangouts_button: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         let app_delegate =  UIApplication.shared.delegate as! AppDelegate
@@ -24,7 +23,6 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
             app_delegate.current_user = User()
         }
         let mapView = MKMapView(frame: view.bounds)
-        
 
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.delegate = self
@@ -38,6 +36,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
         view.sendSubviewToBack(mapView)
         
         Utilities.styleFilledButton(friends_button)
+        Utilities.styleFilledButton(hangouts_button)
     }
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
 //        self.mapView?.updateUserLocationAnnotationView()
@@ -55,6 +54,5 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
         try! app_delegate.current_user!.pushToFirebase()
         try! app_delegate.current_user!.populateFriends()
     }
-    
 }
 

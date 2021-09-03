@@ -23,7 +23,7 @@ struct HangoutInfo : Codable
     var date : String
     var time : String
     // Map of the users in this hangout session [user_id, user_priviliges]
-    var users : [String: String]
+    var users : [String: [String: String]]
     var users_eta : [String : TimeInterval]
     var location_address: String
     
@@ -47,6 +47,7 @@ class Hangout : MapMarker
     // User info
     private var hangout_info_ : HangoutInfo
     private let db = Firestore.firestore()
+
     private var pull_successful_: Bool = false
     private var push_successful_: Bool = false
 
@@ -140,7 +141,7 @@ class Hangout : MapMarker
      * @brief Get all user names.
      * @return User names.
      */
-    func getUsers() -> [String:String] {
+    func getUsers() -> [String: [String: String]] {
         return hangout_info_.users
     }
 
@@ -158,7 +159,7 @@ class Hangout : MapMarker
      * @param user_privilege The user privilige.
      */
     func addUser(_ user_id : String, _ user_privilege : String) {
-        hangout_info_.users[user_id] = user_privilege
+        hangout_info_.users[user_id] = ["privilege": user_privilege]
     }
     
     /**
@@ -238,5 +239,25 @@ class Hangout : MapMarker
     }
     func getTime() -> String {
         return hangout_info_.time
+    }
+    func addUserLocationSharingOptions(_ user_id: String, _ share_location: Bool, _ start_time: String, _ end_time: String)
+    {
+        // First retrieve the user
+        var dict_ref : [String: String] = [:]
+        if (hangout_info_.users[user_id] != nil)
+        {
+            dict_ref = hangout_info_.users[user_id]!
+        }
+        if share_location
+        {
+            dict_ref["share_location"] = "yes"
+            dict_ref["start_time"] = start_time
+            dict_ref["end_time"] = end_time
+        }
+        else
+        {
+            dict_ref["share_location"] = "no"
+        }
+        hangout_info_.users[user_id] = dict_ref
     }
 }

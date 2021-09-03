@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestoreSwift
 
 class ConfirmHangoutViewController: UIViewController {
 
@@ -26,10 +28,8 @@ class ConfirmHangoutViewController: UIViewController {
         Utilities.styleTextField(from_time_text_field)
         Utilities.styleTextField(to_time_text_field)
         Utilities.styleFilledButton(confirm_button)
-        
         printConfirmationText()
         setupDateAndTimePickers()
-
     }
     
     func printConfirmationText()
@@ -97,7 +97,36 @@ class ConfirmHangoutViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func transitionToNextVC() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.home_view_controller)
+        self.view.window?.rootViewController = vc
+        self.view.window?.makeKeyAndVisible()
+    }
+    
     @IBAction func confirmButton(_ sender: Any) {
+        let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+        
+        let current_user_id = app_delegate.current_user!.getId()
+        
+        if (share_location_switch.isOn)
+        {
+            let start_time = from_time_text_field.text ?? ""
+            let end_time = to_time_text_field.text ?? ""
+            app_delegate.current_hangout!.addUserLocationSharingOptions(current_user_id, true, start_time, end_time)
+        }
+        else
+        {
+            app_delegate.current_hangout!.addUserLocationSharingOptions(current_user_id, false, "", "")
+        }
+        
+        try! app_delegate.current_hangout!.pushToFirebase()
+        
+        // Reset current hangout
+        app_delegate.current_hangout = Hangout()
+        transitionToNextVC()
+        
+
     }
     
     @IBAction func shareLocationSwitch(_ sender: Any) {
