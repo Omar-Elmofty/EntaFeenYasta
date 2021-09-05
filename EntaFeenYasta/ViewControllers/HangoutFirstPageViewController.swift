@@ -39,7 +39,7 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         let app_delegate =  UIApplication.shared.delegate as! AppDelegate
         app_delegate.current_hangout = Hangout()
         let current_user_id = app_delegate.current_user!.getId()
-        app_delegate.current_hangout!.addUser(current_user_id, "admin")
+        app_delegate.current_hangout!.addUser(current_user_id, "admin", acceptance_status: "accepted")
     }
     func setupDateAndTimePickers () {
         date_picker = UIDatePicker()
@@ -130,16 +130,6 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func createHangoutButton(_ sender: Any) {
-        
-        
-        let test = FirebasePullPush<HangoutInfo>()
-        test.codeable_struct = HangoutInfo(id: "test", name: "Omar", type: "", location: [], image_name: "", date: "", time: "", users: [ : ], users_eta: [:], location_address: "")
-        
-        test.collection_name = "test"
-        test.document_id = "test"
-        let document_id = test.pullFromFirebase(sub_collection: false) { info in
-            print(info.id)
-        }
         
         var name : String = ""
         var date : String = ""

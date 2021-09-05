@@ -53,6 +53,7 @@ class HomeViewController: UIViewController, MKMapViewDelegate {
         app_delegate.current_user!.setLocation(user_loc.latitude, user_loc.longitude)
         try! app_delegate.current_user!.pushToFirebase()
         try! app_delegate.current_user!.populateFriends()
+        app_delegate.hangouts!.pullAllHangouts()
     }
 }
 

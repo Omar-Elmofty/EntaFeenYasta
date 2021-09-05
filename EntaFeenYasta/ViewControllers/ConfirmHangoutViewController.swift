@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseFirestoreSwift
 
 class ConfirmHangoutViewController: UIViewController {
 
@@ -120,13 +118,12 @@ class ConfirmHangoutViewController: UIViewController {
             app_delegate.current_hangout!.addUserLocationSharingOptions(current_user_id, false, "", "")
         }
         
-        try! app_delegate.current_hangout!.pushToFirebase()
+        app_delegate.current_hangout!.pushToFirebase()
+        app_delegate.hangouts?.addHangout(app_delegate.current_hangout!)
         
         // Reset current hangout
         app_delegate.current_hangout = Hangout()
         transitionToNextVC()
-        
-
     }
     
     @IBAction func shareLocationSwitch(_ sender: Any) {

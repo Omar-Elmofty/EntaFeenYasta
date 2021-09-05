@@ -10,8 +10,7 @@ import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    private var user_database_ : UserDataBase?
+    var hangouts: Hangouts?
     var current_user : User?
     var current_hangout : Hangout?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -20,10 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let json_dir = "/Users/omarelmofty/Desktop/EntaFeenYasta/user_database.json"
 //        user_database_ = try? UserDataBase(json_dir: json_dir)
         return true
-    }
-    
-    func getUserDatabase() -> UserDataBase? {
-        return user_database_
     }
 
     // MARK: UISceneSession Lifecycle

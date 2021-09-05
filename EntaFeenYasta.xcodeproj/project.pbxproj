@@ -10,6 +10,8 @@
 		25055180265A5584005250F5 /* Hangout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2505517F265A5584005250F5 /* Hangout.swift */; };
 		25055182265A5711005250F5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25055181265A5711005250F5 /* User.swift */; };
 		25055184265AD313005250F5 /* UserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25055183265AD313005250F5 /* UserDatabase.swift */; };
+		25113A2026E431E80079C040 /* HangoutsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25113A1F26E431E80079C040 /* HangoutsTableViewController.swift */; };
+		25113A2226E432F50079C040 /* Hangouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25113A2126E432F50079C040 /* Hangouts.swift */; };
 		254CDB0D266B94130024F264 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 254CDB0C266B94130024F264 /* GoogleService-Info.plist */; };
 		25534CCD26C995F900D310CF /* NewHangoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25534CCC26C995F900D310CF /* NewHangoutViewController.swift */; };
 		257676BD2659556E0087C3C9 /* ETAEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257676BC2659556E0087C3C9 /* ETAEstimator.swift */; };
@@ -83,6 +85,8 @@
 		2505517F265A5584005250F5 /* Hangout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hangout.swift; sourceTree = "<group>"; };
 		25055181265A5711005250F5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		25055183265AD313005250F5 /* UserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabase.swift; sourceTree = "<group>"; };
+		25113A1F26E431E80079C040 /* HangoutsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutsTableViewController.swift; sourceTree = "<group>"; };
+		25113A2126E432F50079C040 /* Hangouts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hangouts.swift; sourceTree = "<group>"; };
 		254CDB0C266B94130024F264 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25534CCC26C995F900D310CF /* NewHangoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHangoutViewController.swift; sourceTree = "<group>"; };
 		257676BC2659556E0087C3C9 /* ETAEstimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETAEstimator.swift; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 				25C5F71726CB4CD1004640F0 /* LocationSearchTableViewController.swift */,
 				25A34FA326D4904D0037A648 /* HangoutSelectFriendsTableViewController.swift */,
 				2590D98D26D7289000F0FCF9 /* ConfirmHangoutViewController.swift */,
+				25113A1F26E431E80079C040 /* HangoutsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 				25055183265AD313005250F5 /* UserDatabase.swift */,
 				259392872691B03C004DD1B2 /* UserAuth.swift */,
 				25A459CB26E2D29500DBA119 /* FirebasePullPush.swift */,
+				25113A2126E432F50079C040 /* Hangouts.swift */,
 			);
 			path = FirebaseInterface;
 			sourceTree = "<group>";
@@ -509,12 +515,14 @@
 				25972D6926C204550077B1D0 /* FriendRequestsTableViewController.swift in Sources */,
 				25A142D626BF22B40055E021 /* FriendDetailsViewController.swift in Sources */,
 				2586A353264DC1CC00DB3A99 /* SceneDelegate.swift in Sources */,
+				25113A2026E431E80079C040 /* HangoutsTableViewController.swift in Sources */,
 				2599CB07269B686200D6D7F8 /* NameViewController.swift in Sources */,
 				25F9B527265182D70050FECD /* ErrorHandling.swift in Sources */,
 				259DA65026A3557E00410219 /* PhoneViewController.swift in Sources */,
 				25C5F71826CB4CD1004640F0 /* LocationSearchTableViewController.swift in Sources */,
 				25A7926A269D1CD300151811 /* UIViewControllerExtenstion.swift in Sources */,
 				25F9B5162651799A0050FECD /* MapMarker.swift in Sources */,
+				25113A2226E432F50079C040 /* Hangouts.swift in Sources */,
 				25C5F71426CB2A15004640F0 /* HangoutFirstPageViewController.swift in Sources */,
 				259392882691B03C004DD1B2 /* UserAuth.swift in Sources */,
 				25A459CC26E2D29500DBA119 /* FirebasePullPush.swift in Sources */,

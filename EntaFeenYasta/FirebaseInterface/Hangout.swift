@@ -15,28 +15,30 @@ import FirebaseFirestoreSwift
 struct HangoutInfo : Codable
 {
     // Document id, if empty string then a randomly generated id is created
-    var id : String
     var name : String
     var type : String
     var location : [Double]
     var image_name : String
     var date : String
     var time : String
-    // Map of the users in this hangout session [user_id, user_priviliges]
-    var users : [String: [String: String]]
-    var users_eta : [String : TimeInterval]
     var location_address: String
     
 //    enum CodingKeys: String, CodingKey {
 //      // Add alternative key name here
 //      case id  // = "document_id" example document_id is an alternative key name to id
 //      case name
-//      case type
-//      case location
-//      case image_name
-//      case users
-//      case users_eta
 //    }
+}
+
+struct HangoutUsers : Codable
+{
+    var user_id: String
+    var privilege: String // admin, observer
+    var acceptance_status: String // accepted, tentative, declined, request_sent
+    var share_location: Bool
+    var share_location_start_time: String
+    var share_location_end_time: String
+    var hangout_id: String
 }
 
 /**
@@ -46,10 +48,14 @@ class Hangout : MapMarker
 {
     // User info
     private var hangout_info_ : HangoutInfo
-    private let db = Firestore.firestore()
+    private var hangout_users_: [String : HangoutUsers] = [:]
+    private var hangout_id_: String = ""
 
     private var pull_successful_: Bool = false
     private var push_successful_: Bool = false
+    
+    private var hangout_pull_push = FirebasePullPush<HangoutInfo>()
+    private var hangout_users_pull_push = FirebasePullPush<HangoutUsers>()
 
     /**
      * @brief Contructor.
@@ -61,7 +67,7 @@ class Hangout : MapMarker
         hangout_info_ = hangout_info
         super.init()
         setMarkerData(marker_name: hangout_info_.name, marker_type: "hangout", image_name: hangout_info_.image_name, location: (lattitude: hangout_info_.location[0], longtitude: hangout_info_.location[1]))
-        try! pushToFirebase()
+        setupFireBasePushPull()
     }
     
     /**
@@ -70,79 +76,80 @@ class Hangout : MapMarker
     override init()
     {
         // Initalize an empty struct
-        hangout_info_ = HangoutInfo(id: "", name: "", type: "", location: [], image_name: "", date: "", time: "", users: [:], users_eta: [:], location_address: "")
+        hangout_info_ = HangoutInfo(name: "", type: "", location: [], image_name: "", date: "", time: "", location_address: "")
         super.init()
+        setupFireBasePushPull()
     }
+    
+    func setupFireBasePushPull()
+    {
+        hangout_pull_push.collection_name = Constants.Firebase.hangouts_collection_name
+        hangout_users_pull_push.collection_name = Constants.Firebase.hangouts_collection_name
+        hangout_users_pull_push.sub_collection_name = Constants.Firebase.hangout_users_collection_name
+    }
+    
     /**
      * @brief Push to firebase.
      */
-    func pushToFirebase() throws
+    func pushToFirebase()
     {
-        push_successful_ = false
-        do {
-            var doc : DocumentReference
-            if hangout_info_.id != ""
-            {
-                doc = db.collection("hangouts").document(hangout_info_.id)
-            }
-            else
-            {
-                doc = db.collection("hangouts").document()
-                hangout_info_.id = doc.documentID
-            }
-            try doc.setData(from: hangout_info_) { (error) in
-                    if let error = error {
-                        print("Error encountered when setting document: \(error.localizedDescription)")
-                    }
-                    else
-                    {
-                        self.push_successful_ = true
-                    }
-                }
-        } catch let error {
-            throw AppError.runtimeError("Error encountered during creating hangout : \(error.localizedDescription)")
+        pushHangoutInfoToFirebase()
+        pushAllUsersToFirebase()
+    }
+    
+    func pushHangoutInfoToFirebase()
+    {
+        if (hangout_id_ == "")
+        {
+            hangout_id_ = hangout_pull_push.pushToFirebase(hangout_info_, document_id: nil, sub_document_id: nil)
+        }
+        else
+        {
+            let _ = hangout_pull_push.pushToFirebase(hangout_info_, document_id: hangout_id_, sub_document_id: nil)
         }
     }
     
-    func pullFromFirebase(completion: @escaping (Hangout) -> Bool)
+    func pushAllUsersToFirebase()
     {
-        pull_successful_ = false
-        db.collection("hangouts").document(hangout_info_.id).getDocument { (document, error) in
-             if let error = error {
-                print("Error ocurred \(error.localizedDescription)")
-             }
-             let result = Result {
-               try document?.data(as: HangoutInfo.self)
-             }
-             switch result {
-             case .success(let hangout_info):
-                 if let hangout_info = hangout_info {
-                     self.hangout_info_ = hangout_info
-                     self.setMarkerData(marker_name: hangout_info.name, marker_type: "hangout", image_name: hangout_info.image_name, location: (lattitude: hangout_info.location[0], longtitude: hangout_info.location[1]))
-                      if (!completion(self))
-                      {
-                        print("Running completion failed.")
-                        
-                        self.pull_successful_ = true
-                      }
-                 } else {
-                     // A nil value was successfully initialized from the DocumentSnapshot,
-                     // or the DocumentSnapshot was nil.
-                     print("Document does not exist")
-                 }
-             case .failure(let error):
-                 // A `City` value could not be initialized from the DocumentSnapshot.
-                 print("Error decoding hangout info: \(error.localizedDescription)")
-             }
-         }
+        for (user_id, user_info) in hangout_users_
+        {
+            let _ = hangout_users_pull_push.pushToFirebase(user_info, document_id: hangout_id_, sub_document_id: user_id)
+        }
     }
-
-    /**
-     * @brief Get all user names.
-     * @return User names.
-     */
-    func getUsers() -> [String: [String: String]] {
-        return hangout_info_.users
+    
+    func pushUserToFirebase(_ user_id: String)
+    {
+        if (hangout_users_[user_id] != nil)
+        {
+            let _ = hangout_users_pull_push.pushToFirebase(hangout_users_[user_id]!, document_id: hangout_id_, sub_document_id: user_id)
+        }
+    }
+    
+    func pullFromFirebase()
+    {
+        pullHangoutInfoFromFirebase()
+        
+        pullAllUsersFromFirebase()
+    }
+    
+    func pullHangoutInfoFromFirebase()
+    {
+        hangout_pull_push.pullFromFirebase(document_id: hangout_id_, sub_document_id: nil) { hangout_info in
+            self.hangout_info_ = hangout_info
+        }
+    }
+    
+    func pullAllUsersFromFirebase()
+    {
+        hangout_users_pull_push.pullAllDocuments(document_id: hangout_id_) { hangout_users in
+            self.hangout_users_ = hangout_users
+        }
+    }
+    func pullUserFromFirebase(_ user_id: String)
+    {
+        hangout_users_pull_push.pullFromFirebase(document_id: hangout_id_, sub_document_id: user_id) { user_info in
+            self.hangout_users_[user_id] = user_info
+        }
     }
 
     /**
@@ -158,39 +165,20 @@ class Hangout : MapMarker
      * @param user_id  the user id.
      * @param user_privilege The user privilige.
      */
-    func addUser(_ user_id : String, _ user_privilege : String) {
-        hangout_info_.users[user_id] = ["privilege": user_privilege]
+    func addUser(_ user_id : String, _ user_privilege : String, acceptance_status: String) {
+        if (hangout_users_[user_id] == nil)
+        {
+            hangout_users_[user_id] = HangoutUsers(user_id: user_id, privilege: user_privilege, acceptance_status: acceptance_status, share_location: false, share_location_start_time: "", share_location_end_time: "", hangout_id: hangout_id_)
+        }
     }
-    
+
     /**
      * @brief Remove user from the hangout session.
      * @param The user id.
      */
     func removeUser(_ user_id : String) {
-        hangout_info_.users.removeValue(forKey: user_id)
-    }
-    
-    /**
-     * @brief Add the user Eta for this session.
-     * @param user_id The user id.
-     * @param eta The eta.
-     */
-    func addUserETA(user_id : String, eta : TimeInterval)
-    {
-        hangout_info_.users_eta[user_id] = eta
-    }
-
-    /**
-     * @brief  Get the user eta.
-     * @param user_id Get the user id.
-     * @return The eta for this user.
-     */
-    func getUserETA(_ user_id : String) -> TimeInterval
-    {
-        if let eta = hangout_info_.users_eta[user_id] {
-            return eta
-        }
-        return 0.0
+        hangout_users_.removeValue(forKey: user_id)
+        hangout_users_pull_push.deleteDocument(document_id: hangout_id_, sub_document_id: user_id)
     }
 
     /**
@@ -226,10 +214,10 @@ class Hangout : MapMarker
         hangout_info_.time = time
     }
     func isUserInHangout(_ user_id: String) -> Bool {
-        return hangout_info_.users[user_id] != nil
+        return hangout_users_[user_id] != nil
     }
     func getNumUsers() -> size_t {
-        return hangout_info_.users.count
+        return hangout_users_.count
     }
     func setLocationAddress(_ location_address: String) {
         hangout_info_.location_address = location_address
@@ -243,21 +231,23 @@ class Hangout : MapMarker
     func addUserLocationSharingOptions(_ user_id: String, _ share_location: Bool, _ start_time: String, _ end_time: String)
     {
         // First retrieve the user
-        var dict_ref : [String: String] = [:]
-        if (hangout_info_.users[user_id] != nil)
+        if (hangout_users_[user_id] != nil)
         {
-            dict_ref = hangout_info_.users[user_id]!
+            var user_info = hangout_users_[user_id]!
+            user_info.share_location = share_location
+            user_info.share_location_start_time = start_time
+            user_info.share_location_end_time = end_time
+            hangout_users_[user_id] = user_info
         }
-        if share_location
-        {
-            dict_ref["share_location"] = "yes"
-            dict_ref["start_time"] = start_time
-            dict_ref["end_time"] = end_time
-        }
-        else
-        {
-            dict_ref["share_location"] = "no"
-        }
-        hangout_info_.users[user_id] = dict_ref
+    }
+    
+    func setHangoutID(_ id: String)
+    {
+        hangout_id_ = id
+    }
+    
+    func getID() -> String
+    {
+        return hangout_id_
     }
 }

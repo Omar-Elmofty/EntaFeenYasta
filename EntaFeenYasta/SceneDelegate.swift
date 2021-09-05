@@ -16,7 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        let app_delegate =  UIApplication.shared.delegate as! AppDelegate
         FirebaseApp.configure()
+        app_delegate.hangouts = Hangouts()
 
         guard let _ = (scene as? UIWindowScene) else { return }
         if let windowScene = scene as? UIWindowScene {
@@ -26,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if Auth.auth().currentUser != nil
             {
                 // Pull current User from firebase
-                let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+                
                 if app_delegate.current_user == nil {
                     app_delegate.current_user = User()
                 }

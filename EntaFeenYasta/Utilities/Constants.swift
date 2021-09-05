@@ -26,4 +26,9 @@ struct Constants {
         static let hangout_select_friends_vc = "HangoutSelectFriendsVC"
         static let confirm_hangout_vc = "ConfirmHangoutVC"
     }
+    struct Firebase {
+        static let hangouts_collection_name = "hangouts"
+        static let users_collection_name = "users"
+        static let hangout_users_collection_name = "hangout_users"
+    }
 }
