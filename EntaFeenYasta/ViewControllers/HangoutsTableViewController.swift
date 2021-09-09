@@ -7,8 +7,14 @@
 
 import UIKit
 
-class HangoutsTableViewController: UITableViewController {
 
+class HangoutTableViewCell: UITableViewCell {
+    @IBOutlet weak var hangout_name_label: UILabel!
+    
+}
+
+class HangoutsTableViewController: UITableViewController {
+    private var hangouts_: [Hangout] = []
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,8 +34,26 @@ class HangoutsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+        hangouts_ = app_delegate.hangouts!.getAllHangouts()
+        return hangouts_.count
     }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.TableViewCells.hangout_cell_reuse_identifier, for: indexPath) as! HangoutTableViewCell
+
+        let hangout = hangouts_[indexPath.row]
+
+        cell.hangout_name_label.text = hangout.getName()
+
+        return cell
+    }
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

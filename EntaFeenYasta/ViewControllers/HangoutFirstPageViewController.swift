@@ -37,7 +37,7 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         setUpElements()
         setupDateAndTimePickers()
         let app_delegate =  UIApplication.shared.delegate as! AppDelegate
-        app_delegate.current_hangout = Hangout()
+        app_delegate.current_hangout = Hangout(hangout_id: NSUUID().uuidString)
         let current_user_id = app_delegate.current_user!.getId()
         app_delegate.current_hangout!.addUser(current_user_id, "admin", acceptance_status: "accepted")
     }
@@ -159,7 +159,7 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
 
         let app_delegate =  UIApplication.shared.delegate as! AppDelegate
         if app_delegate.current_hangout == nil {
-            app_delegate.current_hangout = Hangout()
+            app_delegate.current_hangout = Hangout(hangout_id: NSUUID().uuidString)
         }
 
         app_delegate.current_hangout!.setPrivateStatus(is_private!)

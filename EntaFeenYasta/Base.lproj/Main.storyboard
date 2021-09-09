@@ -387,6 +387,9 @@ WHAT'S YOUR NAME?</string>
                                     <constraint firstAttribute="height" constant="50" id="qVi-rF-83c"/>
                                 </constraints>
                                 <state key="normal" title="Hangouts"/>
+                                <connections>
+                                    <action selector="hangoutsButton:" destination="fh8-fT-fSq" eventType="touchUpInside" id="8Dk-EN-f53"/>
+                                </connections>
                             </button>
                             <imageView autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="super_boring_meeting" translatesAutoresizingMaskIntoConstraints="NO" id="4VO-he-LHs">
                                 <rect key="frame" x="-52" y="401" width="560" height="421"/>
@@ -652,7 +655,7 @@ WHAT'S YOUR NAME?</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSz-AB-NYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8406" y="1483"/>
+            <point key="canvasLocation" x="8414" y="1483"/>
         </scene>
         <!--Select Hangout Location-->
         <scene sceneID="cLB-qE-2Hu">
@@ -1249,6 +1252,50 @@ WHAT'S YOUR NAME?</string>
             </objects>
             <point key="canvasLocation" x="7441" y="1483"/>
         </scene>
+        <!--Your Hangouts-->
+        <scene sceneID="lcA-7e-8c3">
+            <objects>
+                <tableViewController id="Yuf-Zf-wZP" customClass="HangoutsTableViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CL9-rq-JTG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HangoutCell" id="Fqe-0n-G7c" customClass="HangoutTableViewCell" customModule="EntaFeenYasta" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fqe-0n-G7c" id="heS-NO-Mq7">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nh8-Z5-y03">
+                                            <rect key="frame" x="20" y="11.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Nh8-Z5-y03" firstAttribute="leading" secondItem="heS-NO-Mq7" secondAttribute="leading" constant="20" id="Q71-h2-Epp"/>
+                                        <constraint firstItem="Nh8-Z5-y03" firstAttribute="centerY" secondItem="heS-NO-Mq7" secondAttribute="centerY" id="e0r-63-3Rm"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="hangout_name_label" destination="Nh8-Z5-y03" id="xZe-cA-E4M"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Yuf-Zf-wZP" id="JiP-OF-oOn"/>
+                            <outlet property="delegate" destination="Yuf-Zf-wZP" id="nTU-tf-9Qa"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Your Hangouts" id="aG1-qE-aPy"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wAz-7o-7Ib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8134.7826086956529" y="2175.6696428571427"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="wyO-aR-ODP">
             <objects>
@@ -1266,6 +1313,24 @@ WHAT'S YOUR NAME?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hpg-yC-kkY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9989.855072463768" y="1470.5357142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Rwn-NH-pxN">
+            <objects>
+                <navigationController storyboardIdentifier="HangoutsListVC" automaticallyAdjustsScrollViewInsets="NO" id="e7A-5w-hab" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KB6-5G-MLH">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Yuf-Zf-wZP" kind="relationship" relationship="rootViewController" id="Wge-Jv-tIL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hnk-oj-yEa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7224.6376811594209" y="2175.6696428571427"/>
         </scene>
     </scenes>
     <resources>

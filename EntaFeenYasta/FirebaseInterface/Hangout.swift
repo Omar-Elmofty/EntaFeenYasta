@@ -51,8 +51,8 @@ class Hangout : MapMarker
     private var hangout_users_: [String : HangoutUsers] = [:]
     private var hangout_id_: String = ""
 
-    private var pull_successful_: Bool = false
-    private var push_successful_: Bool = false
+    private var pull_successful_: Bool = true
+    private var push_counter_: size_t = 0
     
     private var hangout_pull_push = FirebasePullPush<HangoutInfo>()
     private var hangout_users_pull_push = FirebasePullPush<HangoutUsers>()
@@ -73,8 +73,9 @@ class Hangout : MapMarker
     /**
      * @brief Contructor.
      */
-    override init()
+    init(hangout_id: String)
     {
+        hangout_id_ = hangout_id
         // Initalize an empty struct
         hangout_info_ = HangoutInfo(name: "", type: "", location: [], image_name: "", date: "", time: "", location_address: "")
         super.init()
@@ -93,27 +94,30 @@ class Hangout : MapMarker
      */
     func pushToFirebase()
     {
+        push_counter_ = 1 + hangout_users_.count
         pushHangoutInfoToFirebase()
         pushAllUsersToFirebase()
     }
     
-    func pushHangoutInfoToFirebase()
+    func pushSuccessful() -> Bool
     {
-        if (hangout_id_ == "")
-        {
-            hangout_id_ = hangout_pull_push.pushToFirebase(hangout_info_, document_id: nil, sub_document_id: nil)
-        }
-        else
-        {
-            let _ = hangout_pull_push.pushToFirebase(hangout_info_, document_id: hangout_id_, sub_document_id: nil)
+        return push_counter_ == 0
+    }
+    
+    private func pushHangoutInfoToFirebase()
+    {
+        hangout_pull_push.pushToFirebase(hangout_info_, document_id: hangout_id_, sub_document_id: nil) {
+            self.push_counter_ -= 1
         }
     }
     
-    func pushAllUsersToFirebase()
+    private func pushAllUsersToFirebase()
     {
         for (user_id, user_info) in hangout_users_
         {
-            let _ = hangout_users_pull_push.pushToFirebase(user_info, document_id: hangout_id_, sub_document_id: user_id)
+            hangout_users_pull_push.pushToFirebase(user_info, document_id: hangout_id_, sub_document_id: user_id) {
+                self.push_counter_ -= 1
+            }
         }
     }
     
@@ -121,7 +125,7 @@ class Hangout : MapMarker
     {
         if (hangout_users_[user_id] != nil)
         {
-            let _ = hangout_users_pull_push.pushToFirebase(hangout_users_[user_id]!, document_id: hangout_id_, sub_document_id: user_id)
+            hangout_users_pull_push.pushToFirebase(hangout_users_[user_id]!, document_id: hangout_id_, sub_document_id: user_id, completion: nil)
         }
     }
     

@@ -25,6 +25,11 @@ struct Constants {
         static let location_search_view_controller = "LocationSearchVC"
         static let hangout_select_friends_vc = "HangoutSelectFriendsVC"
         static let confirm_hangout_vc = "ConfirmHangoutVC"
+        static let hangouts_vc = "HangoutsListVC"
+
+        struct TableViewCells {
+            static let hangout_cell_reuse_identifier = "HangoutCell"
+        }
     }
     struct Firebase {
         static let hangouts_collection_name = "hangouts"

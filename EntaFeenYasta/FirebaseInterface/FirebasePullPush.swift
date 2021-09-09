@@ -65,48 +65,40 @@ class FirebasePullPush<T: Codable>
     }
 
     // Push to firebase, returns the document id.
-    func pushToFirebase(_ codeable_struct: T, document_id: String?, sub_document_id: String?) -> String
+    func pushToFirebase(_ codeable_struct: T, document_id: String, sub_document_id: String?, completion: (() -> Void)?)
     {
-        var doc_id : String = ""
         if (collection_name == nil)
         {
             print("FirebasePullPush [pushToFirebase]: Error nil entries found")
-            return doc_id
+            return
         }
         do {
-            var doc : DocumentReference
-            if let document_id = document_id
-            {
-                doc = db.collection(collection_name!).document(document_id)
-                doc_id = document_id
-            }
-            else
-            {
-                doc = db.collection(collection_name!).document()
-                doc_id = doc.documentID
-            }
+            var doc = db.collection(collection_name!).document(document_id)
             if (sub_collection_name != nil)
             {
                 if let sub_document_id = sub_document_id
                 {
                     doc = doc.collection(sub_collection_name!).document(sub_document_id)
-                    doc_id = sub_document_id
                 }
                 else
                 {
                     doc = doc.collection(sub_collection_name!).document()
-                    doc_id = doc.documentID
                 }
             }
             try doc.setData(from: codeable_struct) { (error) in
                     if let error = error {
                         print("FirebasePullPush [pushToFirebase]: Error encountered when setting document: \(error.localizedDescription)")
                     }
+                    else
+                    {
+                        if let completion = completion {
+                            completion()
+                        }
+                    }
                 }
         } catch let error {
             print("FirebasePullPush [pushToFirebase]: Error encountered when pushing to firebase: \(error.localizedDescription)")
         }
-        return doc_id
     }
     
     
@@ -129,7 +121,6 @@ class FirebasePullPush<T: Codable>
             } else {
                 var out_dict: [String: T] = [:]
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
                     
                     let result = Result {
                       try document.data(as: T.self)
@@ -152,7 +143,7 @@ class FirebasePullPush<T: Codable>
         }
     }
     
-    func searchSubcollections(field: String, value: String, completion: @escaping ([String: T])->Void)
+    func searchSubcollections(field: String, value: String, completion: @escaping ([T])->Void)
     {
         if (sub_collection_name == nil)
         {
@@ -164,9 +155,8 @@ class FirebasePullPush<T: Codable>
             if let err = err {
                 print("FirebasePullPush [searchSubcollections]: Error getting documents: \(err)")
             } else {
-                var out_dict: [String: T] = [:]
+                var out_dict: [T] = []
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
                     
                     let result = Result {
                       try document.data(as: T.self)
@@ -174,7 +164,7 @@ class FirebasePullPush<T: Codable>
                     switch result {
                     case .success(let cd_struct):
                         if let cd_struct = cd_struct {
-                            out_dict[document.documentID] = cd_struct
+                            out_dict.append(cd_struct)
                             
                         } else {
                             print("FirebasePullPush [searchSubcollections]: Document does not exist")

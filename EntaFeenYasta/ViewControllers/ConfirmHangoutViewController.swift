@@ -106,7 +106,7 @@ class ConfirmHangoutViewController: UIViewController {
         let app_delegate =  UIApplication.shared.delegate as! AppDelegate
         
         let current_user_id = app_delegate.current_user!.getId()
-        
+        https://console.firebase.google.com/project/entafeenyasta/firestore/data/~2Fhangouts~2FD1C19B6F-4980-4529-91E3-54D20866A33F~2Fhangout_users~2F0Xr4gYo25zRzRFFE084xLeBb7v02
         if (share_location_switch.isOn)
         {
             let start_time = from_time_text_field.text ?? ""
@@ -117,12 +117,11 @@ class ConfirmHangoutViewController: UIViewController {
         {
             app_delegate.current_hangout!.addUserLocationSharingOptions(current_user_id, false, "", "")
         }
-        
-        app_delegate.current_hangout!.pushToFirebase()
+    
         app_delegate.hangouts?.addHangout(app_delegate.current_hangout!)
         
         // Reset current hangout
-        app_delegate.current_hangout = Hangout()
+        app_delegate.current_hangout = nil
         transitionToNextVC()
     }
     
