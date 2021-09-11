@@ -39,6 +39,7 @@
 		25A79266269D175300151811 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A79265269D175300151811 /* Constants.swift */; };
 		25A7926A269D1CD300151811 /* UIViewControllerExtenstion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */; };
 		25A7926C269D2EE900151811 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A7926B269D2EE900151811 /* AddFriendsViewController.swift */; };
+		25ADC1BF26EC2868006E1773 /* HangoutEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ADC1BE26EC2868006E1773 /* HangoutEditViewController.swift */; };
 		25B1BECE269E79DA000F5494 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B1BECD269E79DA000F5494 /* SignUpViewController.swift */; };
 		25C5F71426CB2A15004640F0 /* HangoutFirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C5F71326CB2A15004640F0 /* HangoutFirstPageViewController.swift */; };
 		25C5F71626CB41BD004640F0 /* HangoutPickLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25C5F71526CB41BD004640F0 /* HangoutPickLocationViewController.swift */; };
@@ -120,6 +121,7 @@
 		25A79265269D175300151811 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		25A79269269D1CD300151811 /* UIViewControllerExtenstion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtenstion.swift; sourceTree = "<group>"; };
 		25A7926B269D2EE900151811 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
+		25ADC1BE26EC2868006E1773 /* HangoutEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutEditViewController.swift; sourceTree = "<group>"; };
 		25B1BECD269E79DA000F5494 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		25C5F71326CB2A15004640F0 /* HangoutFirstPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutFirstPageViewController.swift; sourceTree = "<group>"; };
 		25C5F71526CB41BD004640F0 /* HangoutPickLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HangoutPickLocationViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				25A34FA326D4904D0037A648 /* HangoutSelectFriendsTableViewController.swift */,
 				2590D98D26D7289000F0FCF9 /* ConfirmHangoutViewController.swift */,
 				25113A1F26E431E80079C040 /* HangoutsTableViewController.swift */,
+				25ADC1BE26EC2868006E1773 /* HangoutEditViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25ADC1BF26EC2868006E1773 /* HangoutEditViewController.swift in Sources */,
 				2586A355264DC1CC00DB3A99 /* ViewController.swift in Sources */,
 				25A79266269D175300151811 /* Constants.swift in Sources */,
 				25A34FA426D4904D0037A648 /* HangoutSelectFriendsTableViewController.swift in Sources */,

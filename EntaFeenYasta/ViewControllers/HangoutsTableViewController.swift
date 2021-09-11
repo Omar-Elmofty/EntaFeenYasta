@@ -10,6 +10,8 @@ import UIKit
 
 class HangoutTableViewCell: UITableViewCell {
     @IBOutlet weak var hangout_name_label: UILabel!
+    @IBOutlet weak var description_label: UILabel!
+    @IBOutlet weak var location_label: UILabel!
     
 }
 
@@ -38,8 +40,7 @@ class HangoutsTableViewController: UITableViewController {
         hangouts_ = app_delegate.hangouts!.getAllHangouts()
         return hangouts_.count
     }
-    
-    
+
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
     }
@@ -48,22 +49,51 @@ class HangoutsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Storyboard.TableViewCells.hangout_cell_reuse_identifier, for: indexPath) as! HangoutTableViewCell
 
         let hangout = hangouts_[indexPath.row]
+        
+        let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+        let user_id = app_delegate.current_user!.getId()
+
+        let user_info = hangout.getUser(user_id)
+        
+        cell.location_label.isHidden = true
+        if Hangout.userLocationLive(user_info!)
+        {
+            cell.location_label.isHidden = false
+        }
+
+        if (user_info!.acceptance_status == Constants.HangoutAcceptanceStatus.accepted)
+        {
+            cell.description_label.text = "Accepted"
+        }
+        else if (user_info!.acceptance_status == Constants.HangoutAcceptanceStatus.waiting_acceptance)
+        {
+            cell.description_label.text = "Pending Acceptance"
+            cell.location_label.isHidden = false
+        }
+        else if (user_info!.acceptance_status == Constants.HangoutAcceptanceStatus.declined)
+        {
+            cell.description_label.text = "Declined"
+            cell.location_label.isHidden = false
+        }
 
         cell.hangout_name_label.text = hangout.getName()
 
         return cell
     }
-    
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let hangout = hangouts_[indexPath.row]
+        let app_delegate =  UIApplication.shared.delegate as! AppDelegate
+        app_delegate.current_hangout = hangout
+        transitionToNextVC()
     }
-    */
+    
+    func transitionToNextVC() {
+        let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.hangout_edit_vc)
+        present(vc!, animated: true, completion: nil)
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.

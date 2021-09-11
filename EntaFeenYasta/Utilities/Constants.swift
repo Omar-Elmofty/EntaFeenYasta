@@ -26,6 +26,7 @@ struct Constants {
         static let hangout_select_friends_vc = "HangoutSelectFriendsVC"
         static let confirm_hangout_vc = "ConfirmHangoutVC"
         static let hangouts_vc = "HangoutsListVC"
+        static let hangout_edit_vc = "Hangout_Edit_VC"
 
         struct TableViewCells {
             static let hangout_cell_reuse_identifier = "HangoutCell"
@@ -35,5 +36,16 @@ struct Constants {
         static let hangouts_collection_name = "hangouts"
         static let users_collection_name = "users"
         static let hangout_users_collection_name = "hangout_users"
+    }
+    struct UserPrivelage
+    {
+        static let admin = "admin"
+        static let observer = "observer"
+    }
+    struct HangoutAcceptanceStatus
+    {
+        static let waiting_acceptance = "waiting_acceptance"
+        static let accepted = "accepted"
+        static let declined = "declined"
     }
 }

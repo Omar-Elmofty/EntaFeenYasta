@@ -124,7 +124,7 @@ class HangoutSelectFriendsTableViewController: UITableViewController, UISearchRe
             vc.updateNumFriendsLabel(num_friends)
             return false
         }
-        app_delegate.current_hangout!.addUser(friend_id, "observer", acceptance_status: "waiting_acceptance")
+        app_delegate.current_hangout!.addUser(friend_id, Constants.UserPrivelage.observer, acceptance_status: Constants.HangoutAcceptanceStatus.waiting_acceptance)
         let num_friends = app_delegate.current_hangout!.getNumUsers() - 1
         vc.updateNumFriendsLabel(num_friends)
         return true

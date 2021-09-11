@@ -39,7 +39,7 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         let app_delegate =  UIApplication.shared.delegate as! AppDelegate
         app_delegate.current_hangout = Hangout(hangout_id: NSUUID().uuidString)
         let current_user_id = app_delegate.current_user!.getId()
-        app_delegate.current_hangout!.addUser(current_user_id, "admin", acceptance_status: "accepted")
+        app_delegate.current_hangout!.addUser(current_user_id, Constants.UserPrivelage.admin, acceptance_status: Constants.HangoutAcceptanceStatus.accepted)
     }
     func setupDateAndTimePickers () {
         date_picker = UIDatePicker()

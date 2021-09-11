@@ -1269,19 +1269,40 @@ WHAT'S YOUR NAME?</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nh8-Z5-y03">
-                                            <rect key="frame" x="20" y="11.5" width="42" height="21"/>
+                                            <rect key="frame" x="20" y="6.5" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pending Acceptance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhX-cC-LuA">
+                                            <rect key="frame" x="20" y="22" width="108" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="e0O-CH-NYv"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Live" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grS-aE-rOA">
+                                            <rect key="frame" x="303" y="13" width="91" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" systemColor="systemGreenColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="grS-aE-rOA" secondAttribute="trailing" id="0FU-5n-ApU"/>
                                         <constraint firstItem="Nh8-Z5-y03" firstAttribute="leading" secondItem="heS-NO-Mq7" secondAttribute="leading" constant="20" id="Q71-h2-Epp"/>
-                                        <constraint firstItem="Nh8-Z5-y03" firstAttribute="centerY" secondItem="heS-NO-Mq7" secondAttribute="centerY" id="e0r-63-3Rm"/>
+                                        <constraint firstItem="grS-aE-rOA" firstAttribute="centerY" secondItem="heS-NO-Mq7" secondAttribute="centerY" id="Qk8-Zc-Evq"/>
+                                        <constraint firstItem="lhX-cC-LuA" firstAttribute="centerY" secondItem="heS-NO-Mq7" secondAttribute="centerY" constant="10" id="a5I-bq-hBa"/>
+                                        <constraint firstItem="lhX-cC-LuA" firstAttribute="leading" secondItem="heS-NO-Mq7" secondAttribute="leading" constant="20" id="hgy-hf-X76"/>
+                                        <constraint firstItem="Nh8-Z5-y03" firstAttribute="centerY" secondItem="heS-NO-Mq7" secondAttribute="centerY" constant="-5" id="zm6-Qh-eXo"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="description_label" destination="lhX-cC-LuA" id="MQf-57-ucD"/>
                                     <outlet property="hangout_name_label" destination="Nh8-Z5-y03" id="xZe-cA-E4M"/>
+                                    <outlet property="location_label" destination="grS-aE-rOA" id="8yL-wN-KOK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1295,6 +1316,22 @@ WHAT'S YOUR NAME?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAz-7o-7Ib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="8134.7826086956529" y="2175.6696428571427"/>
+        </scene>
+        <!--Hangout Details-->
+        <scene sceneID="mqU-k0-1oI">
+            <objects>
+                <viewController id="cAd-Eo-3Md" customClass="HangoutEditViewController" customModule="EntaFeenYasta" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="efy-SW-1ze">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="7qV-vn-5QQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Hangout Details" id="Nck-r1-1Ej"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gjs-bK-Ufi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10552.17391304348" y="2163.6160714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wyO-aR-ODP">
@@ -1332,6 +1369,24 @@ WHAT'S YOUR NAME?</string>
             </objects>
             <point key="canvasLocation" x="7224.6376811594209" y="2175.6696428571427"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dni-ET-icA">
+            <objects>
+                <navigationController storyboardIdentifier="Hangout_Edit_VC" automaticallyAdjustsScrollViewInsets="NO" id="d7x-fC-11Q" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HK1-qq-EOv">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cAd-Eo-3Md" kind="relationship" relationship="rootViewController" id="RgQ-Yr-0xT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dyE-eH-NsN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9642.0289855072479" y="2163.6160714285711"/>
+        </scene>
     </scenes>
     <resources>
         <image name="plus-2718200_1280" width="1280" height="1280"/>
@@ -1350,6 +1405,9 @@ WHAT'S YOUR NAME?</string>
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

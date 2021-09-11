@@ -60,6 +60,7 @@ class Hangouts
         {
             return
         }
+        
         let current_user_id = app_delegate.current_user!.getId()
         hangout_user_pull_push_.searchSubcollections(field: "user_id", value: current_user_id) { result_list in
             var hangout_ids : [String] = []

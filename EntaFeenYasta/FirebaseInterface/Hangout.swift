@@ -254,4 +254,18 @@ class Hangout : MapMarker
     {
         return hangout_id_
     }
+    
+    func getUser(_ user_id: String) -> HangoutUsers?
+    {
+        if (hangout_users_[user_id] == nil)
+        {
+            return nil
+        }
+        return hangout_users_[user_id]
+    }
+    static func userLocationLive(_ user: HangoutUsers) -> Bool
+    {
+        // To do: finish this function
+        return true
+    }
 }

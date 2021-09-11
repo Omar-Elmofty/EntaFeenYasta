@@ -136,6 +136,7 @@ extension HangoutPickLocationViewController: HandleMapSearch {
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         annotation.title = placemark.name
+        
         if let city = placemark.locality, let state = placemark.administrativeArea {
             annotation.subtitle = "\(city) \(state)"
         }
