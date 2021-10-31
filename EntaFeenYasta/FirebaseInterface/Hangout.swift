@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestoreSwift
+import MapKit
 	
 /**
  *@brief Class for holding various hangout information, this information will be pushed/pulled to firebase.
@@ -189,9 +190,13 @@ class Hangout : MapMarker
      * @brief  Get the hangout location.
      * @return Location of the hangout session [latitude, longtitude]
      */
-    func getLocation() -> [Double]
+    func getLocation() -> CLLocationCoordinate2D
     {
-        return hangout_info_.location
+        if hangout_info_.location.count == 2
+        {
+            return CLLocationCoordinate2D(latitude: hangout_info_.location[0], longitude: hangout_info_.location[1])
+        }
+        return CLLocationCoordinate2D()
     }
     
     func setPrivateStatus(_ is_private: Bool)
@@ -226,6 +231,10 @@ class Hangout : MapMarker
     func setLocationAddress(_ location_address: String) {
         hangout_info_.location_address = location_address
     }
+    func setLocation(_ coordinate: CLLocationCoordinate2D)
+    {
+        hangout_info_.location = [coordinate.latitude, coordinate.longitude]
+    }
     func getType() -> String {
         return hangout_info_.type
     }
@@ -254,7 +263,10 @@ class Hangout : MapMarker
     {
         return hangout_id_
     }
-    
+    func getDate() -> String
+    {
+        return hangout_info_.date
+    }
     func getUser(_ user_id: String) -> HangoutUsers?
     {
         if (hangout_users_[user_id] == nil)

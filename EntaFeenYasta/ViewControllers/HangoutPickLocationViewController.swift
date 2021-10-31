@@ -18,6 +18,7 @@ class HangoutPickLocationViewController: UIViewController, MKMapViewDelegate, UI
     @IBOutlet weak var location_result_view: UIView!
     @IBOutlet weak var primary_address_label: UILabel!
     private var selected_location: String = ""
+    private var selected_location_coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D()
     let locationManager = CLLocationManager()
     var mapView: MKMapView!
     var resultSearchController:UISearchController? = nil
@@ -80,7 +81,9 @@ class HangoutPickLocationViewController: UIViewController, MKMapViewDelegate, UI
         let annotation = didSelect.annotation
         primary_address_label.text = annotation?.title ?? nil
         secondary_address_label.text = annotation?.subtitle ?? nil
-
+        if let annotation = annotation {
+            selected_location_coordinate = annotation.coordinate
+        }
         if let first = primary_address_label.text {
             selected_location = first
             if let second = secondary_address_label.text {
@@ -106,7 +109,7 @@ class HangoutPickLocationViewController: UIViewController, MKMapViewDelegate, UI
         // Update the label of the parent view controller
         let nc = presentingViewController as! UINavigationController
         let vc = nc.viewControllers[0] as! HangoutFirstPageViewController
-        vc.updateLocationLabel(selected_location)
+        vc.updateLocation(selected_location, selected_location_coordinate)
     }
 }
 
@@ -148,6 +151,7 @@ extension HangoutPickLocationViewController: HandleMapSearch {
             mapView.setRegion(region, animated: true)
             self.primary_address_label.text = annotation.title
             self.secondary_address_label.text = annotation.subtitle
+            selected_location_coordinate = annotation.coordinate
             if let first = self.primary_address_label.text {
                 selected_location = first
                 if let second = self.secondary_address_label.text {

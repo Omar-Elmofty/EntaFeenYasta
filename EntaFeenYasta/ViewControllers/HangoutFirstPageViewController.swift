@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MapKit
 
 class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
 
@@ -27,6 +28,7 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
     private var hangout : Hangout?
     private var date_picker: UIDatePicker?
     private var time_picker: UIDatePicker?
+    private var selected_location_coordinate: CLLocationCoordinate2D = CLLocationCoordinate2D()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,8 +99,9 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         let vc = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.confirm_hangout_vc)
         present(vc!, animated: true, completion: nil)
     }
-    func updateLocationLabel(_ new_location: String) {
+    func updateLocation(_ new_location: String, _ coordinate: CLLocationCoordinate2D) {
         location_text_label.text = new_location
+        selected_location_coordinate = coordinate
         is_location_set = true
         Utilities.styleFilledButton(pick_location_button)
     }
@@ -167,7 +170,7 @@ class HangoutFirstPageViewController: UIViewController, UITextFieldDelegate {
         app_delegate.current_hangout!.setDate(date)
         app_delegate.current_hangout!.setTime(time)
         app_delegate.current_hangout!.setLocationAddress(location_text_label.text!)
-        
+        app_delegate.current_hangout!.setLocation(selected_location_coordinate)
         
         transitionToConfirmationVC()
     }

@@ -19,13 +19,13 @@ struct UserInfo : Codable
     var phone_number_ten_digit : String
     var location : [Double] = [0,0]
     var image_name : String
-    var friends_ids : Set<String>
+    var friends_ids : Set<String>	
     var pending_friends_ids : Set<String>
     var active_hangouts : Set<String>
 }
 
 // Class representing user.
-class User : MapMarker
+class User
 {
     // User info
     private var user_info_ : UserInfo
@@ -37,18 +37,16 @@ class User : MapMarker
     private var pull_successful_: Bool = false
     private var push_successful_: Bool = false
     
-    override init()
+    init()
     {
         // Initalize an empty struct
         user_info_ = UserInfo(id: "", name: "", dob: "", phone_number: "", phone_number_ten_digit: "", location: [], image_name: "", friends_ids: [], pending_friends_ids: [], active_hangouts: [])
-        super.init()
     }
     
     init(user_id: String)
     {
         user_info_ = UserInfo(id: user_id, name: "", dob: "",
                               phone_number: "", phone_number_ten_digit: "", location: [], image_name: "", friends_ids: [], pending_friends_ids: [], active_hangouts: [])
-        super.init()
         pullFromFirebase { (user) in
             return true
         }
@@ -99,7 +97,6 @@ class User : MapMarker
              case .success(let user_info):
                  if let user_info = user_info {
                      self.user_info_ = user_info
-                     self.setMarkerData(marker_name: user_info.name, marker_type: "user", image_name: user_info.image_name, location: (lattitude: user_info.location[0], longtitude: user_info.location[1]))
                     
                       if (!completion(self))
                       {
@@ -233,8 +230,7 @@ class User : MapMarker
     }
     func setLocation(_ latitude: Double, _ longtitude: Double)
     {
-        user_info_.location[0] = latitude
-        user_info_.location[1] = longtitude
+        user_info_.location = [latitude, longtitude]
     }
     func isMyID(_ id: String) -> Bool
     {

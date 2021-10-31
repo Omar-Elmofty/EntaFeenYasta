@@ -53,15 +53,15 @@ class ConfirmHangoutViewController: UIViewController {
         end_time_picker = UIDatePicker()
         start_time_picker!.preferredDatePickerStyle = .wheels
         end_time_picker!.preferredDatePickerStyle = .wheels
-        start_time_picker!.datePickerMode = .time
-        end_time_picker!.datePickerMode = .time
+        start_time_picker!.datePickerMode = .dateAndTime
+        end_time_picker!.datePickerMode = .dateAndTime
         
         start_time_picker!.addTarget(self, action: #selector(ConfirmHangoutViewController.startTimeChanged), for: .valueChanged)
         end_time_picker!.addTarget(self, action: #selector(ConfirmHangoutViewController.endTimeChanged), for: .valueChanged)
         from_time_text_field.inputView = start_time_picker
         to_time_text_field.inputView = end_time_picker
         let date_formatter = DateFormatter()
-        date_formatter.timeStyle = .short
+        date_formatter.dateFormat = Constants.DateAndTime.time_format
         
         let app_delegate =  UIApplication.shared.delegate as! AppDelegate
         let hangout_time = app_delegate.current_hangout!.getTime()
@@ -70,6 +70,7 @@ class ConfirmHangoutViewController: UIViewController {
         var modifiedDate = Calendar.current.date(byAdding: .hour, value: -1, to: hangout_date!)!
         start_time_picker?.date = modifiedDate
         from_time_text_field.text = date_formatter.string(from: modifiedDate)
+        
         modifiedDate = Calendar.current.date(byAdding: .hour, value: 6, to: hangout_date!)!
         end_time_picker?.date = modifiedDate
         to_time_text_field.text = date_formatter.string(from: modifiedDate)
@@ -77,13 +78,14 @@ class ConfirmHangoutViewController: UIViewController {
     
     @objc func startTimeChanged(input_date_picker: UIDatePicker) {
         let date_formatter = DateFormatter()
-        date_formatter.timeStyle = .short
+        date_formatter.dateFormat = Constants.DateAndTime.time_format
         
         from_time_text_field.text = date_formatter.string(from: input_date_picker.date)
     }
     @objc func endTimeChanged(input_date_picker: UIDatePicker) {
         let date_formatter = DateFormatter()
-        date_formatter.timeStyle = .short
+        date_formatter.dateFormat = Constants.DateAndTime.time_format
+    
         to_time_text_field.text = date_formatter.string(from: input_date_picker.date)
     }
     /*
@@ -106,18 +108,44 @@ class ConfirmHangoutViewController: UIViewController {
         let app_delegate =  UIApplication.shared.delegate as! AppDelegate
         
         let current_user_id = app_delegate.current_user!.getId()
-        https://console.firebase.google.com/project/entafeenyasta/firestore/data/~2Fhangouts~2FD1C19B6F-4980-4529-91E3-54D20866A33F~2Fhangout_users~2F0Xr4gYo25zRzRFFE084xLeBb7v02
         if (share_location_switch.isOn)
         {
             let start_time = from_time_text_field.text ?? ""
             let end_time = to_time_text_field.text ?? ""
+            
+            let date_formatter = DateFormatter()
+            date_formatter.dateFormat = Constants.DateAndTime.time_format
+            date_formatter.amSymbol = "AM"
+            date_formatter.pmSymbol = "PM"
+            
+            let hangout_time = app_delegate.current_hangout!.getTime()
+            let hangout_date = app_delegate.current_hangout!.getDate()
+            
+            let time = date_formatter.date(from: hangout_time)
+            
+            let start = date_formatter.date(from: start_time)
+            let end = date_formatter.date(from: end_time)
+            
+            let elapsed_start_secs_1 = start!.timeIntervalSince(time!)
+            let elapsed_end_secs = end!.timeIntervalSince(time!)
+            
+            date_formatter.dateFormat = Constants.DateAndTime.date_and_time_format
+            
+            let hangout_date_time = date_formatter.date(from: hangout_date + " " + hangout_time)
+//            let hangout_date_time_start = hangout_date_time!.addingTimeInterval(-elapsed_start_secs)
+
+            print(hangout_date + hangout_time)
+//            print(date_formatter.string(from: hangout_date_time_start))
+            
             app_delegate.current_hangout!.addUserLocationSharingOptions(current_user_id, true, start_time, end_time)
         }
         else
         {
             app_delegate.current_hangout!.addUserLocationSharingOptions(current_user_id, false, "", "")
         }
-    
+        
+        
+        // Add hangout to push queue
         app_delegate.hangouts?.addHangout(app_delegate.current_hangout!)
         
         // Reset current hangout

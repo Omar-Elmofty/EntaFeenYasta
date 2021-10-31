@@ -48,4 +48,11 @@ struct Constants {
         static let accepted = "accepted"
         static let declined = "declined"
     }
+
+    struct DateAndTime
+    {
+        static let date_and_time_format = "yyyy-MM-dd hh:mm a"
+        static let date_format = "yyyy-MM-dd"
+        static let time_format = "hh:mm a"
+    }
 }
